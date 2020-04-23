@@ -1,0 +1,107 @@
+
+.info-box {
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  .van-radio {
+    margin-bottom: .1rem;
+  }
+
+  .van-radio__icon {
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    flex: none;
+    height: auto;
+    font-size: 14px;
+    line-height: initial;
+    cursor: pointer;
+  }
+}
+.infoRadio {
+  padding: 10px;
+  background-color: #ddd;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+.match-box {
+  background-color: #ddd;
+  min-height: 100vh;
+  .headerInfo-nav .van-button{
+    width: 100%;
+    background-color: blue;
+    border: none;
+    border-radius: 0;
+    color: #ddd;
+    opacity: 1;
+  }
+
+  .activeRadio {
+    background-color: #ffa300;
+    color: #fff;
+  }
+
+  .activeInfoNav {
+    color: #ffa300!important;
+  }
+
+  .activeTabBasic {
+    background-color: #ffa300;
+    color: #fff;
+  }
+
+  .btn-next{
+    width: 100%;
+    margin-top: .1rem;
+  }
+}
+
+.basic-nav{
+  display: flex;
+  justify-content: center;
+  .van-button{
+    height: .8rem;
+    width: .8rem;
+    border: solid 2px #ddd;
+    border-radius: 50%;
+    padding: 0;
+    &:not(:last-child){
+      margin-right: .2rem;
+    }
+  }
+}
+
+.info-item{
+  width: 94%;
+  margin: 10px auto 0;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 10px 0;
+  &:last-child{
+    margin-bottom: 10px;
+  }
+  .info-title{
+    margin-bottom: .1rem;
+  }
+}
+
+.info-age{
+  align-items: center;
+  padding-bottom: 10px;
+}
+.match-age{
+  width: .6rem;
+  color: #ffa300;
+  background-color: #ddd;
+  margin-right: .4rem;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 4px;
+}
+.match-ageSlider{
+  width: calc(100% - 1rem);
+}
+
+
+
+
