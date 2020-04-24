@@ -35,7 +35,7 @@ let menu ={
                 },
                 {
                     "id": "165",
-                    "action": "detail",
+                    "action": "details",
                     "app": "Admin",
                     "controller": "bank",
                     "pid": "163",

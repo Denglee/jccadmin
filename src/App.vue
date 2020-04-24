@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <!--<router-view v-if="isRouterAlive" :key="key"/>-->
 
     <router-view v-if="isRouterAlive"></router-view>
 
   </div>
 </template>
+
 <script>
   export default {
     name:"App",
@@ -53,8 +53,7 @@
   * }
   * */
 </script>
-<style lang="scss">
-  @import "//at.alicdn.com/t/font_1766146_vvrx4hmr0m.css";
-  /* <i class="iconfont "></i> 记得加calss iconfont iconFont 图标样式  */
-</style>
 
+<!--<style lang="scss">
+  @import "//at.alicdn.com/t/font_1766146_vvrx4hmr0m.css";  /* <i class="iconfont "></i> 记得加calss iconfont iconFont 图标样式  */
+</style>-->

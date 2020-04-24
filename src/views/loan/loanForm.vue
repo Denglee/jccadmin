@@ -1,12 +1,16 @@
 <template>
     <div>
-        <div v-if="loanArr.length == 0" >先选择要编辑的id</div>
+        {{loanArr}}
+        <el-form
+                 ref="form"
+                 :inline="true"
+                 class="pub-form"
+                 label-width="80px">
 
-        <el-form v-else
-                ref="form"
-                :inline="true"
-                class="pub-form"
-                label-width="80px">
+            <el-form-item prop="loanArr.name">
+                <el-input v-model="loanArr.name"></el-input>
+            </el-form-item>
+
             <div v-for="(item, index) in loanArr.listArr" :key="index">
                 <el-form-item v-if="index == 0"
                               label="姓名"
@@ -22,6 +26,7 @@
                     </el-button>
                 </el-form-item>
             </div>
+
             <el-form-item prop="loanArr.list">
                 <el-input v-model="loanArr.list"></el-input>
             </el-form-item>
@@ -34,39 +39,35 @@
 
             <el-button @click="onSubmit" type="primary">31321</el-button>
         </el-form>
-
     </div>
 </template>
 
 <script>
     export default {
-        name: "loanInfo",
+        props:{
+            loanArr:{},
+        },
+
+        name: "loanForm",
         data() {
             return {
-                loanArr:[],
-            }
-        },
-        methods: {
-            addItem () {
-                this.loanArr.listArr.push({
-                    name: '',
-                })
-            },
-            deleteItem (item, index) {
-                console.log(index);
-                this.loanArr.listArr.splice(index, 1)
-            },
+                addItem () {
+                    this.loanArr.listArr.push({
+                        name: '',
+                    })
+                },
+                deleteItem (item, index) {
+                    console.log(index);
+                    this.loanArr.listArr.splice(index, 1)
+                },
 
-            onSubmit() {
-                console.log(this.dynamicItem);
+                onSubmit() {
+                    console.log(this.dynamicItem);
+                }
             }
         },
+        methods: {},
         created() {
-            let list = this.$route.params.loanList;
-            if(list){
-                console.log(list);
-                this.loanArr = list;
-            }
 
         },
     }

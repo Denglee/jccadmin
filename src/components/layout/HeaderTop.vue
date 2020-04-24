@@ -69,7 +69,7 @@
 
 <script>
 
-    import {ApiloginOut,ApiChangePass,ApiTopSearch} from '@/assets/js/api'
+    // import {ApiloginOut,ApiChangePass,ApiTopSearch} from '@/assets/js/api'
 
     import {mapState,mapActions, mapGetters} from 'vuex'
     let btnStateChange = true;  //修改密码按钮点击状态

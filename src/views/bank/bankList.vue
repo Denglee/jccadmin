@@ -8,7 +8,9 @@
     export default {
         name: "bankList",
         data() {
-            return {}
+            return {
+
+            }
         },
         methods: {},
         created() {

@@ -40,7 +40,7 @@
 <script>
 
     import {mapActions, mapGetters} from 'vuex'
-    import {ApiLayoutNav} from "@/assets/js/api"
+  //  import {ApiLayoutNav} from "@/assets/js/api"
 
     import {menu} from '@/assets/js/menu' /*引用 用户信息 */
     export default {
