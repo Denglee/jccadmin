@@ -1,20 +1,14 @@
 <template>
-    <div>
-        
-    </div>
+  <div></div>
 </template>
 
 <script>
-    export default {
-        name: "bankList",
-        data() {
-            return {
-
-            }
-        },
-        methods: {},
-        created() {
-
-        },
-    }
+export default {
+  name: "bankList",
+  data() {
+    return {};
+  },
+  methods: {},
+  created() {}
+};
 </script>

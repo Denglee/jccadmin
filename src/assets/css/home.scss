@@ -15,3 +15,33 @@ $colorGray2: rgba(216, 217, 219, 0.5);
     margin-left: 14px;
   }
 }
+.addProForm{
+  padding: 0;
+  .el-input{
+    width: auto;
+  }
+  .el-button{
+    margin-left: 14px;
+  }
+
+  .addPro-item{
+
+    width: 50%;
+    display: inline-block;
+    .el-form-item{
+      margin-bottom: 0 !important;
+      padding: 10px 0;
+    }
+
+    &:nth-child(2n-1){
+      border-right: solid 1px #ddd;
+    }
+    &:not(:last-of-type){
+      border-bottom: solid 1px #ddd;
+    }
+  }
+  .sub-item{
+    margin-top: 10px;
+  }
+
+}

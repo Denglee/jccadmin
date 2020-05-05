@@ -1,360 +1,409 @@
 let userInfo = {
-    age:[  //年龄
-        {id: 'min_age', name: 18, value: '最大年龄'},
-        {id: 'max_age', name: 75, value: '最小年龄'},
-    ],
-    hyzk: [   //3、婚姻状况
-        {id: 'hyzk1', name: 1, value: '已婚'},
-        {id: 'hyzk2', name: 2, value: '未婚'},
-        {id: 'hyzk3', name: 3, value: '离异'},
-        {id: 'hyzk4', name: 4, value: '丧偶'},
-    ],
-    hj: [     //4、户籍
-        {id: 'hj1', name: 1, value: '大陆'},
-        {id: 'hj2', name: 2, value: '港澳台'},
-        {id: 'hj3', name: 3, value: '外籍'},
-    ],
+  age: [
+    //年龄
+    { id: "min_age", name: 18, value: "最大年龄" },
+    { id: "max_age", name: 75, value: "最小年龄" }
+  ],
+  hyzk: [
+    //3、婚姻状况
+    { id: "hyzk1", name: 1, value: "已婚" },
+    { id: "hyzk2", name: 2, value: "未婚" },
+    { id: "hyzk3", name: 3, value: "离异" },
+    { id: "hyzk4", name: 4, value: "丧偶" }
+  ],
+  hj: [
+    //4、户籍
+    { id: "hj1", name: 1, value: "大陆" },
+    { id: "hj2", name: 2, value: "港澳台" },
+    { id: "hj3", name: 3, value: "外籍" }
+  ],
 
+  zylx: [
+    //5.0、职业类型    新增
+    { id: "zylx1", name: 1, value: "上班族" },
+    { id: "zylx2", name: 2, value: "自雇(股东/其它)" }
+  ],
+  sb: [
+    //5.1、社保    新增
+    { id: "sb1", name: 1, value: "有社保" },
+    { id: "sb2", name: 2, value: "无社保" }
+  ],
+  gjj: [
+    //5.1、公积金    新增
+    { id: "gjj1", name: 1, value: "有公积金" },
+    { id: "gjj2", name: 2, value: "无公积金" }
+  ],
+  clgsdq: [
+    //5.2、车辆归属地区    新增
+    { id: "clgsdq1", name: 1, value: "广东省" },
+    { id: "clgsdq2", name: 2, value: "其他城市" }
+  ],
+  clzt: [
+    //5.4、车辆状态    新增
+    { id: "clzt1", name: 1, value: "按揭中" },
+    { id: "clzt2", name: 2, value: "全款买车" }
+  ],
+  clzt2: [
+    //5.41、车辆状态2    新增
+    { id: "clzt21", name: 1, value: "按揭中" },
+    { id: "clzt22", name: 2, value: "全款买车" },
+    { id: "clzt23", name: 3, value: "无车" }
+  ],
+  fcxx: [
+    //5.5、房产信息    新增
+    { id: "fcxx1", name: 1, value: "深圳房产" },
+    { id: "fcxx2", name: 2, value: "全国" },
+    { id: "fcxx3", name: 3, value: "无房产" }
+  ],
+  fczt: [
+    //5.6、房产状态    新增
+    { id: "fczt1", name: 1, value: "按揭中" },
+    { id: "fczt2", name: 2, value: "按揭已结清" },
+    { id: "fczt3", name: 3, value: "全款房" }
+  ],
+  bxbd: [
+    //5.7、保险保单    新增
+    { id: "bxbd1", name: 1, value: "有商业保险" },
+    { id: "bxbd2", name: 2, value: "无商业保险" }
+  ],
 
-    zylx: [     //5.0、职业类型    新增
-        {id: 'zylx1', name: 1, value: '上班族'},
-        {id: 'zylx2', name: 2, value: '自雇(股东/其它)'},
-    ],
-    sb:[     //5.1、社保    新增
-        {id: 'sb1', name: 1, value: '有社保'},
-        {id: 'sb2', name: 2, value: '无社保'},
-    ],
-    gjj:[     //5.1、公积金    新增
-        {id: 'gjj1', name: 1, value: '有公积金'},
-        {id: 'gjj2', name: 2, value: '无公积金'},
-    ],
-    clgsdq:[     //5.2、车辆归属地区    新增
-        {id: 'clgsdq1', name: 1, value: '广东省'},
-        {id: 'clgsdq2', name: 2, value: '其他城市'},
-    ],
-    clzt:[     //5.4、车辆状态    新增
-        {id: 'clzt1', name: 1, value: '按揭中'},
-        {id: 'clzt2', name: 2, value: '全款买车'},
-    ],
-    clzt2:[     //5.41、车辆状态2    新增
-        {id: 'clzt21', name: 1, value: '按揭中'},
-        {id: 'clzt22', name: 2, value: '全款买车'},
-        {id: 'clzt23', name: 3, value: '无车'},
-    ],
-    fcxx:[     //5.5、房产信息    新增
-        {id: 'fcxx1', name: 1, value: '深圳房产'},
-        {id: 'fcxx2', name: 2, value: '全国'},
-        {id: 'fcxx3', name: 3, value: '无房产'},
-    ],
-    fczt:[     //5.6、房产状态    新增
-        {id: 'fczt1', name: 1, value: '按揭中'},
-        {id: 'fczt2', name: 2, value: '按揭已结清'},
-        {id: 'fczt3', name: 3, value: '全款房'},
-    ],
-    bxbd:[     //5.7、保险保单    新增
-        {id: 'bxbd1', name: 1, value: '有商业保险'},
-        {id: 'bxbd2', name: 2, value: '无商业保险'},
-    ],
+  dwxz: [
+    //5、单位性质
+    { id: "dwxz1", name: 1, value: "普通企业" },
+    { id: "dwxz2", name: 2, value: "公务员" },
+    { id: "dwxz3", name: 3, value: "500强" },
+    { id: "dwxz4", name: 4, value: "上市公司" },
+    { id: "dwxz5", name: 5, value: "事业单位" },
+    { id: "dwxz6", name: 6, value: "国企" }
+  ],
+  gzffxs: [
+    //6、工资发放形式
+    { id: "gzffxs1", name: 1, value: "银行代发" },
+    { id: "gzffxs2", name: 2, value: "固定转账" },
+    { id: "gzffxs3", name: 3, value: "其它" }
+  ],
+  pjgz: [
+    //7、平均工资
+    { id: "pjgz1", name: 1, value: "5000以内" },
+    { id: "pjgz2", name: 2, value: "5000以上" },
+    { id: "pjgz3", name: 3, value: "6000以上" },
+    { id: "pjgz4", name: 4, value: "7000以上" },
+    { id: "pjgz5", name: 5, value: "8000以上" }
+  ],
+  bdwgzsc: [
+    //8、本单位工作时长
+    { id: "bdwgzsc1", name: 1, value: "3月内" },
+    { id: "bdwgzsc2", name: 2, value: "3月以上" },
+    { id: "bdwgzsc3", name: 3, value: "6月以上" },
+    { id: "bdwgzsc4", name: 4, value: "1年以上" },
+    { id: "bdwgzsc5", name: 5, value: "2年以上" }
+  ],
+  sbjs: [
+    //9、社保基数
+    { id: "sbjs1", name: 1, value: "5000以内" },
+    { id: "sbjs2", name: 2, value: "5000以上" },
+    { id: "sbjs3", name: 3, value: "6000以上" },
+    { id: "sbjs4", name: 4, value: "7000以上" },
+    { id: "sbjs5", name: 5, value: "8000以上" }
+  ],
+  sb_jnsc: [
+    //10、社保缴纳时长
+    { id: "sb_jnsc1", name: 1, value: "3月以内" },
+    { id: "sb_jnsc2", name: 2, value: "3月以上" },
+    { id: "sb_jnsc3", name: 3, value: "6月以上" },
+    { id: "sb_jnsc4", name: 4, value: "1年以上" },
+    { id: "sb_jnsc5", name: 5, value: "2年以上" }
+  ],
+  sb_xdwjnsc: [
+    //11、社保现单位缴纳时长
+    { id: "sb_xdwjnsc1", name: 1, value: "3月以内" },
+    { id: "sb_xdwjnsc2", name: 2, value: "3月以上" },
+    { id: "sb_xdwjnsc3", name: 3, value: "6月以上" },
+    { id: "sb_xdwjnsc4", name: 4, value: "1年以上" },
+    { id: "sb_xdwjnsc5", name: 5, value: "2年以上" }
+  ],
+  gjjjs: [
+    //12、公积金基数
+    { id: "gjjjs1", name: 1, value: "5000以内" },
+    { id: "gjjjs2", name: 2, value: "5000以上" },
+    { id: "gjjjs3", name: 3, value: "6000以上" },
+    { id: "gjjjs4", name: 4, value: "7000以上" },
+    { id: "gjjjs5", name: 5, value: "8000以上" }
+  ],
+  gjj_jnsc: [
+    //13、公积金缴纳时长
+    { id: "gjj_jnsc1", name: 1, value: "3月以内" },
+    { id: "gjj_jnsc2", name: 2, value: "3月以上" },
+    { id: "gjj_jnsc3", name: 3, value: "6月以上" },
+    { id: "gjj_jnsc4", name: 4, value: "1年以上" },
+    { id: "gjj_jnsc5", name: 5, value: "2年以上" }
+  ],
+  gjj_xdwjnsc: [
+    //14、公积金现单位缴纳时长
+    { id: "gjj_xdwjnsc1", name: 1, value: "3月以内" },
+    { id: "gjj_xdwjnsc2", name: 2, value: "3月以上" },
+    { id: "gjj_xdwjnsc3", name: 3, value: "6月以上" },
+    { id: "gjj_xdwjnsc4", name: 4, value: "1年以上" },
+    { id: "gjj_xdwjnsc5", name: 5, value: "2年以上" }
+  ],
+  yyzznx: [
+    //15、营业执照年限
+    { id: "yyzznx1", name: 1, value: "未注册" },
+    { id: "yyzznx2", name: 2, value: "3个月以内" },
+    { id: "yyzznx3", name: 3, value: "3个月以上" },
+    { id: "yyzznx4", name: 4, value: "6个月以上" },
+    { id: "yyzznx5", name: 5, value: "一年以上" },
+    { id: "yyzznx6", name: 6, value: "2年以上" }
+  ],
+  dwsfkc: [
+    //16、单位是否考察
+    { id: "dwsfkc1", name: 0, value: "不能考察" },
+    { id: "dwsfkc2", name: 1, value: "可以考察" }
+  ],
+  dgls: [
+    //17、对公流水
+    { id: "dgls1", name: 0, value: "无对公流水" },
+    { id: "dgls2", name: 1, value: "有对公流水" }
+  ],
+  gskpje: [
+    //18、公司开票金额
+    { id: "gskpje1", name: 1, value: "10万以下" },
+    { id: "gskpje2", name: 2, value: "10万以上" },
+    { id: "gskpje3", name: 3, value: "100万以上" },
+    { id: "gskpje4", name: 4, value: "500万以上" }
+  ],
+  gsnsje: [
+    //19、公司纳税金额
+    { id: "gsnsje1", name: 1, value: "3万以内" },
+    { id: "gsnsje2", name: 2, value: "3万以上" },
+    { id: "gsnsje3", name: 3, value: "10万以上" },
+    { id: "gsnsje4", name: 4, value: "50万以上" }
+  ],
+  fclx: [
+    //20、房产类型
+    { id: "fclx1", name: 1, value: "住宅" },
+    { id: "fclx2", name: 2, value: "商住两用" },
+    { id: "fclx3", name: 3, value: "别墅" },
+    { id: "fclx4", name: 4, value: "公寓" },
+    { id: "fclx5", name: 5, value: "商铺（内）" },
+    { id: "fclx6", name: 6, value: "商铺（外）" },
+    { id: "fclx7", name: 7, value: "写字楼" },
+    { id: "fclx8", name: 8, value: "厂房" },
+    { id: "fclx9", name: 9, value: "小产权" },
+    { id: "fclx10", name: 10, value: "军产房" },
+    { id: "fclx11", name: 11, value: "自建农民房" },
+    { id: "fclx12", name: 12, value: "双拼房" },
+    { id: "fclx13", name: 13, value: "公司房" },
+    { id: "fclx14", name: 14, value: "综合楼" },
+    { id: "fclx15", name: 15, value: "福利房" },
+    { id: "fclx16", name: 16, value: "单身宿舍" },
+    { id: "fclx17", name: "17", value: "单身公寓" }
+  ],
+  ajz: [
+    //21、按揭中（月供时间）
+    { id: "ajz1", name: 1, value: "3月以内" },
+    { id: "ajz2", name: 2, value: "3月以上" },
+    { id: "ajz3", name: 3, value: "6月以上" },
+    { id: "ajz4", name: 4, value: "1年以上" },
+    { id: "ajz5", name: 5, value: "2年以上" }
+  ],
+  ajjq: [
+    //22、按揭结清（结清时间）
+    { id: "ajjq1", name: 1, value: "3月以内" },
+    { id: "ajjq2", name: 2, value: "3月以上" },
+    { id: "ajjq3", name: 3, value: "6月以上" },
+    { id: "ajjq4", name: 4, value: "1年以上" },
+    { id: "ajjq5", name: 5, value: "2年以上" }
+  ],
+  qkf: [
+    //23、全款房（过户时间）
+    { id: "qkf1", name: 1, value: "3月以内" },
+    { id: "qkf2", name: 2, value: "3月以上" },
+    { id: "qkf3", name: 3, value: "6月以上" },
+    { id: "qkf4", name: 4, value: "1年以上" },
+    { id: "qkf5", name: 5, value: "2年以上" }
+  ],
+  fl: [
+    //24、房龄
+    { id: "fl1", name: 1, value: "1~30" },
+    { id: "fl2", name: 2, value: "30~35" },
+    { id: "fl3", name: 3, value: "35~50" }
+  ],
+  ajc: [
+    //25、按揭车（按揭时间）
+    { id: "ajc1", name: 1, value: "6个月以内" },
+    { id: "ajc2", name: 2, value: "6个月以上" },
+    { id: "ajc3", name: 3, value: "1年以上" }
+  ],
+  qkc: [
+    //26、全款车（按揭结清或过户时间）
+    { id: "qkc1", name: 1, value: "6个月以内" },
+    { id: "qkc2", name: 2, value: "6个月以上" },
+    { id: "qkc3", name: 3, value: "1年以上" }
+  ],
+  clsyc: [
+    //27、车辆所有权
+    { id: "clsyc1", name: 1, value: "本人" },
+    { id: "clsyc2", name: 2, value: "配偶" },
+    { id: "clsyc3", name: 3, value: "公司" }
+  ],
+  clxz: [
+    //28、车辆性质
+    { id: "clxz1", name: 1, value: "非运营" },
+    { id: "clxz2", name: 2, value: "运营" }
+  ],
+  clczsj: [
+    //29、车辆持证时间
+    { id: "clczsj1", name: 1, value: "3个月以内" },
+    { id: "clczsj2", name: 2, value: "3~6个月" },
+    { id: "clczsj3", name: 3, value: "6个月以上" }
+  ],
+  clgsd: [
+    //30、车辆归属地
+    { id: "clgsd1", name: 1, value: "粤A广州" },
+    { id: "clgsd2", name: 2, value: "粤B深圳" },
+    { id: "clgsd3", name: 3, value: "粤C珠海" },
+    { id: "clgsd4", name: 4, value: "粤D汕头" },
+    { id: "clgsd5", name: 5, value: "粤E佛山" },
+    { id: "clgsd6", name: 6, value: "粤F韶关" },
+    { id: "clgsd7", name: 7, value: "粤G湛江" },
+    { id: "clgsd8", name: 8, value: "粤H肇庆" },
+    { id: "clgsd9", name: 9, value: "粤J江门" },
+    { id: "clgsd10", name: 10, value: "粤K茂名" },
+    { id: "clgsd11", name: 11, value: "粤L惠州" },
+    { id: "clgsd12", name: 12, value: "粤M梅州" },
+    { id: "clgsd13", name: 13, value: "粤N汕尾" },
+    { id: "clgsd14", name: 14, value: "粤P河源" },
+    { id: "clgsd15", name: 15, value: "粤Q阳江" },
+    { id: "clgsd16", name: 16, value: "粤R清远" },
+    { id: "clgsd17", name: "17", value: "粤S东莞" },
+    { id: "clgsd18", name: "18", value: "粤T中山" },
+    { id: "clgsd19", name: "19", value: "粤U潮州" },
+    { id: "clgsd20", name: "20", value: "粤V揭阳" },
+    { id: "clgsd21", name: "21", value: "粤W云浮" },
+    { id: "clgsd22", name: "22", value: "粤X顺德" },
+    { id: "clgsd23", name: "23", value: "粤Y南海" },
+    { id: "clgsd24", name: "24", value: "粤Z  港澳" }
+  ],
+  cl: [
+    //31、车龄
+    { id: "cl1", name: 1, value: "2年" },
+    { id: "cl2", name: 2, value: "5年" },
+    { id: "cl3", name: 3, value: "8年" },
+    { id: "cl4", name: 4, value: "10年" },
+    { id: "cl5", name: 5, value: "10年以上" }
+  ],
+  jqxsyyxq: [
+    //32、交强险剩余有效期
+    { id: "jqxsyyxq1", name: 1, value: "3个月以内" },
+    { id: "jqxsyyxq2", name: 2, value: "6个月以内" },
+    { id: "jqxsyyxq3", name: 3, value: "12个月以内" }
+  ],
+  xsgls: [
+    //33、行驶公里数
+    { id: "xsgls1", name: 1, value: "5万公里" },
+    { id: "xsgls2", name: 2, value: "10万公里" },
+    { id: "xsgls3", name: 3, value: "15万公里" },
+    { id: "xsgls4", name: 4, value: "20万公里" },
+    { id: "xsgls5", name: 5, value: "20万公里以上" }
+  ],
+  syxsyyxq: [
+    //33、商业险剩余有效期
+    { id: "syxsyyxq1", name: 1, value: "3个月以内" },
+    { id: "syxsyyxq2", name: 2, value: "6个月以内" },
+    { id: "syxsyyxq3", name: 3, value: "12个月以内" }
+  ],
+  bxlx: [
+    //35、保险类型
+    { id: "bxlx1", name: 1, value: "平安保险" },
+    { id: "bxlx2", name: 2, value: "新华保险" },
+    { id: "bxlx3", name: 3, value: "人寿保险" },
+    { id: "bxlx4", name: 4, value: "康泰保险" },
+    { id: "bxlx5", name: 5, value: "太平洋保险" },
+    { id: "bxlx6", name: 6, value: "阳光保险" },
+    { id: "bxlx7", name: 7, value: "富德保险" },
+    { id: "bxlx8", name: 8, value: "友邦保险" },
+    { id: "bxlx9", name: 9, value: "中美联泰" },
+    { id: "bxlx10", name: 10, value: "工银安联" },
+    { id: "bxlx11", name: 11, value: "中德安联" },
+    { id: "bxlx12", name: 12, value: "民生保险" },
+    { id: "bxlx13", name: 13, value: "天安保险" },
+    { id: "bxlx14", name: 14, value: "华夏保险" },
+    { id: "bxlx15", name: 15, value: "中邮保险" },
+    { id: "bxlx16", name: 16, value: "其它" }
+  ],
+  bxjnfs: [
+    //36、保险缴纳方式
+    { id: "bxjnfs1", name: 1, value: "年缴" },
+    { id: "bxjnfs2", name: 2, value: "季缴" },
+    { id: "bxjnfs3", name: 3, value: "月缴" },
+    { id: "bxjnfs4", name: 4, value: "趸缴" }
+  ],
+  bxjfsj: [
+    //37、保险缴费时间
+    { id: "bxjfsj1", name: 1, value: "6个月以内" },
+    { id: "bxjfsj2", name: 2, value: "6个月以上" },
+    { id: "bxjfsj3", name: 3, value: "1年以上" },
+    { id: "bxjfsj4", name: 4, value: "2年以上" }
+  ],
 
+  dqxebs: [
+    //43、当前小额笔数
+    { id: "dqxebs1", name: 1, value: "无" },
+    { id: "dqxebs2", name: 2, value: "1笔" },
+    { id: "dqxebs3", name: 3, value: "2笔" },
+    { id: "dqxebs4", name: 4, value: "3笔" },
+    { id: "dqxebs5", name: 5, value: "4笔" },
+    { id: "dqxebs6", name: 6, value: "更多" }
+  ],
+  dqxfjrbs: [
+    //44、当前消费金融笔数
+    { id: "dqxfjrbs1", name: 1, value: "无" },
+    { id: "dqxfjrbs2", name: 2, value: "1笔" },
+    { id: "dqxfjrbs3", name: 3, value: "2笔" },
+    { id: "dqxfjrbs4", name: 4, value: "3笔" },
+    { id: "dqxfjrbs5", name: 5, value: "4笔" },
+    { id: "dqxfjrbs6", name: 6, value: "更多" }
+  ],
+  sfczyc: [
+    //45、贷款/信用卡是否存在止付；呆账；关注等异常
+    { id: "sfczyc1", name: 0, value: "无" },
+    { id: "sfczyc2", name: 1, value: "有" }
+  ],
+  dqyqed: [
+    //46、当前逾期额度
+    { id: "dqyqed1", name: 1, value: "无逾期" },
+    { id: "dqyqed2", name: 2, value: "1000元以内" },
+    { id: "dqyqed3", name: 3, value: "1000元以上" },
+    { id: "dqyqed4", name: 4, value: "3000元以上" },
+    { id: "dqyqed5", name: 5, value: "5000元以上" },
+    { id: "dqyqed6", name: 6, value: "1万元以上" }
+  ],
+  bnn_wyq: [
+    //47、近半年内有无逾期
+    { id: "bnn_wyq1", name: 0, value: "无逾期" },
+    { id: "bnn_wyq2", name: 1, value: "有逾期" }
+  ],
 
-    dwxz: [  //5、单位性质
-        {id: 'dwxz1', name: 1, value: '普通企业'},
-        {id: 'dwxz2', name: 2, value: '公务员'},
-        {id: 'dwxz3', name: 3, value: '500强'},
-        {id: 'dwxz4', name: 4, value: '上市公司'},
-        {id: 'dwxz5', name: 5, value: '事业单位'},
-        {id: 'dwxz6', name: 6, value: '国企'},
-    ],
-    gzffxs: [  //6、工资发放形式
-        {id: 'gzffxs1', name: 1, value: '银行代发'},
-        {id: 'gzffxs2', name: 2, value: '固定转账'},
-        {id: 'gzffxs3', name: 3, value: '其它'},
-    ],
-    pjgz: [  //7、平均工资
-        {id: 'pjgz1', name: 1, value: '5000以内'},
-        {id: 'pjgz2', name: 2, value: '5000以上'},
-        {id: 'pjgz3', name: 3, value: '6000以上'},
-        {id: 'pjgz4', name: 4, value: '7000以上'},
-        {id: 'pjgz5', name: 5, value: '8000以上'},
-    ],
-    bdwgzsc: [  //8、本单位工作时长
-        {id: 'bdwgzsc1', name: 1, value: '3月内'},
-        {id: 'bdwgzsc2', name: 2, value: '3月以上'},
-        {id: 'bdwgzsc3', name: 3, value: '6月以上'},
-        {id: 'bdwgzsc4', name: 4, value: '1年以上'},
-        {id: 'bdwgzsc5', name: 5, value: '2年以上'},
-    ],
-    sbjs: [  //9、社保基数
-        {id: 'sbjs1', name: 1, value: '5000以内'},
-        {id: 'sbjs2', name: 2, value: '5000以上'},
-        {id: 'sbjs3', name: 3, value: '6000以上'},
-        {id: 'sbjs4', name: 4, value: '7000以上'},
-        {id: 'sbjs5', name: 5, value: '8000以上'},
-    ],
-    sb_jnsc: [  //10、社保缴纳时长
-        {id: 'sb_jnsc1', name: 1, value: '3月以内'},
-        {id: 'sb_jnsc2', name: 2, value: '3月以上'},
-        {id: 'sb_jnsc3', name: 3, value: '6月以上'},
-        {id: 'sb_jnsc4', name: 4, value: '1年以上'},
-        {id: 'sb_jnsc5', name: 5, value: '2年以上'},
-    ],
-    sb_xdwjnsc: [  //11、社保现单位缴纳时长
-        {id: 'sb_xdwjnsc1', name: 1, value: '3月以内'},
-        {id: 'sb_xdwjnsc2', name: 2, value: '3月以上'},
-        {id: 'sb_xdwjnsc3', name: 3, value: '6月以上'},
-        {id: 'sb_xdwjnsc4', name: 4, value: '1年以上'},
-        {id: 'sb_xdwjnsc5', name: 5, value: '2年以上'},
-    ],
-    gjjjs: [  //12、公积金基数
-        {id: 'gjjjs1', name: 1, value: '5000以内'},
-        {id: 'gjjjs2', name: 2, value: '5000以上'},
-        {id: 'gjjjs3', name: 3, value: '6000以上'},
-        {id: 'gjjjs4', name: 4, value: '7000以上'},
-        {id: 'gjjjs5', name: 5, value: '8000以上'},
-    ],
-    gjj_jnsc: [  //13、公积金缴纳时长
-        {id: 'gjj_jnsc1', name: 1, value: '3月以内'},
-        {id: 'gjj_jnsc2', name: 2, value: '3月以上'},
-        {id: 'gjj_jnsc3', name: 3, value: '6月以上'},
-        {id: 'gjj_jnsc4', name: 4, value: '1年以上'},
-        {id: 'gjj_jnsc5', name: 5, value: '2年以上'},
-    ],
-    gjj_xdwjnsc: [  //14、公积金现单位缴纳时长
-        {id: 'gjj_xdwjnsc1', name: 1, value: '3月以内'},
-        {id: 'gjj_xdwjnsc2', name: 2, value: '3月以上'},
-        {id: 'gjj_xdwjnsc3', name: 3, value: '6月以上'},
-        {id: 'gjj_xdwjnsc4', name: 4, value: '1年以上'},
-        {id: 'gjj_xdwjnsc5', name: 5, value: '2年以上'},
-    ],
-    yyzznx: [  //15、营业执照年限
-        {id: 'yyzznx1', name: 1, value: '未注册'},
-        {id: 'yyzznx2', name: 2, value: '3个月以内'},
-        {id: 'yyzznx3', name: 3, value: '3个月以上'},
-        {id: 'yyzznx4', name: 4, value: '6个月以上'},
-        {id: 'yyzznx5', name: 5, value: '一年以上'},
-        {id: 'yyzznx6', name: 6, value: '2年以上'},
-    ],
-    dwsfkc: [  //16、单位是否考察
-        {id: 'dwsfkc1', name: 0, value: '不能考察'},
-        {id: 'dwsfkc2', name: 1, value: '可以考察'},
-    ],
-    dgls: [  //17、对公流水
-        {id: 'dgls1', name: 0, value: '无对公流水'},
-        {id: 'dgls2', name: 1, value: '有对公流水'},
-    ],
-    gskpje: [  //18、公司开票金额
-        {id: 'gskpje1', name: 1, value: '10万以下'},
-        {id: 'gskpje2', name: 2, value: '10万以上'},
-        {id: 'gskpje3', name: 3, value: '100万以上'},
-        {id: 'gskpje4', name: 4, value: '500万以上'},
-    ],
-    gsnsje: [  //19、公司纳税金额
-        {id: 'gsnsje1', name: 1, value: '3万以内'},
-        {id: 'gsnsje2', name: 2, value: '3万以上'},
-        {id: 'gsnsje3', name: 3, value: '10万以上'},
-        {id: 'gsnsje4', name: 4, value: '50万以上'},
-    ],
-    fclx: [  //20、房产类型
-        {id: 'fclx1', name: 1, value: '住宅'},
-        {id: 'fclx2', name: 2, value: '商住两用'},
-        {id: 'fclx3', name: 3, value: '别墅'},
-        {id: 'fclx4', name: 4, value: '公寓'},
-        {id: 'fclx5', name: 5, value: '商铺（内）'},
-        {id: 'fclx6', name: 6, value: '商铺（外）'},
-        {id: 'fclx7', name: 7, value: '写字楼'},
-        {id: 'fclx8', name: 8, value: '厂房'},
-        {id: 'fclx9', name: 9, value: '小产权'},
-        {id: 'fclx10', name: 10, value: '军产房'},
-        {id: 'fclx11', name: 11, value: '自建农民房'},
-        {id: 'fclx12', name: 12, value: '双拼房'},
-        {id: 'fclx13', name: 13, value: '公司房'},
-        {id: 'fclx14', name: 14, value: '综合楼'},
-        {id: 'fclx15', name: 15, value: '福利房'},
-        {id: 'fclx16', name: 16, value: '单身宿舍'},
-        {id: 'fclx17', name: '17', value: '单身公寓'},
-    ],
-    ajz: [  //21、按揭中（月供时间）
-        {id: 'ajz1', name: 1, value: '3月以内'},
-        {id: 'ajz2', name: 2, value: '3月以上'},
-        {id: 'ajz3', name: 3, value: '6月以上'},
-        {id: 'ajz4', name: 4, value: '1年以上'},
-        {id: 'ajz5', name: 5, value: '2年以上'},
-    ],
-    ajjq: [  //22、按揭结清（结清时间）
-        {id: 'ajjq1', name: 1, value: '3月以内'},
-        {id: 'ajjq2', name: 2, value: '3月以上'},
-        {id: 'ajjq3', name: 3, value: '6月以上'},
-        {id: 'ajjq4', name: 4, value: '1年以上'},
-        {id: 'ajjq5', name: 5, value: '2年以上'},
-    ],
-    qkf: [  //23、全款房（过户时间）
-        {id: 'qkf1', name: 1, value: '3月以内'},
-        {id: 'qkf2', name: 2, value: '3月以上'},
-        {id: 'qkf3', name: 3, value: '6月以上'},
-        {id: 'qkf4', name: 4, value: '1年以上'},
-        {id: 'qkf5', name: 5, value: '2年以上'},
-    ],
-    fl: [  //24、房龄
-        {id: 'fl1', name: 1, value: '1~30'},
-        {id: 'fl2', name: 2, value: '30~35'},
-        {id: 'fl3', name: 3, value: '35~50'},
-    ],
-    ajc: [  //25、按揭车（按揭时间）
-        {id: 'ajc1', name: 1, value: '6个月以内'},
-        {id: 'ajc2', name: 2, value: '6个月以上'},
-        {id: 'ajc3', name: 3, value: '1年以上'},
-    ],
-    qkc: [  //26、全款车（按揭结清或过户时间）
-        {id: 'qkc1', name: 1, value: '6个月以内'},
-        {id: 'qkc2', name: 2, value: '6个月以上'},
-        {id: 'qkc3', name: 3, value: '1年以上'},
-    ],
-    clsyc: [  //27、车辆所有权
-        {id: 'clsyc1', name: 1, value: '本人'},
-        {id: 'clsyc2', name: 2, value: '配偶'},
-        {id: 'clsyc3', name: 3, value: '公司'},
-    ],
-    clxz: [  //28、车辆性质
-        {id: 'clxz1', name: 1, value: '非运营'},
-        {id: 'clxz2', name: 2, value: '运营'},
-    ],
-    clczsj: [  //29、车辆持证时间
-        {id: 'clczsj1', name: 1, value: '3个月以内'},
-        {id: 'clczsj2', name: 2, value: '3~6个月'},
-        {id: 'clczsj3', name: 3, value: '6个月以上'},
-    ],
-    clgsd: [  //30、车辆归属地
-        {id: 'clgsd1', name: 1, value: '粤A广州'},
-        {id: 'clgsd2', name: 2, value: '粤B深圳'},
-        {id: 'clgsd3', name: 3, value: '粤C珠海'},
-        {id: 'clgsd4', name: 4, value: '粤D汕头'},
-        {id: 'clgsd5', name: 5, value: '粤E佛山'},
-        {id: 'clgsd6', name: 6, value: '粤F韶关'},
-        {id: 'clgsd7', name: 7, value: '粤G湛江'},
-        {id: 'clgsd8', name: 8, value: '粤H肇庆'},
-        {id: 'clgsd9', name: 9, value: '粤J江门'},
-        {id: 'clgsd10', name: 10, value: '粤K茂名'},
-        {id: 'clgsd11', name: 11, value: '粤L惠州'},
-        {id: 'clgsd12', name: 12, value: '粤M梅州'},
-        {id: 'clgsd13', name: 13, value: '粤N汕尾'},
-        {id: 'clgsd14', name: 14, value: '粤P河源'},
-        {id: 'clgsd15', name: 15, value: '粤Q阳江'},
-        {id: 'clgsd16', name: 16, value: '粤R清远'},
-        {id: 'clgsd17', name: '17', value: '粤S东莞'},
-        {id: 'clgsd18', name: '18', value: '粤T中山'},
-        {id: 'clgsd19', name: '19', value: '粤U潮州'},
-        {id: 'clgsd20', name: '20', value: '粤V揭阳'},
-        {id: 'clgsd21', name: '21', value: '粤W云浮'},
-        {id: 'clgsd22', name: '22', value: '粤X顺德'},
-        {id: 'clgsd23', name: '23', value: '粤Y南海'},
-        {id: 'clgsd24', name: '24', value: '粤Z  港澳'},
-    ],
-    cl: [  //31、车龄
-        {id: 'cl1', name: 1, value: '2年'},
-        {id: 'cl2', name: 2, value: '5年'},
-        {id: 'cl3', name: 3, value: '8年'},
-        {id: 'cl4', name: 4, value: '10年'},
-        {id: 'cl5', name: 5, value: '10年以上'},
-    ],
-    jqxsyyxq: [  //32、交强险剩余有效期
-        {id: 'jqxsyyxq1', name: 1, value: '3个月以内'},
-        {id: 'jqxsyyxq2', name: 2, value: '6个月以内'},
-        {id: 'jqxsyyxq3', name: 3, value: '12个月以内'},
-    ],
-    xsgls: [  //33、行驶公里数
-        {id: 'xsgls1', name: 1, value: '5万公里'},
-        {id: 'xsgls2', name: 2, value: '10万公里'},
-        {id: 'xsgls3', name: 3, value: '15万公里'},
-        {id: 'xsgls4', name: 4, value: '20万公里'},
-        {id: 'xsgls5', name: 5, value: '20万公里以上'},
-    ],
-    syxsyyxq: [  //33、商业险剩余有效期
-        {id: 'syxsyyxq1', name: 1, value: '3个月以内'},
-        {id: 'syxsyyxq2', name: 2, value: '6个月以内'},
-        {id: 'syxsyyxq3', name: 3, value: '12个月以内'},
-    ],
-    bxlx: [  //35、保险类型
-        {id: 'bxlx1', name: 1, value: '平安保险'},
-        {id: 'bxlx2', name: 2, value: '新华保险'},
-        {id: 'bxlx3', name: 3, value: '人寿保险'},
-        {id: 'bxlx4', name: 4, value: '康泰保险'},
-        {id: 'bxlx5', name: 5, value: '太平洋保险'},
-        {id: 'bxlx6', name: 6, value: '阳光保险'},
-        {id: 'bxlx7', name: 7, value: '富德保险'},
-        {id: 'bxlx8', name: 8, value: '友邦保险'},
-        {id: 'bxlx9', name: 9, value: '中美联泰'},
-        {id: 'bxlx10', name: 10, value: '工银安联'},
-        {id: 'bxlx11', name: 11, value: '中德安联'},
-        {id: 'bxlx12', name: 12, value: '民生保险'},
-        {id: 'bxlx13', name: 13, value: '天安保险'},
-        {id: 'bxlx14', name: 14, value: '华夏保险'},
-        {id: 'bxlx15', name: 15, value: '中邮保险'},
-        {id: 'bxlx16', name: 16, value: '其它'},
-    ],
-    bxjnfs: [  //36、保险缴纳方式
-        {id: 'bxjnfs1', name: 1, value: '年缴'},
-        {id: 'bxjnfs2', name: 2, value: '季缴'},
-        {id: 'bxjnfs3', name: 3, value: '月缴'},
-        {id: 'bxjnfs4', name: 4, value: '趸缴'},
-    ],
-    bxjfsj: [  //37、保险缴费时间
-        {id: 'bxjfsj1', name: 1, value: '6个月以内'},
-        {id: 'bxjfsj2', name: 2, value: '6个月以上'},
-        {id: 'bxjfsj3', name: 3, value: '1年以上'},
-        {id: 'bxjfsj4', name: 4, value: '2年以上'},
-    ],
+  ynn_wyq: [
+    //52、近一年内有无逾期 ynn_wyq:  0：无逾期；1：后台默认是有逾期
+    { id: "ynn_wyq1", name: 0, value: "无逾期" },
+    { id: "ynn_wyq2", name: 1, value: "有逾期" }
+  ],
 
+  lnn_wyq: [
+    //57、近两年内有无逾期 lnn_wyq:  0：无逾期；1：后台默认是有逾期
+    { id: "lnn_wyq1", name: 0, value: "无逾期" },
+    { id: "lnn_wyq2", name: 1, value: "有逾期" }
+  ],
 
-    dqxebs: [  //43、当前小额笔数
-        {id: 'dqxebs1', name: 1, value: '无'},
-        {id: 'dqxebs2', name: 2, value: '1笔'},
-        {id: 'dqxebs3', name: 3, value: '2笔'},
-        {id: 'dqxebs4', name: 4, value: '3笔'},
-        {id: 'dqxebs5', name: 5, value: '4笔'},
-        {id: 'dqxebs6', name: 6, value: '更多'},
-    ],
-    dqxfjrbs: [  //44、当前消费金融笔数
-        {id: 'dqxfjrbs1', name: 1, value: '无'},
-        {id: 'dqxfjrbs2', name: 2, value: '1笔'},
-        {id: 'dqxfjrbs3', name: 3, value: '2笔'},
-        {id: 'dqxfjrbs4', name: 4, value: '3笔'},
-        {id: 'dqxfjrbs5', name: 5, value: '4笔'},
-        {id: 'dqxfjrbs6', name: 6, value: '更多'},
-    ],
-    sfczyc: [  //45、贷款/信用卡是否存在止付；呆账；关注等异常
-        {id: 'sfczyc1', name: 0, value: '无'},
-        {id: 'sfczyc2', name: 1, value: '有'},
-    ],
-    dqyqed: [  //46、当前逾期额度
-        {id: 'dqyqed1', name: 1, value: '无逾期'},
-        {id: 'dqyqed2', name: 2, value: '1000元以内'},
-        {id: 'dqyqed3', name: 3, value: '1000元以上'},
-        {id: 'dqyqed4', name: 4, value: '3000元以上'},
-        {id: 'dqyqed5', name: 5, value: '5000元以上'},
-        {id: 'dqyqed6', name: 6, value: '1万元以上'},
-    ],
-    bnn_wyq: [  //47、近半年内有无逾期
-        {id: 'bnn_wyq1', name: 0, value: '无逾期'},
-        {id: 'bnn_wyq2', name: 1, value: '有逾期'},
-    ],
+  sfsygwld: [
+    //62、是否使用过微粒贷
+    { id: "sfsygwld1", name: 0, value: "没有" },
+    { id: "sfsygwld2", name: 1, value: "有" }
+  ]
 
-
-    ynn_wyq: [  //52、近一年内有无逾期 ynn_wyq:  0：无逾期；1：后台默认是有逾期
-        {id: 'ynn_wyq1', name: 0, value: '无逾期'},
-        {id: 'ynn_wyq2', name: 1, value: '有逾期'},
-    ],
-
-    lnn_wyq: [  //57、近两年内有无逾期 lnn_wyq:  0：无逾期；1：后台默认是有逾期
-        {id: 'lnn_wyq1', name: 0, value: '无逾期'},
-        {id: 'lnn_wyq2', name: 1, value: '有逾期'},
-    ],
-
-    sfsygwld: [  //62、是否使用过微粒贷
-        {id: 'sfsygwld1', name: 0, value: '没有'},
-        {id: 'sfsygwld2', name: 1, value: '有'},
-    ],
-
-/*
+  /*
 
 36.保险缴纳方式 bxjnfs:  1、年缴；2、季缴；3、月缴；4、趸缴
 37.保险缴费时间 bxjfsj: 1、6个月以内；2、6个月以上；3、1年以上；4、2年以上
@@ -386,9 +435,7 @@ let userInfo = {
 62.是否使用过微粒贷 sfsygwld: 0、没有；1、有
 * */
 
-
-
-/*
+  /*
 1. 最小年龄 min_age：
 2. 最大年龄 max_age:
 3. 婚姻状况 hyzk：1、已婚；2、未婚；3、离异；4、丧偶
@@ -429,9 +476,6 @@ let userInfo = {
 35.保险类型 bxlx: 1、平安保险；2、新华保险；3、人寿保险；4、康泰保险；5、太平洋保险；6、阳光保险；7、富德保险；8、友邦保险；9、中美联泰；
 10、工银安联；11、中德安联；12、民生保险；13、天安保险；14、华夏保险；15、中邮保险；16、其它
 */
-
 };
 
-export {
-    userInfo,
-}
+export { userInfo };

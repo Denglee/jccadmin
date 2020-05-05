@@ -1,69 +1,67 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import store from './store'
-import staticRoute from '@/router/staticRoute'
+import Vue from "vue";
+import Router from "vue-router";
+import store from "./store";
+import staticRoute from "@/router/staticRoute";
 
-import Login from '@/assets/js/login'
+import Login from "@/assets/js/login";
 
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-import {Message} from 'element-ui'
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
+import { Message } from "element-ui";
 
-
-var permissionList = []
+var permissionList = [];
 
 function initRoute(router) {
-    return new Promise((resolve) => {
-        console.log(resolve);
-        if (permissionList.length == 0) {
-            console.log("没有权限数据，正在获取")
-            store.dispatch('StoreTagNav/getNavList').then((res) => {
-                console.log(res);
-                permissionList = res;
-                // 将菜单列表扁平化形成权限列表
-                store.dispatch('StoreTagNav/getPermissionList').then((res) => {
-                    console.log("权限列表生成完毕");
-                    console.log(res);
-                    permissionList = res;
-                    res.forEach(function (v) {
-                        let routeItem = router.match(v.path)
-                        if (routeItem) {
-                            routeItem.meta.permission = v.permission ? v.permission : []
-                            routeItem.meta.name = v.name
-                        }
-                    })
-                    resolve(res)
-                })
-            })
-        } else {
-            console.log("已有权限数据")
-            resolve()
-        }
-    })
+  return new Promise(resolve => {
+    console.log(resolve);
+    if (permissionList.length == 0) {
+      console.log("没有权限数据，正在获取");
+      store.dispatch("StoreTagNav/getNavList").then(res => {
+        console.log(res);
+        permissionList = res;
+        // 将菜单列表扁平化形成权限列表
+        store.dispatch("StoreTagNav/getPermissionList").then(res => {
+          console.log("权限列表生成完毕");
+          console.log(res);
+          permissionList = res;
+          res.forEach(function(v) {
+            let routeItem = router.match(v.path);
+            if (routeItem) {
+              routeItem.meta.permission = v.permission ? v.permission : [];
+              routeItem.meta.name = v.name;
+            }
+          });
+          resolve(res);
+        });
+      });
+    } else {
+      console.log("已有权限数据");
+      resolve();
+    }
+  });
 }
-
 
 NProgress.configure({ showSpinner: false });
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
-    mode: 'hash', //history
-    routes: staticRoute
-})
+  mode: "hash", //history
+  routes: staticRoute
+});
 
 // 路由跳转前验证
 router.beforeEach((to, from, next) => {
-    // console.log(permissionList);
-    // 开启进度条
-    NProgress.start();
+  // console.log(permissionList);
+  // 开启进度条
+  NProgress.start();
 
-    next();
+  next();
 
-    // console.log(Auth.login);
-    // 判断用户是否处于登录状态
-    // debugger
-    /*if (Login.isLogin()) {
+  // console.log(Auth.login);
+  // 判断用户是否处于登录状态
+  // debugger
+  /*if (Login.isLogin()) {
         // 如果当前处于登录状态，并且跳转地址为login，则自动跳回系统首页
         // 这种情况出现在手动修改地址栏地址时
         if (to.path === '/login') {
@@ -123,14 +121,10 @@ router.beforeEach((to, from, next) => {
             // NProgress.done()
         }*!/
     }*/
-})
-
-
+});
 
 router.afterEach((to, from) => {
+  NProgress.done(); // 结束Progress
+});
 
-    NProgress.done(); // 结束Progress
-})
-
-export default router
-
+export default router;

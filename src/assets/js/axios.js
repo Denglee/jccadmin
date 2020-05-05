@@ -1,6 +1,6 @@
-import axios from 'axios';
-import Qs from 'qs'; //post 的 序列化
-import {Message,Loading} from 'element-ui';
+import axios from "axios";
+import Qs from "qs"; //post 的 序列化
+import { Message, Loading } from "element-ui";
 
 /*引用qs*/
 /*Vue.prototype.$qs = qs
@@ -11,37 +11,41 @@ axios.defaults.timeout = 5000;
 
 // 设置post请求头
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
-
+axios.defaults.headers.post["Content-Type"] = "application/json;charset=UTF-8";
 
 // 请求拦截
-axios.interceptors.request.use(config => {
+axios.interceptors.request.use(
+  config => {
     // 在发送请求之前做些什么 验证token之类的
 
     // Loading.service(true);
     return config;
-}, error => {
+  },
+  error => {
     // 对请求错误做些什么
     return Promise.error(error);
-});
+  }
+);
 
 // 响应拦截
-axios.interceptors.response.use(response => {
+axios.interceptors.response.use(
+  response => {
     // 对响应数据做点什么
     // console.log(response.data.status);
     if (response.data.status == 3) {
-        console.log(response +'status == 3');
+      console.log(response + "status == 3");
     }
     if (response.data.status == 0) {
-        console.log(`${response.data}  status == 0`);
+      console.log(`${response.data}  status == 0`);
     }
     return response;
-}, error => {
+  },
+  error => {
     // 对响应错误做点什么
     console.log(error);
     return Promise.reject(error);
-});
-
+  }
+);
 
 // 封装get方法和post方法
 /**
@@ -51,20 +55,23 @@ axios.interceptors.response.use(response => {
  * @param {Object} params [请求时携带的参数]
  */
 export function get(url, params) {
-    return new Promise((resolve, reject) => {
-        axios.get(url, {
-            params: params
-        }).then(res => {
-            resolve(res.data);
-            // Loading.service(true).close();
-            //  Message({message: '请求成功', type: 'success'});
-        }).catch(err => {
-            reject(err.data);
-            console.log(url,err);
-            // Loading.service(true).close();
-            // Message({message: '加载失败', type: 'error'});
-        })
-    });
+  return new Promise((resolve, reject) => {
+    axios
+      .get(url, {
+        params: params
+      })
+      .then(res => {
+        resolve(res.data);
+        // Loading.service(true).close();
+        //  Message({message: '请求成功', type: 'success'});
+      })
+      .catch(err => {
+        reject(err.data);
+        console.log(url, err);
+        // Loading.service(true).close();
+        // Message({message: '加载失败', type: 'error'});
+      });
+  });
 }
 
 /**用法
@@ -88,22 +95,22 @@ export function get(url, params) {
  * @param {Object} params [请求时携带的参数]
  */
 export function post(url, params) {
-    return new Promise((resolve, reject) => {
-        axios.post(url, params)
-            .then(res => {
-                resolve(res.data);
-                // Loading.service(true).close();
-                //  Message({message: '请求成功', type: 'success'});
-            })
-            .catch(err => {
-                reject(err.data);
-                console.log(url,err);
-                // Loading.service(true).close();
-                // Message({message: '加载失败', type: 'error'});
-            })
-    });
+  return new Promise((resolve, reject) => {
+    axios
+      .post(url, params)
+      .then(res => {
+        resolve(res.data);
+        // Loading.service(true).close();
+        //  Message({message: '请求成功', type: 'success'});
+      })
+      .catch(err => {
+        reject(err.data);
+        console.log(url, err);
+        // Loading.service(true).close();
+        // Message({message: '加载失败', type: 'error'});
+      });
+  });
 }
-
 
 // this.$axios.post('http://192.168.0.133:20000/admin/Test/login', {
 // post
