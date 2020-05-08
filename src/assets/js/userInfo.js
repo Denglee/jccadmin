@@ -1,4 +1,10 @@
 let userInfo = {
+  loan_type: [
+    //贷款类型
+    { id: "loan_type1", name: 1, value: "信用贷款" },
+    { id: "loan_type2", name: 2, value: "放低贷款" },
+    { id: "loan_type3", name: 3, value: "车低贷款" },
+  ],
   age: [
     //年龄
     { id: "min_age", name: 18, value: "最大年龄" },
@@ -401,7 +407,22 @@ let userInfo = {
     //62、是否使用过微粒贷
     { id: "sfsygwld1", name: 0, value: "没有" },
     { id: "sfsygwld2", name: 1, value: "有" }
-  ]
+  ],
+
+  loan_time_limit:[    // 放款时效
+    { id: "loan_time_limit1", name: 0, value: "当天放款" },
+    { id: "loan_time_limit2", name: 1, value: "1~3天" },
+    { id: "loan_time_limit3", name: 2, value: "七天内" },
+  ],
+
+  loan_mode:[ //还款方式
+    { id: "loan_mode1", name: 0, value: "等额本息还款" },
+    { id: "loan_mode2", name: 1, value: "等额本金还款" },
+    { id: "loan_mode3", name: 2, value: "等额等息还款" },
+    { id: "loan_mode4", name: 3, value: "先息后本还款" },
+    { id: "loan_mode5", name: 4, value: "到期还本付息" },
+    { id: "loan_mode6", name: 5, value: "气球贷还款" },
+  ],
 
   /*
 

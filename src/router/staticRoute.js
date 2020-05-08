@@ -61,8 +61,14 @@ const staticRoute = [
         component: () =>
             import(/* webpackChunkName: "matchIndex" */ "@/views/match/matchIndex"),
         meta: { title: "匹配" }
+      },
+      {
+        path: "match/matchCompare", //匹配对比
+        name: "matchCompare",
+        component: () =>
+            import(/* webpackChunkName: "matchCompare" */ "@/views/match/matchCompare"),
+        meta: { title: "匹配对比" }
       }
-
 
     ]
   }

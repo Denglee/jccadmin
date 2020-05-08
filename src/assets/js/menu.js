@@ -123,7 +123,18 @@ let menu = {
           ajax: "0",
           name: "匹配"
         },
-
+        {
+          id: "149",
+          action: "matchCompare",
+          app: "Admin",
+          controller: "match",
+          pid: "147",
+          parameter: "",
+          type: "1",
+          fonts: "desktop",
+          ajax: "0",
+          name: "匹配对比"
+        },
       ]
     }
   ]
