@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-form ref="form" :model="userChecked" label-width="80px">
+        <el-form ref="form" :model="userChecked" label-width="140px" class="compare-form">
 
             <!-- 0501 单选 demo-->
             <el-form-item label="申请贷款类型">
@@ -385,12 +385,20 @@
                 <el-input v-model="userChecked.interest"></el-input>
             </el-form-item>
 
+
+            <el-form-item class="compare-submit">
+                <el-button type="primary" @click="onSubmit">立即创建</el-button>
+                <el-button>取消</el-button>
+            </el-form-item>
+
         </el-form>
     </div>
 </template>
 
 <script>
     import {userInfo} from '@/assets/js/userInfo' /*引用 用户信息 */
+
+    import {addProductCondition} from '@/assets/js/api'
     export default {
         name: "matchCompare",  //比对
         data() {
@@ -480,10 +488,20 @@
             }
         },
         methods: {
-
+            onSubmit(){
+                console.log(this.userChecked);
+                addProductCondition(this.userChecked).then(res=>{
+                    console.log(res);
+                }).catch(res=>{
+                    console.log(res);
+                })
+            },
         },
         created() {
 
         },
     }
 </script>
+<style lang="scss">
+    @import '@/assets/css/match.scss'
+</style>

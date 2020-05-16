@@ -183,7 +183,7 @@
                 </el-form-item>
             </div>
 
-            <el-form-item class="sub-item">
+            <el-form-item class="sub-item compare-submit">
                 <el-button type="primary" @click="onSubmit">添加</el-button>
                 <el-button>取消</el-button>
             </el-form-item>
