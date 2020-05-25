@@ -2,24 +2,6 @@
     <div class="pub-box">
         <el-form ref="addProForm" :model="addProForm" label-width="100px" class="pub-form addProForm">
 
-<!--            <el-form-item label="产品logo">-->
-<!--                <el-upload-->
-<!--                        class="avatar-uploader"-->
-<!--                        action="https://jsonplaceholder.typicode.com/posts/"-->
-<!--                        :show-file-list="false">-->
-<!--                    <img v-if="imageUrl" :src="imageUrl" class="avatar">-->
-<!--                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>-->
-<!--                </el-upload>-->
-<!--            </el-form-item>-->
-
-            <el-upload
-                    list-type="picture-card"
-                    action="http://cryzbs.natappfree.cc/uploadFile/imgUpload"
-                    :http-request="upload"
-            >
-                <i class="el-icon-plus"></i>
-            </el-upload>
-
             <div class="addPro-item">
                 <el-form-item label="产品名称">
                     <el-input v-model="addProForm.name" placeholder="输入框"></el-input>
@@ -183,6 +165,13 @@
                 </el-form-item>
             </div>
 
+            <div class="addPro-item">
+                <img :src="addProForm.ioc" alt="" v-if="addProForm.ioc" class="img-ico">
+                <input type="file" class="face" accept="image/*" @change="upload_photo" ref="inputer">
+            </div>
+
+
+
             <el-form-item class="sub-item compare-submit">
                 <el-button type="primary" @click="onSubmit">添加</el-button>
                 <el-button>取消</el-button>
@@ -192,68 +181,168 @@
 </template>
 
 <script>
-    import {addProduct , imgUpload} from '@/assets/js/api'
+    import {addProduct, imgUpload} from '@/assets/js/api'
+
     export default {
         name: "matchIndex",
         data() {
             return {
 
-                loanType:[
-                    {id:'1',name:'银行信贷'},
-                    {id:'2',name:'机构信贷'},
-                    {id:'3',name:'小额贷款'},
-                    {id:'4',name:'企业贷款'},
-                    {id:'5',name:'抵押贷款'},
-                    {id:'6',name:'线上急融'},
+                dialogImageUrl: '',
+                dialogVisible: false,
+                productImgs: [],
+                isMultiple: true,
+                imgLimit: 6,
+
+
+                loanType: [
+                    {id: '1', name: '银行信贷'},
+                    {id: '2', name: '机构信贷'},
+                    {id: '3', name: '小额贷款'},
+                    {id: '4', name: '企业贷款'},
+                    {id: '5', name: '抵押贷款'},
+                    {id: '6', name: '线上急融'},
                 ],
 
                 shipCard: [
-                    { name: "卡1", shopID: 1 },
-                    { name: "卡2", shopID: 2 }
+                    {name: "卡1", shopID: 1},
+                    {name: "卡2", shopID: 2}
                 ],
                 addProForm: {
                     name: "",
                     loan_type: '',   //类型
-                    ioc:'',  //银行logo
+                    ioc: '',  //银行logo   上传回显的路径
                     label: [
                         {value: ''},
                     ],
-                    basicinfo:[
+                    basicinfo: [
                         {value: ''},
                     ], //基本信息
-                    hkqs:[
+                    hkqs: [
                         {value: ''},
                     ], //还款期数
-                    quota:'', //最小额度
-                    min_quota:'', //最小额度
-                    max_quota:'', //最大额度
-                    step:'', //间隔额度
-                    default:'', //默认额度
-                    label2:[
+                    quota: '', //最小额度
+                    min_quota: '', //最小额度
+                    max_quota: '', //最大额度
+                    step: '', //间隔额度
+                    default: '', //默认额度
+                    label2: [
                         {value: ''},
                     ], //产品标签2
-                    bltj:[
+                    bltj: [
                         {value: ''},
                     ], //办理条件
-                    sxzl:[
+                    sxzl: [
                         {value: ''},
                     ], //所需资料
-                    bllc:[
+                    bllc: [
                         {value: ''},
                     ], //办理流程
-                    otherinfo:[
+                    otherinfo: [
                         {value: ''},
                     ], //其它信息
-                    zxyq:[
+                    zxyq: [
                         {value: ''},
                     ], //征信要求
-                    mzsm:'', //免责声明
-                }
+                    mzsm: '', //免责声明
+                },
+
+                // imgIco:{},   //logo图片路径
             };
         },
         methods: {
+            upload_photo: function(){
+                var that = this;
+
+                var inputDOM = that.$refs.inputer;
+                var file = inputDOM.files;
+
+                var formData = new FormData();
+                formData.append('file', file[0]);
+
+                imgUpload(formData,).then(res=>{
+                    console.log(res);
+                    this.addProForm.ioc = res;
+                }).catch(res=>{
+                    console.log(res);
+                })
+
+                // $.ajax({
+                //     url: url,
+                //     type: "post",
+                //     data: formData ,
+                //     processData: false,
+                //     contentType: false,
+                //     success: function(data) {},
+                //     error: function(error){}
+                // });
+            },
+
+
+
+            changeFile(event) {
+                let fileData =event.target.files[0];
+                // console.log(file.name);
+                // this.file = file;
+
+                setTimeout(function(){
+                    console.log(fileData);
+                    imgUpload({
+                        file:fileData,
+                    }).then(res=>{
+                        console.log(res);
+                    }).catch(res=>{
+                        console.log(res);
+                    })
+                },1500)
+
+            },
+
+
+            handleRemove(file, fileList) {//移除图片
+                console.log(file, fileList);
+            },
+            handlePictureCardPreview(file) {//预览图片时调用
+                console.log(file);
+                this.dialogImageUrl = file.url;
+                this.dialogVisible = true;
+            },
+
+            beforeAvatarUpload(file) {//文件上传之前调用做一些拦截限制
+                console.log(file);
+                const isJPG = true;
+                // const isJPG = file.type === 'image/jpeg';
+                const isLt2M = file.size / 1024 / 1024 < 2;
+
+                // if (!isJPG) {
+                //   this.$message.error('上传头像图片只能是 JPG 格式!');
+                // }
+                if (!isLt2M) {
+                    this.$message.error('上传图片大小不能超过 2MB!');
+                }
+                return isJPG && isLt2M;
+            },
+
+            handleAvatarSuccess(res, file) {//图片上传成功
+                console.log(res);
+                console.log(file);
+                this.imageUrl = URL.createObjectURL(file.raw);
+            },
+            handleExceed(files, fileList) {//图片上传超过数量限制
+                this.$message.error('上传图片不能超过6张!');
+                console.log(file, fileList);
+            },
+            imgUploadError(err, file, fileList){//图片上传失败调用
+                console.log(err)
+                this.$message.error('上传图片失败!');
+            },
+
+
+
+
+
             /*删除*/
-            removeInp(type,index) {
+            removeInp(type, index) {
                 this.addProForm[type].splice(index, 1)
             },
 
@@ -266,7 +355,7 @@
             },
 
             // 上传图片成功
-            imgSuccess (res, file, fileList) {
+            imgSuccess(res, file, fileList) {
                 console.log(res)
                 console.log(file)
                 console.log(fileList)  // 这里可以获得上传成功的相关信息
@@ -275,13 +364,20 @@
             /*提交*/
             onSubmit() {
                 console.log(this.addProForm);
-                addProduct(this.addProForm).then(res =>{
+                addProduct(this.addProForm).then(res => {
                     console.log(res);
-                }).catch(res =>{
+                }).catch(res => {
                     console.log(res);
                 })
             }
         },
-        created() {}
+        created() {
+        }
     }
 </script>
+
+<style lang="scss">
+    .img-ico{
+        height: 120px;
+    }
+</style>

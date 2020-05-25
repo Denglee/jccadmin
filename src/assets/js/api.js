@@ -18,10 +18,10 @@ import { get, post } from "./axios";
 export const getAllType = params => get("product/getAll", params); /* 所有产品*/
 
 /*增 */
-export const addProduct = params => get("product/addProduct", params); /* 新增产品信息接口*/
+export const addProduct = params => post("product/addProduct", params); /* 新增产品信息接口*/
 
 export const addProductCondition = params => get("productCondi/addProductCondition", params); /* 新增产品匹配条件接口*/
 
-export const imgUpload = params => get("uploadFile/imgUpload", params); /* 图片上传接口*/
+export const imgUpload = params => post("uploadFile/imgUpload", params); /* 图片上传接口*/
 
 
