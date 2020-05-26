@@ -1,6 +1,6 @@
 <template>
     <div class="pub-box">
-        <el-form ref="addProForm" :model="addProForm" label-width="100px" class="pub-form addProForm">
+        <el-form ref="addProForm"  label-width="100px" class="pub-form addProForm">
 
             <div class="addPro-item">
                 <el-form-item label="产品名称">
@@ -10,167 +10,165 @@
 
             <div class="addPro-item">
                 <el-form-item label="产品类型">
-                    <el-select filterable v-model="addProForm.loan_type" placeholder="请选择产品类型">
+                    <el-select filterable v-model="addProForm.prodType" placeholder="请选择产品类型">
                         <el-option
-                                v-for="item in loanType"
-                                :key="item.index"
-                                :label="item.name"
-                                :value="item.id"
+                                v-for="(loanType,index) in loanType"
+                                :label="loanType.name"
+                                :value="loanType.id"
                         ></el-option>
                     </el-select>
+
                 </el-form-item>
             </div>
 
             <div class="addPro-item">
                 <el-form-item
-                        v-for="(domain, index) in addProForm.label"
+                        v-for="(domain, index) in addProForm.labelList"
                         :label="'产品标签' + index"
                         :key="domain.key"
-                        :prop="'label.' + index + '.value'">
-                    <el-input v-model="domain.value" placeholder="请输入标签1"></el-input>
-                    <el-button @click="addInp('label',index)" v-if="index == 0">新增标签</el-button>
-                    <el-button @click.prevent="removeInp('label',index)" v-if="index != 0">删除</el-button>
+                        :prop="'labelList.' + index + '.name'">
+                    <el-input v-model="domain.name" placeholder="请输入标签1"></el-input>
+                    <el-button @click="addInp('labelList',index)" v-if="index == 0">新增标签</el-button>
+                    <el-button @click.prevent="removeInp('labelList',index)" v-if="index != 0">删除</el-button>
                 </el-form-item>
             </div>
 
-            <div class="addPro-item">
-                <el-form-item
-                        v-for="(basicItem, index) in addProForm.basicinfo"
-                        :label="'基本信息' + index"
-                        :key="basicItem.key"
-                        :prop="'basicinfo.' + index + '.value'">
-                    <el-input v-model="basicItem.value" placeholder="请输入基本信息"></el-input>
-                    <el-button @click="addInp('basicinfo',index)" v-if="index == 0">新增基本信息</el-button>
-                    <el-button @click.prevent="removeInp('basicinfo',index)" v-if="index != 0">删除</el-button>
-                </el-form-item>
-            </div>
+               <div class="addPro-item">
+                 <el-form-item
+                         v-for="(basicItem, index) in addProForm.basicInfoList"
+                         :label="'基本信息' + index"
+                         :key="basicItem.key"
+                         :prop="'basicInfoList.' + index + '.name'">
+                     <el-input v-model="basicItem.name" placeholder="请输入基本信息"></el-input>
+                     <el-button @click="addInp('basicInfoList',index)" v-if="index == 0">新增基本信息</el-button>
+                     <el-button @click.prevent="removeInp('basicInfoList',index)" v-if="index != 0">删除</el-button>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item
-                        v-for="(hkqsItem, index) in addProForm.hkqs"
-                        :label="'还款期数' + index"
-                        :key="hkqsItem.key"
-                        :prop="'hkqs.' + index + '.value'">
-                    <el-input v-model="hkqsItem.value" placeholder="请输入还款期数"></el-input>
-                    <el-button @click="addInp('hkqs',index)" v-if="index == 0">新增还款期数</el-button>
-                    <el-button @click.prevent="removeInp('hkqs',index)" v-if="index != 0">删除</el-button>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item
+                         v-for="(hkqsItem, index) in addProForm.qsList"
+                         :label="'还款期数' + index"
+                         :key="hkqsItem.key"
+                         :prop="'qsList.' + index + '.name'">
+                     <el-input v-model="hkqsItem.name" placeholder="请输入还款期数"></el-input>
+                     <el-button @click="addInp('qsList',index)" v-if="index == 0">新增还款期数</el-button>
+                     <el-button @click.prevent="removeInp('qsList',index)" v-if="index != 0">删除</el-button>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item label="额度">
-                    <el-input v-model="addProForm.quota" placeholder="额度"></el-input>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item label="额度">
+                     <el-input v-model="addProForm.quotaDo.quotaDo" placeholder="额度"></el-input>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item label="最小额度">
-                    <el-input v-model="addProForm.min_quota" placeholder="最小额度"></el-input>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item label="最小额度">
+                     <el-input v-model="addProForm.quotaDo.minQuota" placeholder="最小额度"></el-input>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item label="最大额度">
-                    <el-input v-model="addProForm.max_quota" placeholder="最大额度"></el-input>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item label="最大额度">
+                     <el-input v-model="addProForm.quotaDo.maxQuota" placeholder="最大额度"></el-input>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item label="额度间隔">
-                    <el-input v-model="addProForm.step" placeholder="额度间隔"></el-input>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item label="额度间隔">
+                     <el-input v-model="addProForm.quotaDo.step" placeholder="额度间隔"></el-input>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item label="额度默认值">
-                    <el-input v-model="addProForm.default" placeholder="额度默认值"></el-input>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item label="额度默认值">
+                     <el-input v-model="addProForm.quotaDo.defaultQuota" placeholder="额度默认值"></el-input>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item
-                        v-for="(label2Item, index) in addProForm.label2"
-                        :label="'产品标签2' + index"
-                        :key="label2Item.key"
-                        :prop="'label2.' + index + '.value'">
-                    <el-input v-model="label2Item.value" placeholder="请输入标签2"></el-input>
-                    <el-button @click="addInp('label2',index)" v-if="index == 0">新增标签2</el-button>
-                    <el-button @click.prevent="removeInp('label2',index)" v-if="index != 0">删除</el-button>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item
+                         v-for="(label2Item, index) in addProForm.label2List"
+                         :label="'产品标签2' + index"
+                         :key="label2Item.key"
+                         :prop="'label2List.' + index + '.name'">
+                     <el-input v-model="label2Item.name" placeholder="请输入标签2"></el-input>
+                     <el-button @click="addInp('label2List',index)" v-if="index == 0">新增标签2</el-button>
+                     <el-button @click.prevent="removeInp('label2List',index)" v-if="index != 0">删除</el-button>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item
-                        v-for="(bltjItem, index) in addProForm.bltj"
-                        :label="'办理条件' + index"
-                        :key="bltjItem.key"
-                        :prop="'hkqs.' + index + '.value'">
-                    <el-input v-model="bltjItem.value" placeholder="请输入办理条件"></el-input>
-                    <el-button @click="addInp('bltj',index)" v-if="index == 0">新增办理条件</el-button>
-                    <el-button @click.prevent="removeInp('bltj',index)" v-if="index != 0">删除</el-button>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item
+                         v-for="(bltjItem, index) in addProForm.bltjList"
+                         :label="'办理条件' + index"
+                         :key="bltjItem.key"
+                         :prop="'bltjList.' + index + '.name'">
+                     <el-input v-model="bltjItem.name" placeholder="请输入办理条件"></el-input>
+                     <el-button @click="addInp('bltjList',index)" v-if="index == 0">新增办理条件</el-button>
+                     <el-button @click.prevent="removeInp('bltjList',index)" v-if="index != 0">删除</el-button>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item
-                        v-for="(sxzlItem, index) in addProForm.sxzl"
-                        :label="'所需资料' + index"
-                        :key="sxzlItem.key"
-                        :prop="'sxzl.' + index + '.value'">
-                    <el-input v-model="sxzlItem.value" placeholder="请输入所需资料"></el-input>
-                    <el-button @click="addInp('sxzl',index)" v-if="index == 0">新增所需资料</el-button>
-                    <el-button @click.prevent="removeInp('sxzl',index)" v-if="index != 0">删除</el-button>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item
+                         v-for="(sxzlItem, index) in addProForm.sxzlList"
+                         :label="'所需资料' + index"
+                         :key="sxzlItem.key"
+                         :prop="'sxzlList.' + index + '.name'">
+                     <el-input v-model="sxzlItem.name" placeholder="请输入所需资料"></el-input>
+                     <el-button @click="addInp('sxzlList',index)" v-if="index == 0">新增所需资料</el-button>
+                     <el-button @click.prevent="removeInp('sxzlList',index)" v-if="index != 0">删除</el-button>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item
-                        v-for="(bllcItem, index) in addProForm.bllc"
-                        :label="'办理流程' + index"
-                        :key="bllcItem.key"
-                        :prop="'bllc.' + index + '.value'">
-                    <el-input v-model="bllcItem.value" placeholder="请输入办理流程"></el-input>
-                    <el-button @click="addInp('bllc',index)" v-if="index == 0">新增办理流程</el-button>
-                    <el-button @click.prevent="removeInp('bllc',index)" v-if="index != 0">删除</el-button>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item
+                         v-for="(bllcItem, index) in addProForm.bllcList"
+                         :label="'办理流程' + index"
+                         :key="bllcItem.key"
+                         :prop="'bllcList.' + index + '.name'">
+                     <el-input v-model="bllcItem.name" placeholder="请输入办理流程"></el-input>
+                     <el-button @click="addInp('bllcList',index)" v-if="index == 0">新增办理流程</el-button>
+                     <el-button @click.prevent="removeInp('bllcList',index)" v-if="index != 0">删除</el-button>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item
-                        v-for="(otherinfoItem, index) in addProForm.otherinfo"
-                        :label="'其它信息' + index"
-                        :key="otherinfoItem.key"
-                        :prop="'otherinfo.' + index + '.value'">
-                    <el-input v-model="otherinfoItem.value" placeholder="请输入其它信息"></el-input>
-                    <el-button @click="addInp('otherinfo',index)" v-if="index == 0">新增其它信息</el-button>
-                    <el-button @click.prevent="removeInp('otherinfo',index)" v-if="index != 0">删除</el-button>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item
+                         v-for="(otherinfoItem, index) in addProForm.ohterInfoList"
+                         :label="'其它信息' + index"
+                         :key="otherinfoItem.key"
+                         :prop="'ohterInfoList.' + index + '.name'">
+                     <el-input v-model="otherinfoItem.name" placeholder="请输入其它信息"></el-input>
+                     <el-button @click="addInp('ohterInfoList',index)" v-if="index == 0">新增其它信息</el-button>
+                     <el-button @click.prevent="removeInp('ohterInfoList',index)" v-if="index != 0">删除</el-button>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item
-                        v-for="(zxyqItem, index) in addProForm.zxyq"
-                        :label="'征信要求' + index"
-                        :key="zxyqItem.key"
-                        :prop="'zxyq.' + index + '.value'">
-                    <el-input v-model="zxyqItem.value" placeholder="请输入征信要求"></el-input>
-                    <el-button @click="addInp('zxyq',index)" v-if="index == 0">新增征信要求</el-button>
-                    <el-button @click.prevent="removeInp('zxyq',index)" v-if="index != 0">删除</el-button>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item
+                         v-for="(zxyqItem, index) in addProForm.zxyqList"
+                         :label="'征信要求' + index"
+                         :key="zxyqItem.key"
+                         :prop="'zxyqList.' + index + '.name'">
+                     <el-input v-model="zxyqItem.name" placeholder="请输入征信要求"></el-input>
+                     <el-button @click="addInp('zxyqList',index)" v-if="index == 0">新增征信要求</el-button>
+                     <el-button @click.prevent="removeInp('zxyqList',index)" v-if="index != 0">删除</el-button>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <el-form-item label="免责声明">
-                    <el-input v-model="addProForm.mzsm" placeholder="请输入免责声明"></el-input>
-                </el-form-item>
-            </div>
+             <div class="addPro-item">
+                 <el-form-item label="免责声明">
+                     <el-input v-model="addProForm.mzsmDo" placeholder="请输入免责声明"></el-input>
+                 </el-form-item>
+             </div>
 
-            <div class="addPro-item">
-                <img :src="addProForm.ioc" alt="" v-if="addProForm.ioc" class="img-ico">
-                <input type="file" class="face" accept="image/*" @change="upload_photo" ref="inputer">
-            </div>
-
-
+             <div class="addPro-item">
+                 <img :src="addProForm.ioc" alt="" v-if="addProForm.ioc" class="img-ico">
+                 <input type="file" class="face" accept="image/*" @change="upload_photo" ref="inputer">
+             </div>
 
             <el-form-item class="sub-item compare-submit">
                 <el-button type="primary" @click="onSubmit">添加</el-button>
@@ -208,43 +206,66 @@
                     {name: "卡1", shopID: 1},
                     {name: "卡2", shopID: 2}
                 ],
+
                 addProForm: {
-                    name: "",
-                    loan_type: '',   //类型
-                    ioc: '',  //银行logo   上传回显的路径
-                    label: [
-                        {value: ''},
+                    name: "产品名称", //产品名称
+                    prodType: '1',   //类型
+                    ioc: 'http://yac6yv.natappfree.cc/uploadImg/微信截图_20200519172220.png',  //银行logo   上传回显的路径
+
+                    // 产品标签1
+                    labelList: [
+                        {name: '产品标签1'},
                     ],
-                    basicinfo: [
-                        {value: ''},
-                    ], //基本信息
-                    hkqs: [
-                        {value: ''},
-                    ], //还款期数
-                    quota: '', //最小额度
-                    min_quota: '', //最小额度
-                    max_quota: '', //最大额度
-                    step: '', //间隔额度
-                    default: '', //默认额度
-                    label2: [
-                        {value: ''},
-                    ], //产品标签2
-                    bltj: [
-                        {value: ''},
-                    ], //办理条件
-                    sxzl: [
-                        {value: ''},
-                    ], //所需资料
-                    bllc: [
-                        {value: ''},
-                    ], //办理流程
-                    otherinfo: [
-                        {value: ''},
-                    ], //其它信息
-                    zxyq: [
-                        {value: ''},
-                    ], //征信要求
-                    mzsm: '', //免责声明
+
+                    //基本信息
+                    basicInfoList: [
+                        {name: '基本信息'},
+                    ],
+
+                    //还款期数
+                    qsList: [
+                        {name: '12'},
+                    ],
+
+                    quotaDo:{
+                        quotaDo:0, //额度
+                        minQuota:0,  //最小额度
+                        maxQuota:0, //最大额度
+                        step:0, //间隔额度
+                        defaultQuota:0, //默认额度
+                    },
+
+                    //产品标签2
+                    label2List: [
+                        {name: '产品标签2'},
+                    ],
+                    //办理条件
+                    bltjList: [
+                        {name: '办理条件'},
+                    ],
+
+                    //所需资料
+                    sxzlList: [
+                        {name: '所需资料'},
+                    ],
+
+                    //办理流程
+                    bllcList: [
+                        {name: '办理流程'},
+                    ],
+
+                    //其它信息
+                    ohterInfoList: [
+                        {name: '其它信息'},
+                    ],
+
+                    //征信要求
+                    zxyqList: [
+                        {name: '征信要求'},
+                    ],
+
+                    //免责声明
+                    mzsmDo: '免责',
                 },
 
                 // imgIco:{},   //logo图片路径
@@ -279,7 +300,7 @@
             },
 
 
-
+/*
             changeFile(event) {
                 let fileData =event.target.files[0];
                 // console.log(file.name);
@@ -335,7 +356,7 @@
             imgUploadError(err, file, fileList){//图片上传失败调用
                 console.log(err)
                 this.$message.error('上传图片失败!');
-            },
+            },*/
 
 
 
@@ -348,8 +369,9 @@
 
             /*添加*/
             addInp(type) {
+                console.log(type);
                 this.addProForm[type].push({
-                    value: '',
+                    name: '',
                     key: Date.now()
                 });
             },
