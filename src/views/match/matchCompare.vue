@@ -401,6 +401,9 @@
     import {addProductCondition} from '@/assets/js/api'
     export default {
         name: "matchCompare",  //比对
+        props:{
+            product_id:''
+        },
         data() {
             return {
                 /*所有单选 数组*/
@@ -409,10 +412,10 @@
                 /*用户选中*/
                 userChecked: {
                     product_id:20,
-                    loan_type:'1',  //贷款类型
+                    loan_type:'',  //贷款类型
                     total_financing:'',         //总额
                     // age: 18,          // 1、年龄
-                    min_age:'10',  //最小年龄
+                    min_age:'',  //最小年龄
                     max_age:'20',  //最大年龄
                     hyzk: '1，2, 3',         // 3、婚姻状况    +++++++
                     hj: '1，2',           // 4、户籍        +++++++
@@ -503,6 +506,9 @@
         },
         created() {
             console.log(typeof (this.userChecked.fclx))
+
+            console.log(this.product_id);
+            this.userChecked.product_id = this.product_id;
         },
     }
 </script>

@@ -4,7 +4,7 @@ const Layout = () =>
 const staticRoute = [
   {
     path: "/",
-    redirect: "/index"
+    redirect: "/match/matchIndex"
   },
   {
     path: "/index",
@@ -62,13 +62,13 @@ const staticRoute = [
             import(/* webpackChunkName: "matchIndex" */ "@/views/match/matchIndex"),
         meta: { title: "匹配" }
       },
-      {
-        path: "match/matchCompare", //匹配对比
-        name: "matchCompare",
-        component: () =>
-            import(/* webpackChunkName: "matchCompare" */ "@/views/match/matchCompare"),
-        meta: { title: "匹配对比" }
-      }
+      // {
+      //   path: "match/matchCompare", //匹配对比
+      //   name: "matchCompare",
+      //   component: () =>
+      //       import(/* webpackChunkName: "matchCompare" */ "@/views/match/matchCompare"),
+      //   meta: { title: "匹配对比" }
+      // }
 
     ]
   }

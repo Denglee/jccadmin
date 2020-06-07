@@ -21,7 +21,7 @@ module.exports = {
   // 例如，如果你的应用被部署在 https://www.my-app.com/my-app/，
   // 则设置 baseUrl 为 /my-app/。
   // publicPath: process.env.NODE_ENV === "production" ? "http://192.168.0.133:20000/" : "/",
-  publicPath: "/", //有些地方这里需要 ./
+  publicPath: "./", //有些地方这里需要 ./
 
   // 是否使用包含运行时编译器的 Vue 构建版本
   runtimeCompiler: true,
@@ -30,7 +30,7 @@ module.exports = {
   outputDir: "/src/assets",
 
   //用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
-  assetsDir: "riches",
+  assetsDir: "assets",
 
   //指定生成的 index.html 的输出路径  (打包之后，改变系统默认的index.html的文件名)
   // indexPath: "myIndex.html",
@@ -67,7 +67,7 @@ module.exports = {
     // 配置多个代理
     proxy: {
       "/api": {
-        target: "http://haa4be.natappfree.cc", // 测试答咔访问的接口域名
+        target: "http://8.129.189.135:8090", // 测试答咔访问的接口域名
         // target: "http://spt.zmtek.net",// 正式答咔系统访问的接口域名
         // target: "https://swim.zmtek.net",// 正式游泳馆访问的接口域名
         ws: true, // 是否启用websockets
