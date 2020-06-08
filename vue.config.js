@@ -67,7 +67,7 @@ module.exports = {
     // 配置多个代理
     proxy: {
       "/api": {
-        target: "http://8.129.189.135:8090", // 测试答咔访问的接口域名
+        target: "http://8.129.189.135:8090/cc", // 测试答咔访问的接口域名
         // target: "http://spt.zmtek.net",// 正式答咔系统访问的接口域名
         // target: "https://swim.zmtek.net",// 正式游泳馆访问的接口域名
         ws: true, // 是否启用websockets

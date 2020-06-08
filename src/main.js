@@ -15,10 +15,10 @@ if (process.env.NODE_ENV === "production") {
   /*第二层if，根据.env文件中的VUE_APP_FLAG判断是生产环境还是测试环境*/
   if (process.env.VUE_APP_FLAG === "pro") {
     //production 生产环境发布 地址
-    Axios.defaults.baseURL = "http://8.129.189.135:8090"; //路径
+    Axios.defaults.baseURL = "http://8.129.189.135:8090/cc"; //路径
   } else {
     //test 测试环境 测试地址 http://vikily.f3322.net:20000
-    Axios.defaults.baseURL = "http://8.129.189.135:8090"; //路径
+    Axios.defaults.baseURL = "http://8.129.189.135:8090/cc"; //路径
     // config.optimization.minimize(false)
   }
 } else {
@@ -32,8 +32,8 @@ import "@/assets/css/global.scss";
 import "@/assets/css/home.scss";
 
 /*引用全局js*/
-import global from "@/assets/js/global.js";
-Vue.prototype.GLOBAL = global;
+import GLOBAL from "@/assets/js/global.js";
+Vue.prototype.GLOBAL = GLOBAL;
 
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";

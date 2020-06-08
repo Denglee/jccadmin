@@ -735,10 +735,23 @@ let LoanBankInfo = {
   }
 };
 
+/*按钮点击状态 变化*/
+function btnStateChange(that, id, val,  state = true,time=1500){
+  that[id][val] = state;
+  // that[id].text = textTrue;
+  setTimeout(()=>{
+    that[id][val] = false;
+    // that[id].text = textFalse;
+  },time);
+
+  /*使用方法  搜索中 记得加状态 true */
+  //this.GLOBAL.btnStateChange(this,'loadState','searchLoad',true);
+}
+
 export default {
   localUrl,
   getToday: getToday(),
-
+  btnStateChange:btnStateChange,
   LoanAllArr,
   LoanDetailsArr,
   LoanBankInfo

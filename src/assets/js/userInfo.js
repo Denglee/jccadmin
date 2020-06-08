@@ -2,7 +2,7 @@ let userInfo = {
   loan_type: [
     //贷款类型
     { id: "loan_type1", name: 1, value: "信用贷款" },
-    { id: "loan_type2", name: 2, value: "放低贷款" },
+    { id: "loan_type2", name: 2, value: "房抵贷款" },
     { id: "loan_type3", name: 3, value: "车低贷款" },
   ],
   age: [
@@ -184,6 +184,16 @@ let userInfo = {
     { id: "gsnsje2", name: 2, value: "3万以上" },
     { id: "gsnsje3", name: 3, value: "10万以上" },
     { id: "gsnsje4", name: 4, value: "50万以上" }
+  ],
+  sfyssqydd:[
+    //19.111、是否有上市企业订单
+    { id: "sfyssqydd1", name: 1, value: "没有" },
+    { id: "sfyssqydd2", name: 2, value: "有" },
+  ],
+  sfgxjsqy:[
+    //19.222、是否高新技术企业
+    { id: "sfgxjsqy1", name: 1, value: "是" },
+    { id: "sfgxjsqy2", name: 2, value: "否" },
   ],
   fclx: [
     //20、房产类型

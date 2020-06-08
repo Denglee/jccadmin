@@ -108,18 +108,28 @@
   width: 100%;
   box-sizing: border-box;
   padding: 20px;
-
+  border-bottom: solid 1px #ddd;
+  .el-form-item__label {
+    line-height: initial;
+  }
   .el-form-item{
+    margin-bottom: 10px;
+  }
+  .width-half{
     width: 50%;
     display: inline-block;
-    margin-bottom: 10px;
+  }
+  .el-input{
+    width: auto;
+  }
+  .el-radio{
+    margin-bottom: 8px;
   }
   .el-input__inner{
     width: 200px;
   }
-  .compare-submit{
-    margin-top: 30px;
-    width: 100%;
-  }
 }
-
+.compare-submit{
+  margin: 30px 0 60px;
+  width: 100%;
+}
