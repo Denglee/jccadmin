@@ -1,6 +1,7 @@
 <template>
     <div class="pub-box">
-        <el-form ref="addProForm" label-width="100px" class="pub-form addProForm" v-if="showState.matchIndex">
+        <el-form :model="addProForm" ref="addProForm" label-width="110px"
+                 :rules="addProRules" class="pub-form addProForm" v-if="showState.matchIndex">
             <!--图片上传-->
             <div class="addPro-item2">
                 <div class="img-ico">
@@ -10,19 +11,22 @@
                             :preview-src-list="srcList">
                     </el-image>
                 </div>
-                <input type="file" class="face" accept="image/*" @change="upload_photo" ref="inputer">
+                <el-form-item label=""  prop="ioc" :rules="{ required: true, message: '产品图标不能为空', trigger: 'blur' }">
+                    <input type="file" class="face" accept="image/*" @change="upload_photo" ref="inputer">
+                </el-form-item>
             </div>
 
             <!--输入框-->
             <ul class="addPro-itemUl">
-                <li >
-                    <el-form-item label="产品名称">
+                <li class="addPro-itemUl-firli">
+                    <el-form-item label="产品名称" prop="name" :rules="{ required: true, message: '产品名称不能为空', trigger: 'blur' }">
                         <el-input clearable  v-model="addProForm.name" placeholder="输入框"></el-input>
+                        <div class="addName-tip">提示: 产品名称格式记得带“-”，比如："中国银行-优客分期卡"</div>
                     </el-form-item>
                 </li>
 
                 <li>
-                    <el-form-item label="产品类型">
+                    <el-form-item label="产品类型" prop="prodType" :rules="{ required: true, message: '产品类型不能为空', trigger: 'change' }">
                         <el-select filterable v-model="addProForm.prodType" placeholder="请选择产品类型">
                             <el-option
                                     v-for="(loanType,index) in loanType"
@@ -35,37 +39,31 @@
                 </li>
 
                 <li>
-                    <el-form-item label="额度">
-                        <el-input clearable type="number"  v-model="addProForm.quotaDo.quotaDo" placeholder="额度"></el-input>
-                    </el-form-item>
-                </li>
-
-                <li>
-                    <el-form-item label="最小额度">
+                    <el-form-item label="最小额度" prop="quotaDo.minQuota" :rules="{ required: true, message: '最小额度不能为空', trigger: 'blur' }">
                         <el-input clearable  type="number" v-model="addProForm.quotaDo.minQuota" placeholder="最小额度"></el-input>
                     </el-form-item>
                 </li>
 
                 <li>
-                    <el-form-item label="最大额度">
+                    <el-form-item label="最大额度" prop="quotaDo.maxQuota" :rules="{ required: true, message: '最大额度不能为空', trigger: 'blur' }">
                         <el-input clearable  type="number" v-model="addProForm.quotaDo.maxQuota" placeholder="最大额度"></el-input>
                     </el-form-item>
                 </li>
 
                 <li>
-                    <el-form-item label="额度间隔">
+                    <el-form-item label="额度间隔" prop="quotaDo.step" :rules="{ required: true, message: '额度间隔不能为空', trigger: 'blur' }">
                         <el-input clearable  type="number" v-model="addProForm.quotaDo.step" placeholder="额度间隔"></el-input>
                     </el-form-item>
                 </li>
 
                 <li>
-                    <el-form-item label="额度默认值">
-                        <el-input clearable  type="number" v-model="addProForm.quotaDo.defaultQuota" placeholder="额度默认值"></el-input>
+                    <el-form-item label="默认额度" prop="quotaDo.defaultQuota" :rules="{ required: true, message: '默认额度不能为空', trigger: 'blur' }">
+                        <el-input clearable  type="number" v-model="addProForm.quotaDo.defaultQuota" placeholder="默认额度"></el-input>
                     </el-form-item>
                 </li>
 
                 <li >
-                    <el-form-item label="免责声明">
+                    <el-form-item label="免责声明" prop="mzsmDo.name" :rules="{ required: true, message: '请输入免责声明', trigger: 'blur' }">
                         <el-input clearable  v-model="addProForm.mzsmDo.name" placeholder="请输入免责声明"  type="textarea" clearable></el-input>
                     </el-form-item>
                 </li>
@@ -74,11 +72,11 @@
             <!--增加-->
             <ul class="addPro-item">
                 <li>
-                    <el-form-item
+                    <el-form-item class="first-itemLabel"
                             v-for="(domain, index) in addProForm.labelList"
-                            :label="'产品标签' + index"
+                            :label="'产品标签1-' + index"
                             :key="domain.key"
-                            :prop="'labelList.' + index + '.name'">
+                            :prop="'labelList.' + index + '.name'" :rules="{ required: true, message: '标签1不能为空', trigger: 'blur' }">
                         <el-input clearable  v-model="domain.name" placeholder="请输入标签1"></el-input>
                         <el-button @click="addInp('labelList',index)" v-if="index == 0">新增标签</el-button>
                         <el-button @click.prevent="removeInp('labelList',index)" v-if="index != 0">删除</el-button>
@@ -86,24 +84,32 @@
                 </li>
 
                 <li>
-                    <el-form-item
+                    <el-form-item class="first-itemLabel"
                             v-for="(basicItem, index) in addProForm.basicInfoList"
                             :label="'基本信息' + index"
-                            :key="basicItem.key"
-                            :prop="'basicInfoList.' + index + '.name'">
-                        <el-input clearable  v-model="basicItem.name" placeholder="请输入基本信息"></el-input>
+                            :key="basicItem.key" >
+                    <el-form-item class="secend-itemLabel" :prop="'basicInfoList.' + index + '.name'" :rules="{ required: true, message: '基本信息不能为空', trigger: 'blur' }">
+                        <el-input clearable  v-model="basicItem.name" placeholder="请输入基本信息名称"></el-input>
+                    </el-form-item>
+                    <el-form-item class="secend-itemLabel" :prop="'basicInfoList.' + index + '.nameValue'" :rules="{ required: true, message: '基本信息值不能为空', trigger: 'blur' }">
+                        <el-input clearable  v-model="basicItem.nameValue" placeholder="请输入基本信息值"></el-input>
+                    </el-form-item>
                         <el-button @click="addInp('basicInfoList',index)" v-if="index == 0">新增基本信息</el-button>
                         <el-button @click.prevent="removeInp('basicInfoList',index)" v-if="index != 0">删除</el-button>
                     </el-form-item>
                 </li>
 
                 <li>
-                    <el-form-item
+                    <el-form-item class="first-itemLabel"
                             v-for="(hkqsItem, index) in addProForm.qsList"
                             :label="'还款期数' + index"
-                            :key="hkqsItem.key"
-                            :prop="'qsList.' + index + '.name'">
-                        <el-input clearable  v-model="hkqsItem.name" placeholder="请输入还款期数"></el-input>
+                            :key="hkqsItem.key">
+                        <el-form-item class="secend-itemLabel" :prop="'qsList.' + index + '.name'" :rules="{ required: true, message: '还款期数名称不能为空', trigger: 'blur' }">
+                            <el-input clearable  v-model="hkqsItem.name" placeholder="请输入还款期数名称"></el-input>
+                        </el-form-item>
+                        <el-form-item class="secend-itemLabel" :prop="'qsList.' + index + '.nameValue'" :rules="{ required: true, message: '还款期数值不能为空', trigger: 'blur' }">
+                            <el-input clearable  v-model="hkqsItem.nameValue" placeholder="请输入还款期数值"></el-input>
+                        </el-form-item>
                         <el-button @click="addInp('qsList',index)" v-if="index == 0">新增还款期数</el-button>
                         <el-button @click.prevent="removeInp('qsList',index)" v-if="index != 0">删除</el-button>
                     </el-form-item>
@@ -111,11 +117,11 @@
 
 
                 <li>
-                    <el-form-item
+                    <el-form-item class="first-itemLabel"
                             v-for="(label2Item, index) in addProForm.label2List"
                             :label="'产品标签2-' + index"
                             :key="label2Item.key"
-                            :prop="'label2List.' + index + '.name'">
+                            :prop="'label2List.' + index + '.name'" :rules="{ required: true, message: '标签2不能为空', trigger: 'blur' }">
                         <el-input clearable  v-model="label2Item.name" placeholder="请输入标签2"></el-input>
                         <el-button @click="addInp('label2List',index)" v-if="index == 0">新增标签2</el-button>
                         <el-button @click.prevent="removeInp('label2List',index)" v-if="index != 0">删除</el-button>
@@ -123,23 +129,27 @@
                 </li>
 
                 <li>
-                    <el-form-item
+                    <el-form-item class="first-itemLabel"
                             v-for="(bltjItem, index) in addProForm.bltjList"
                             :label="'办理条件' + index"
-                            :key="bltjItem.key"
-                            :prop="'bltjList.' + index + '.name'">
-                        <el-input clearable  v-model="bltjItem.name" placeholder="请输入办理条件"></el-input>
+                            :key="bltjItem.key">
+                        <el-form-item class="secend-itemLabel" :prop="'bltjList.' + index + '.name'" :rules="{ required: true, message: '办理条件名称不能为空', trigger: 'blur' }">
+                            <el-input clearable  v-model="bltjItem.name" placeholder="请输入办理条件名称"></el-input>
+                        </el-form-item>
+                        <el-form-item class="secend-itemLabel" :prop="'bltjList.' + index + '.nameValue'" :rules="{ required: true, message: '办理条件值不能为空', trigger: 'blur' }">
+                            <el-input clearable  v-model="bltjItem.nameValue" placeholder="请输入办理条件值"></el-input>
+                        </el-form-item>
                         <el-button @click="addInp('bltjList',index)" v-if="index == 0">新增办理条件</el-button>
                         <el-button @click.prevent="removeInp('bltjList',index)" v-if="index != 0">删除</el-button>
                     </el-form-item>
                 </li>
 
                 <li>
-                    <el-form-item
+                    <el-form-item class="first-itemLabel"
                             v-for="(sxzlItem, index) in addProForm.sxzlList"
                             :label="'所需资料' + index"
                             :key="sxzlItem.key"
-                            :prop="'sxzlList.' + index + '.name'">
+                            :prop="'sxzlList.' + index + '.name'" :rules="{ required: true, message: '所需资料不能为空', trigger: 'blur' }">
                         <el-input clearable  v-model="sxzlItem.name" placeholder="请输入所需资料"></el-input>
                         <el-button @click="addInp('sxzlList',index)" v-if="index == 0">新增所需资料</el-button>
                         <el-button @click.prevent="removeInp('sxzlList',index)" v-if="index != 0">删除</el-button>
@@ -147,11 +157,11 @@
                 </li>
 
                 <li>
-                    <el-form-item
+                    <el-form-item class="first-itemLabel"
                             v-for="(bllcItem, index) in addProForm.bllcList"
                             :label="'办理流程' + index"
                             :key="bllcItem.key"
-                            :prop="'bllcList.' + index + '.name'">
+                            :prop="'bllcList.' + index + '.name'" :rules="{ required: true, message: '办理流程不能为空', trigger: 'blur' }">
                         <el-input clearable  v-model="bllcItem.name" placeholder="请输入办理流程"></el-input>
                         <el-button @click="addInp('bllcList',index)" v-if="index == 0">新增办理流程</el-button>
                         <el-button @click.prevent="removeInp('bllcList',index)" v-if="index != 0">删除</el-button>
@@ -159,24 +169,32 @@
                 </li>
 
                 <li>
-                    <el-form-item
+                    <el-form-item class="first-itemLabel"
                             v-for="(otherinfoItem, index) in addProForm.ohterInfoList"
                             :label="'其它信息' + index"
-                            :key="otherinfoItem.key"
-                            :prop="'ohterInfoList.' + index + '.name'">
-                        <el-input clearable  v-model="otherinfoItem.name" placeholder="请输入其它信息"></el-input>
+                            :key="otherinfoItem.key">
+                        <el-form-item class="secend-itemLabel" :prop="'ohterInfoList.' + index + '.name'"  :rules="{ required: true, message: '其它信息名称不能为空', trigger: 'blur' }">
+                            <el-input clearable  v-model="otherinfoItem.name" placeholder="请输入其它信息名称"></el-input>
+                        </el-form-item>
+                        <el-form-item class="secend-itemLabel" :prop="'ohterInfoList.' + index + '.nameValue'"  :rules="{ required: true, message: '其它信息值不能为空', trigger: 'blur' }">
+                            <el-input clearable  v-model="otherinfoItem.nameValue" placeholder="请输入其它信息值"></el-input>
+                        </el-form-item>
                         <el-button @click="addInp('ohterInfoList',index)" v-if="index == 0">新增其它信息</el-button>
                         <el-button @click.prevent="removeInp('ohterInfoList',index)" v-if="index != 0">删除</el-button>
                     </el-form-item>
                 </li>
 
                 <li>
-                    <el-form-item
+                    <el-form-item class="first-itemLabel"
                             v-for="(zxyqItem, index) in addProForm.zxyqList"
                             :label="'征信要求' + index"
-                            :key="zxyqItem.key"
-                            :prop="'zxyqList.' + index + '.name'">
-                        <el-input clearable  v-model="zxyqItem.name" placeholder="请输入征信要求"></el-input>
+                            :key="zxyqItem.key">
+                        <el-form-item class="secend-itemLabel" :prop="'zxyqList.' + index + '.name'" :rules="{ required: true, message: '征信要求名称不能为空', trigger: 'blur' }">
+                            <el-input clearable  v-model="zxyqItem.name" placeholder="请输入征信要求名称"></el-input>
+                        </el-form-item>
+                        <el-form-item class="secend-itemLabel" :prop="'zxyqList.' + index + '.nameValue'" :rules="{ required: true, message: '征信要求值不能为空', trigger: 'blur' }">
+                            <el-input clearable  v-model="zxyqItem.nameValue" placeholder="请输入征信要求值"></el-input>
+                        </el-form-item>
                         <el-button @click="addInp('zxyqList',index)" v-if="index == 0">新增征信要求</el-button>
                         <el-button @click.prevent="removeInp('zxyqList',index)" v-if="index != 0">删除</el-button>
                     </el-form-item>
@@ -184,7 +202,7 @@
             </ul>
 
             <el-form-item class="sub-item compare-submit">
-                <el-button type="primary" @click="onSubmit"  :loading="loadState.searchLoad">立即添加</el-button>
+                <el-button type="primary" @click="onSubmit('addProForm')"  :loading="loadState.searchLoad">立即添加</el-button>
             </el-form-item>
         </el-form>
 
@@ -204,6 +222,24 @@
 
                 loadState: {    //按钮状态
                     searchLoad:false
+                },
+
+                addProRules: {  //验证规则
+                    'basicInfoList[0].nameValue': [
+                        {required: true, message: '基本信息值不能为空', trigger: 'blur'}
+                    ],
+                    'qsList[0].nameValue': [
+                        {required: true, message: '还款期数值不能为空', trigger: 'blur'}
+                    ],
+                    'bltjList[0].nameValue': [
+                        {required: true, message: '办理条件值不能为空', trigger: 'blur'}
+                    ],
+                    'ohterInfoList[0].nameValue': [
+                        {required: true, message: '其它信息值不能为空', trigger: 'blur'}
+                    ],
+                    'zxyqList[0].nameValue': [
+                        {required: true, message: '征信要求值不能为空', trigger: 'blur'}
+                    ],
                 },
 
                 showState:{
@@ -257,10 +293,10 @@
                     quotaDo: {
                         // quotaDo:0, //额度
                         id: '',
-                        minQuota: 0,  //最小额度
-                        maxQuota: 0, //最大额度
-                        step: 0, //间隔额度
-                        defaultQuota: 0, //默认额度
+                        minQuota: 1,  //最小额度
+                        maxQuota: 1, //最大额度
+                        step: 1, //间隔额度
+                        defaultQuota: 1, //默认额度
                         productId: '',
                     },
 
@@ -268,6 +304,7 @@
                     label2List: [
                         {name: '', id: '', productId: ''},
                     ],
+
                     //办理条件
                     bltjList: [
                         {name: '', nameValue: '', id: '', productId: ''},
@@ -334,6 +371,7 @@
             addInp(type) {
                 console.log(type);
                 this.addProForm[type].push({
+                    productId: "",
                     name: '',
                     key: Date.now()
                 });
@@ -347,40 +385,48 @@
             },
 
             /*提交*/
-            onSubmit() {
-                this.GLOBAL.btnStateChange(this,'loadState','searchLoad');
+            onSubmit(formName) {
+                let that = this;
+                console.log(this.addProForm.zxyqList);
 
-                console.log(this.addProForm);
-                addProduct(this.addProForm).then(res => {
-                    console.log(res);
-                    let that =this;
-                    if(res.status == 'success'){
-                        this.$message({
-                            message: '添加成功',
-                            type: 'success',
-                            duration:1500,
-                            offset:40,
-                        });
-                        setTimeout(()=>{
-                            this.product_id = res.data.productId;
-                            this.showState = {
-                                matchIndex: false,
-                                matchCompare : true,
-                            }
-                        },1500)
-                    }else{
-                        this.$message({
-                            message: '添加失败',
-                            type: 'error',
-                            duration:1500,
-                            offset:40,
-                        });
-                    }
+                that.$refs[formName].validate((valid) => {
+
+                    this.GLOBAL.btnStateChange(this, 'loadState', 'searchLoad');
+
+                    console.log(this.addProForm);
+
+                    return  false
+                    addProduct(this.addProForm).then(res => {
+                        console.log(res);
+                        let that = this;
+                        if (res.status == 'success') {
+                            this.$message({
+                                message: '添加成功',
+                                type: 'success',
+                                duration: 1500,
+                                offset: 40,
+                            });
+                            setTimeout(() => {
+                                this.product_id = res.data.productId;
+                                this.showState = {
+                                    matchIndex: false,
+                                    matchCompare: true,
+                                }
+                            }, 1500)
+                        } else {
+                            this.$message({
+                                message: '添加失败',
+                                type: 'error',
+                                duration: 1500,
+                                offset: 40,
+                            });
+                        }
 
 
-                }).catch(res => {
-                    console.log(res);
-                })
+                    }).catch(res => {
+                        console.log(res);
+                    })
+                });
             }
         },
         created() {
