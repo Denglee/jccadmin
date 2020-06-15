@@ -748,6 +748,8 @@ function btnStateChange(that, id, val,  state = true,time=1500){
   //this.GLOBAL.btnStateChange(this,'loadState','searchLoad',true);
 }
 
+
+
 export default {
   localUrl,
   getToday: getToday(),

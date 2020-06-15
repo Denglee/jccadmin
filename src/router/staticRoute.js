@@ -6,19 +6,19 @@ const staticRoute = [
     path: "/",
     redirect: "/match/matchIndex"
   },
-  {
-    path: "/index",
-    component: Layout,
-    children: [
-      {
-        path: "",
-        name: "index",
-        component: () =>
-          import(/* webpackChunkName: "index" */ "@/views/Index/index"),
-        meta: { title: "首页" }
-      }
-    ]
-  },
+  // {
+  //   path: "/index",
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: "",
+  //       name: "index",
+  //       component: () =>
+  //         import(/* webpackChunkName: "index" */ "@/views/Index/index"),
+  //       meta: { title: "首页" }
+  //     }
+  //   ]
+  // },
   {
     path: "/",
     component: Layout,

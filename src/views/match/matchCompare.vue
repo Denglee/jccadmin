@@ -12,15 +12,15 @@
 
                 <!--0502 输入框 demo-->
                 <el-form-item label="融资总额">
-                    <el-input  type="number" clearable v-model="userChecked.total_financing"></el-input>
+                    <el-input  type="number" clearable v-model="userChecked.total_financing" placeholder="例如：10"></el-input>
                 </el-form-item>
 
                 <el-form-item label="最小年龄">
-                    <el-input  type="number" clearable  v-model="userChecked.min_age"></el-input>
+                    <el-input  type="number" clearable  v-model="userChecked.min_age" placeholder="例如：18"></el-input>
                 </el-form-item>
 
                 <el-form-item label="最大年龄">
-                    <el-input  type="number" clearable  v-model="userChecked.max_age"></el-input>
+                    <el-input  type="number" clearable  v-model="userChecked.max_age" placeholder="例如：60"></el-input>
                 </el-form-item>
 
                 <!-- 0503 多选demo-->
@@ -172,12 +172,12 @@
                     </el-radio-group>
                 </el-form-item>
 
-                <el-form-item label="最小房龄">
-                    <el-input  type="number" clearable  v-model="userChecked.min_fl"></el-input>
+                <el-form-item label="最小房龄" class="width-inlineLabel">
+                    <el-input  type="number" clearable  v-model="userChecked.min_fl" placeholder="例如：2"></el-input>
                 </el-form-item>
 
-                <el-form-item label="最大房龄">
-                    <el-input  type="number" clearable  v-model="userChecked.max_fl"></el-input>
+                <el-form-item label="最大房龄" class="width-inlineLabel">
+                    <el-input  type="number" clearable  v-model="userChecked.max_fl" placeholder="例如：60"></el-input>
                 </el-form-item>
             </div>
 
@@ -264,24 +264,24 @@
 
             <!--逾期-->
             <div class="compare-form">
-                <el-form-item label="一个月内查询次数" class="width-half">
-                    <el-input  type="number" clearable  v-model="userChecked.ygyncxcs"></el-input>
+                <el-form-item label="一个月内查询次数" class="width-inlineLabel">
+                    <el-input  type="number" clearable  v-model="userChecked.ygyncxcs" placeholder="例如：1"></el-input>
                 </el-form-item>
 
-                <el-form-item label="两个月内查询次数" class="width-half">
-                    <el-input  type="number" clearable  v-model="userChecked.lgyncxcs"></el-input>
+                <el-form-item label="两个月内查询次数" class="width-inlineLabel">
+                    <el-input  type="number" clearable  v-model="userChecked.lgyncxcs" placeholder="例如：1"></el-input>
                 </el-form-item>
 
-                <el-form-item label="三个月内查询次数" class="width-half">
-                    <el-input  type="number" clearable  v-model="userChecked.sgyncxcs"></el-input>
+                <el-form-item label="三个月内查询次数" class="width-inlineLabel">
+                    <el-input  type="number" clearable  v-model="userChecked.sgyncxcs" placeholder="例如：1"></el-input>
                 </el-form-item>
 
-                <el-form-item label="六个月内查询次数" class="width-half">
-                    <el-input  type="number" clearable  v-model="userChecked.liugyncxcs"></el-input>
+                <el-form-item label="六个月内查询次数" class="width-inlineLabel">
+                    <el-input  type="number" clearable  v-model="userChecked.liugyncxcs" placeholder="例如：1"></el-input>
                 </el-form-item>
 
-                <el-form-item label="十二个月内查询次数" class="width-half">
-                    <el-input  type="number" clearable  v-model="userChecked.segyncxcs"></el-input>
+                <el-form-item label="十二个月内查询次数" class="width-inlineLabel">
+                    <el-input  type="number" clearable  v-model="userChecked.segyncxcs" placeholder="例如：1"></el-input>
                 </el-form-item>
 
                 <el-form-item label="当前小额笔数">
@@ -315,17 +315,17 @@
                         </el-radio-group>
                     </el-form-item>
 
-                    <el-form-item label="近半年内逾期一个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.bnn_yqygycs"></el-input>
+                    <el-form-item label="近半年内逾期一个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.bnn_yqygycs" placeholder="例如：1"></el-input>
                     </el-form-item>
-                    <el-form-item label="近半年内逾期两个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.bnn_yqlgycs"></el-input>
+                    <el-form-item label="近半年内逾期两个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.bnn_yqlgycs" placeholder="例如：1"></el-input>
                     </el-form-item>
-                    <el-form-item label="近半年内逾期三个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.bnn_yqsgycs"></el-input>
+                    <el-form-item label="近半年内逾期三个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.bnn_yqsgycs" placeholder="例如：1"></el-input>
                     </el-form-item>
-                    <el-form-item label="近半年内逾期四个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.bnn_yqsigycs"></el-input>
+                    <el-form-item label="近半年内逾期四个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.bnn_yqsigycs" placeholder="例如：1"></el-input>
                     </el-form-item>
                 </div>
 
@@ -336,17 +336,17 @@
                         </el-radio-group>
                     </el-form-item>
 
-                    <el-form-item label="近一年内逾期一个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.ynn_yqygycs"></el-input>
+                    <el-form-item label="近一年内逾期一个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.ynn_yqygycs" placeholder="例如：1"></el-input>
                     </el-form-item>
-                    <el-form-item label="近一年内逾期两个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.ynn_yqlgycs"></el-input>
+                    <el-form-item label="近一年内逾期两个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.ynn_yqlgycs" placeholder="例如：1"></el-input>
                     </el-form-item>
-                    <el-form-item label="近一年内逾期三个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.ynn_yqsgycs"></el-input>
+                    <el-form-item label="近一年内逾期三个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.ynn_yqsgycs" placeholder="例如：1"></el-input>
                     </el-form-item>
-                    <el-form-item label="近一年内逾期四个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.ynn_yqsigycs"></el-input>
+                    <el-form-item label="近一年内逾期四个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.ynn_yqsigycs" placeholder="例如：1"></el-input>
                     </el-form-item>
                 </div>
 
@@ -357,17 +357,17 @@
                         </el-radio-group>
                     </el-form-item>
 
-                    <el-form-item label="近两年内逾期一个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.lnn_yqygycs"></el-input>
+                    <el-form-item label="近两年内逾期一个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.lnn_yqygycs" placeholder="例如：1"></el-input>
                     </el-form-item>
-                    <el-form-item label="近两年内逾期两个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.lnn_yqlgycs"></el-input>
+                    <el-form-item label="近两年内逾期两个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.lnn_yqlgycs" placeholder="例如：1"></el-input>
                     </el-form-item>
-                    <el-form-item label="近两年内逾期三个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.lnn_yqsgycs"></el-input>
+                    <el-form-item label="近两年内逾期三个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.lnn_yqsgycs" placeholder="例如：1"></el-input>
                     </el-form-item>
-                    <el-form-item label="近两年内逾期四个月次数" class="width-half">
-                        <el-input  type="number" clearable  v-model="userChecked.lnn_yqsigycs"></el-input>
+                    <el-form-item label="近两年内逾期四个月次数" class="width-inlineLabel">
+                        <el-input  type="number" clearable  v-model="userChecked.lnn_yqsigycs" placeholder="例如：1"></el-input>
                     </el-form-item>
                 </div>
             </div>
@@ -380,7 +380,7 @@
                 </el-form-item>
 
                 <el-form-item label="贷款年限">
-                    <el-input  type="number" clearable  v-model="userChecked.loan_years"></el-input>
+                    <el-input  type="number" clearable  v-model="userChecked.loan_years" placeholder="例如：1"></el-input>
                 </el-form-item>
 
                 <el-form-item label="放款时效">
@@ -396,7 +396,7 @@
                 </el-form-item>
 
                 <el-form-item label="利息">
-                    <el-input  type="number" clearable  v-model="userChecked.interest"></el-input>
+                    <el-input  type="number" clearable  v-model="userChecked.interest" placeholder="例如：0.55"></el-input>
                 </el-form-item>
             </div>
 
@@ -461,7 +461,7 @@
                     ajz: '',          // 21、按揭中（月供时间）
                     ajjq: '',         // 22、按揭结清（结清时间）
                     qkf: '',          // 23、全款房（过户时间）
-                    fl: '',           // 24、房龄
+                    // fl: '',           // 24、房龄
                     min_fl: '',           // 24、最小房龄
                     max_fl: '',           // 24、最大房龄
                     ajc: '',          // 25、按揭车（按揭时间）
@@ -511,7 +511,7 @@
                     loan_mode:'',   //还款方式
                     interest:'',   //利息
 
-                    loan_type_detail:'',  //贷款类型   68  信用贷款 企业信用贷款 抵押贷款 对公抵押贷款
+                    // loan_type_detail:'',  //贷款类型   68  信用贷款 企业信用贷款 抵押贷款 对公抵押贷款
                     update_time:'',  //当前时间
 
                 },
