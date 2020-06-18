@@ -487,6 +487,13 @@ let userInfo = {
         {id: "loan_mode5", name: 4, value: "到期还本付息"},
         {id: "loan_mode6", name: 5, value: "气球贷还款"},
     ],
+    loan_type_detail:[
+        {id: "loan_type_detail1", name: 0, value: "个人信用贷款"},
+        {id: "loan_type_detail2", name: 1, value: "企业信用贷款"},
+        {id: "loan_type_detail3", name: 2, value: "个人抵押贷款"},
+        {id: "loan_type_detail4", name: 3, value: "企业抵押贷款"},
+    ],
+
 
     /*
 
