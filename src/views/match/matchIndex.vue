@@ -222,6 +222,27 @@
                 </li>
             </ul>
 
+            <el-form-item label="经理联系方式" style="margin-top: 20px"  prop="contactDo.telephone"
+                          :rules="{ required: true, message: '经理联系方式不能为空', trigger: 'blur' }">
+                <el-input clearable  v-model="addProForm.contactDo.telephone" placeholder="经理联系方式"></el-input>
+                <div class="addName-tip">例如:176845429466</div>
+            </el-form-item>
+
+            <!--qrimg图片上传-->
+            <div class="addPro-item2">
+                <div class="img-ico">
+                    <el-image
+                            style="width: 100px; height: 100px"
+                            :src="addProForm.contactDo.qrimg" alt="" v-if="addProForm.contactDo.qrimg"
+                            :preview-src-list="srcList">
+                    </el-image>
+                </div>
+                <el-form-item label=""  prop="contactDo.qrimg">
+                    <input type="file" class="face" accept="image/*" @change="upload_qrimg" ref="inputer2">
+                </el-form-item>
+            </div>
+
+
             <el-form-item class="sub-item compare-submit">
                 <el-button type="primary" @click="onSubmit('addProForm')"  :loading="loadState.searchLoad">立即添加</el-button>
             </el-form-item>
@@ -240,6 +261,7 @@
         data() {
             return {
                 srcList:[],
+                qrimgArr:[],
 
                 loadState: {    //按钮状态
                     searchLoad:false
@@ -250,8 +272,8 @@
                 },
 
                 showState:{
-                    matchIndex:false,
-                    matchCompare:true,
+                    matchIndex:true,
+                    matchCompare:false,
                 },
 
                 dialogImageUrl: '',
@@ -281,6 +303,13 @@
                     prodType: '',   //类型
                     id: '',
                     ioc: '',  //银行logo   上传回显的路径
+
+                    contactDo:{
+                        qrimg:'',
+                        telephone:'',
+                    },
+
+
 
                     // 产品标签1
                     labelList: [
@@ -368,6 +397,24 @@
                 })
             },
 
+            upload_qrimg: function () {
+                var that = this;
+                var inputDOM = that.$refs.inputer2;
+                var file = inputDOM.files;
+
+                var formData = new FormData();
+                formData.append('file', file[0]);
+
+                imgUpload(formData,).then(res => {
+                    this.qrimgArr = [];
+                    this.qrimgArr.push(res);
+                    console.log(res);
+                    this.addProForm.contactDo.qrimg = res;
+                }).catch(res => {
+                    console.log(res);
+                })
+            },
+
 
             /*删除*/
             removeInp(type, index) {
@@ -395,6 +442,9 @@
             onSubmit(formName) {
                 let that = this;
 
+                console.log(that.addProForm);
+
+                // return false
                 that.$refs[formName].validate((valid) => {
                     this.GLOBAL.btnStateChange(this, 'loadState', 'searchLoad');
                     if (valid) {

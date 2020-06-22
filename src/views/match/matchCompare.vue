@@ -385,9 +385,9 @@
                     </el-radio-group>
                 </el-form-item>
 
-                <el-form-item label="贷款额度">
-                    <el-input  type="number" clearable  v-model="userChecked.loan_years" placeholder="例如：1"></el-input>
-                </el-form-item>
+<!--                <el-form-item label="贷款额度">-->
+<!--                    <el-input  type="number" clearable  v-model="userChecked.loan_years" placeholder="例如：1"></el-input>-->
+<!--                </el-form-item>-->
 
 <!--                <el-form-item label="放款时效">-->
 <!--                    <el-radio-group v-model="userChecked.loan_time_limit" class="match-radioGropu">-->
@@ -395,16 +395,16 @@
 <!--                    </el-radio-group>-->
 <!--                </el-form-item>-->
 
-                <el-form-item label="还款方式">
-                    <el-radio-group v-model="userChecked.loan_mode" class="match-radioGropu">
-                        <el-radio v-for="(item,index) in userInfo.loan_mode" :key="index" :label="item.name">{{item.value}}</el-radio>
-                    </el-radio-group>
-                </el-form-item>
+<!--                <el-form-item label="还款方式">-->
+<!--                    <el-radio-group v-model="userChecked.loan_mode" class="match-radioGropu">-->
+<!--                        <el-radio v-for="(item,index) in userInfo.loan_mode" :key="index" :label="item.name">{{item.value}}</el-radio>-->
+<!--                    </el-radio-group>-->
+<!--                </el-form-item>-->
 
 
-                <el-form-item label="利息">
-                    <el-input  type="number" clearable  v-model="userChecked.interest" placeholder="例如：0.55"></el-input>
-                </el-form-item>
+<!--                <el-form-item label="利息">-->
+<!--                    <el-input  type="number" clearable  v-model="userChecked.interest" placeholder="例如：0.55"></el-input>-->
+<!--                </el-form-item>-->
             </div>
 
             <el-form-item class="compare-submit">
@@ -513,10 +513,10 @@
                     sfyssqydd:'',         //是否有上市企业订单
                     sfgxjsqy:'',         //是否高新技术企业
 
-                    loan_years:'',   //贷款年限（6.17 改成 额度）
-                    loan_time_limit:'',   //放款时效  6.17 不要
-                    loan_mode:'',   //还款方式
-                    interest:'',   //利息
+                    // loan_years:'',   //贷款年限 额度（6.17 改成 额度）
+                    // loan_time_limit:'',   //放款时效  6.17 不要
+                    // loan_mode:'',   //还款方式
+                    // interest:'',   //利息
 
                     loan_type_detail:'',  //贷款类型   68  信用贷款 企业信用贷款 抵押贷款 对公抵押贷款
                                             //  1、个人信用贷款；2、企业信用贷款；3、个人抵押贷款；4、企业抵押贷款
