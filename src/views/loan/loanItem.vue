@@ -84,7 +84,7 @@ export default {
       this.showState.diaLoanForm = true;
       this.loanArr = row;
 
-      /*this.$router.push({
+      /*this.$routerConfigure.push({
                     name:'loanInfo',
                     params:{
                         'loanList':row,

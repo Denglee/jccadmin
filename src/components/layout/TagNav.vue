@@ -3,12 +3,12 @@
     <scroll-bar ref="scrollBar">
       <!--                {{openedPageList}}-->
 
-      <!--    <router-link ref="tag" class="tag-nav-item" :class="isActive(item) ? 'cur' : ''"
+      <!--    <routerConfigure-link ref="tag" class="tag-nav-item" :class="isActive(item) ? 'cur' : ''"
                      v-for="(item, index) in openedPageList"
                      :to="item.path" :key="index">
             {{item.title}}
             <i class="el-icon-circle-close"  @click.prevent.stop="closeTheTag(item, index)"></i>
-        </router-link>-->
+        </routerConfigure-link>-->
 
       <div
         ref="tag"
@@ -28,9 +28,9 @@
       </div>
 
       <!--        <li class="tags-li" v-for="(item,index) in tagsList" :class="{'active': isActive(item.path)}" :key="index">-->
-      <!--            <router-link :to="item.path" class="tags-li-title">-->
+      <!--            <routerConfigure-link :to="item.path" class="tags-li-title">-->
       <!--                {{item.title}}-->
-      <!--            </router-link>-->
+      <!--            </routerConfigure-link>-->
       <!--            <span class="tags-li-icon" @click="closeTags(index)"><i class="el-icon-close"></i></span>-->
       <!--        </li>-->
     </scroll-bar>
@@ -61,7 +61,7 @@ export default {
     this.addTagNav();
   },
   created() {
-    // this.$router.go(0);
+    // this.$routerConfigure.go(0);
   },
   watch: {
     $route() {
@@ -75,7 +75,7 @@ export default {
       let path = e.target.getAttribute("Path");
       console.log(path);
       this.$router.push({ path: path });
-      // this.$router.replace({
+      // this.$routerConfigure.replace({
       //     path: "/redirect",
       //     query: {
       //         nextPath: path
@@ -86,7 +86,7 @@ export default {
     // reloadRouter(e){
     //     let Path = e.target.getAttribute('Path');
     //     console.log(Path);
-    //     this.$router.push({path:Path});
+    //     this.$routerConfigure.push({path:Path});
     //     this.$forceUpdate();
     // },
 

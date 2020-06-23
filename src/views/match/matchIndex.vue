@@ -89,23 +89,36 @@
                 </li>
 
                 <li>
+
+
                     <el-form-item class="first-itemLabel"
                             v-for="(basicItem, index) in addProForm.basicInfoList"
                             :label="'基本信息' + index"
                             :key="basicItem.key" >
-                    <el-form-item class="secend-itemLabel" :prop="'basicInfoList.' + index + '.name'"
-                                  :rules="{ required: true, message: '基本信息名称不能为空', trigger: 'blur' }">
-                        <el-input clearable  v-model="basicItem.name" placeholder="请输入基本信息名称"></el-input>
-                        <div class="addEg-tip" v-if="index == 0">例如： 利率</div>
-                        <div class="addEg-tip" v-else>例如： 等额等息</div>
-                    </el-form-item>
-                    <el-form-item class="secend-itemLabel" :prop="'basicInfoList.' + index + '.nameValue'" v-if="index == 0">
-                        <el-input clearable  v-model="basicItem.nameValue" placeholder="请输入基本信息值"
-                                  :rules="{ required: true, message: '基本信息值不能为空', trigger: 'blur' }"></el-input>
-                        <div class="addEg-tip">例如： 0.55%</div>
-                    </el-form-item>
-                        <el-button @click="addInp('basicInfoList',index)" v-if="index == 0">新增基本信息</el-button>
-                        <el-button @click.prevent="removeInp('basicInfoList',index)" v-if="index != 0">删除</el-button>
+                        <el-form-item class="secend-itemLabel" :prop="'basicInfoList.' + index + '.name'"
+                                      :rules="{ required: true, message: '基本信息名称不能为空', trigger: 'blur' }">
+                            <el-input clearable  v-model="basicItem.name" placeholder="请输入基本信息名称"></el-input>
+                            <div class="addEg-tip" v-if="index == 0">例如：利率</div>
+                            <div class="addEg-tip" v-else-if="index == 1">例如：5-100万</div>
+                            <div class="addEg-tip" v-else>例如：等额本息</div>
+                        </el-form-item>
+
+                        <el-form-item class="secend-itemLabel" :prop="'basicInfoList.' + index + '.nameValue'" v-if="index == 0"
+                                      :rules="{ required: true, message: '基本信息值不能为空', trigger: 'blur' }">
+                            <el-input clearable  v-model="basicItem.nameValue" placeholder="请输入基本信息值"></el-input>
+                            <div class="addEg-tip">例如： 0.55%</div>
+                        </el-form-item>
+                        <!--<el-form-item class="secend-itemLabel" :prop="'basicInfoList.' + index + '.nameValue'" v-if="index == 1">
+                            <el-input clearable  v-model="basicItem.nameValue" placeholder="请输入基本信息值2"></el-input>
+                            &lt;!&ndash;<div class="addEg-tip">例如： 5-100万</div>&ndash;&gt;
+                        </el-form-item>-->
+                        <el-form-item class="secend-itemLabel" :prop="'basicInfoList.' + index + '.nameValue'" v-if="index == 2"
+                        style="width: 40%;" :rules="{ required: true, message: '还款方式不能为空', trigger: 'blur' }">
+                            <el-input clearable type="number"  v-model="basicItem.nameValue" placeholder="请输入还款方式"></el-input>
+                            <div class="addEg-tip">例如：1 。(提示：1是等额本息还款；2是等额本金还款；3是等额等息还款；4是先息后本还款；5是到期还本还款；6是气球贷还款)</div>
+                        </el-form-item>
+                        <!--<el-button @click="addInp('basicInfoList',index)" v-if="index == 0">新增基本信息</el-button>
+                        <el-button @click.prevent="removeInp('basicInfoList',index)" v-if="index != 0">删除</el-button>-->
                     </el-form-item>
                 </li>
 
@@ -318,6 +331,8 @@
 
                     //基本信息
                     basicInfoList: [
+                        {name: '', nameValue: "", id: '', productId: ''},
+                        {name: '', nameValue: "", id: '', productId: ''},
                         {name: '', nameValue: "", id: '', productId: ''},
                     ],
 

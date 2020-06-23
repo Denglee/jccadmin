@@ -30,7 +30,7 @@ const getters = {
       // });
       //
       // setTimeout(() =>{
-      //     router.push({path:'/login'});
+      //     routerConfigure.push({path:'/login'});
       // },1500);
     }
   },
