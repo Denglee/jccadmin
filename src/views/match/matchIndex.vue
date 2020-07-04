@@ -128,13 +128,13 @@
                             :label="'还款期数' + index"
                             :key="hkqsItem.key">
                         <el-form-item class="secend-itemLabel" :prop="'qsList.' + index + '.name'" :rules="{ required: true, message: '还款期数名称不能为空', trigger: 'blur' }">
-                            <el-input clearable  v-model="hkqsItem.name" placeholder="请输入还款期数名称"></el-input>
+                            <el-input clearable  v-model="hkqsItem.name" placeholder="请输入还款期数名称" @blur="qsBlur($event,index)"></el-input>
                             <div class="addEg-tip">例如：12期</div>
                         </el-form-item>
-                        <el-form-item class="secend-itemLabel" :prop="'qsList.' + index + '.nameValue'" :rules="{ required: true, message: '还款期数值不能为空', trigger: 'blur' }">
+                       <!-- <el-form-item class="secend-itemLabel" :prop="'qsList.' + index + '.nameValue'" :rules="{ required: true, message: '还款期数值不能为空', trigger: 'blur' }">
                             <el-input type="number" clearable  v-model="hkqsItem.nameValue" placeholder="请输入还款期数值"></el-input>
                             <div class="addEg-tip">例如：12</div>
-                        </el-form-item>
+                        </el-form-item>-->
                         <el-button @click="addInp('qsList',index)" v-if="index == 0">新增还款期数</el-button>
                         <el-button @click.prevent="removeInp('qsList',index)" v-if="index != 0">删除</el-button>
                     </el-form-item>
@@ -198,7 +198,7 @@
                     </el-form-item>
                 </li>
 
-                <li>
+               <!-- <li>
                     <el-form-item class="first-itemLabel"
                             v-for="(otherinfoItem, index) in addProForm.ohterInfoList"
                             :label="'其它信息' + index"
@@ -214,9 +214,9 @@
                         <el-button @click="addInp('ohterInfoList',index)" v-if="index == 0">新增其它信息</el-button>
                         <el-button @click.prevent="removeInp('ohterInfoList',index)" v-if="index != 0">删除</el-button>
                     </el-form-item>
-                </li>
+                </li>-->
 
-                <li>
+               <!-- <li>
                     <el-form-item class="first-itemLabel"
                             v-for="(zxyqItem, index) in addProForm.zxyqList"
                             :label="'征信要求' + index"
@@ -232,7 +232,7 @@
                         <el-button @click="addInp('zxyqList',index)" v-if="index == 0">新增征信要求</el-button>
                         <el-button @click.prevent="removeInp('zxyqList',index)" v-if="index != 0">删除</el-button>
                     </el-form-item>
-                </li>
+                </li>-->
             </ul>
 
             <el-form-item label="经理联系方式" style="margin-top: 20px"  prop="contactDo.telephone"
@@ -299,7 +299,7 @@
                 loanType: [
                     {id: '1', name: '银行信贷'},
                     {id: '2', name: '机构信贷'},
-                    {id: '3', name: '小额贷款'},
+                    // {id: '3', name: '小额贷款'},
                     {id: '4', name: '企业贷款'},
                     {id: '5', name: '抵押贷款'},
                     {id: '6', name: '线上急融'},
@@ -331,7 +331,7 @@
 
                     //基本信息
                     basicInfoList: [
-                        {name: '', nameValue: "", id: '', productId: ''},
+                        {name: '利率', nameValue: "", id: '', productId: ''},
                         {name: '', nameValue: "", id: '', productId: ''},
                         {name: '', nameValue: "", id: '', productId: ''},
                     ],
@@ -372,18 +372,18 @@
                     ],
 
                     //其它信息
-                    ohterInfoList: [
-                        {name: '', nameValue: '', id: '', productId: ''},
-                    ],
+                    // ohterInfoList: [
+                    //     {name: '', nameValue: '', id: '', productId: ''},
+                    // ],
 
                     //征信要求
-                    zxyqList: [
-                        {name: '', nameValue: '', id: '', productId: ''},
-                    ],
+                    // zxyqList: [
+                    //     {name: '', nameValue: '', id: '', productId: ''},
+                    // ],
 
                     //免责声明
                     mzsmDo: {
-                        name: '',
+                        name: '产品信息来源于机构客户经理或第三方信息平台,最终以机构发布为准。如产品信息有误或其他异议,请在公众号回复/反馈',
                         id: '',
                         productId: '',
                     },
@@ -393,6 +393,15 @@
             };
         },
         methods: {
+            qsBlur(event,index){
+                console.log(index);
+                let qsNameVal = parseFloat(event.target.value) ;
+
+                console.log(qsNameVal);
+                this.addProForm.qsList[index].nameValue = qsNameVal;
+                console.log(this.addProForm.qsList);
+            },
+
             upload_photo: function () {
                 var that = this;
 

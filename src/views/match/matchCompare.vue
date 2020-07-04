@@ -449,69 +449,69 @@
                     max_age:'',  //最大年龄
                     hyzk: '',         // 3、婚姻状况    +++++++
                     hj: '',           // 4、户籍        +++++++
-                    dwxz: '',         // 5、单位性质
-                    gzffxs: '',       // 6、工资发放形式
-                    pjgz: '',         // 7、平均工资
-                    bdwgzsc: '',      // 8、本单位工作时长
-                    sbjs: '',         // 9、社保基数
-                    sb_jnsc: '',      // 10、社保缴纳时长
-                    sb_xdwjnsc: '',   // 11、社保现单位缴纳时长
-                    gjjjs: '',        // 12、公积金基数
-                    gjj_jnsc: '',     // 13、公积金缴纳时长
-                    gjj_xdwjnsc: '',  // 14、公积金现单位缴纳时长
-                    yyzznx: '',       // 15、营业执照年限
-                    dwsfkc: '',       // 16、单位是否考察
-                    dgls: '',         // 17、对公流水
-                    gskpje: '',       // 18、公司开票金额
-                    gsnsje: '',       // 19、公司纳税金额
-                    fclx: '',         // 20、房产类型        ++++
-                    ajz: '',          // 21、按揭中（月供时间）
-                    ajjq: '',         // 22、按揭结清（结清时间）
-                    qkf: '',          // 23、全款房（过户时间）
+                    dwxz: 'null',         // 5、单位性质
+                    gzffxs: 'null',       // 6、工资发放形式
+                    pjgz: 'null',         // 7、平均工资
+                    bdwgzsc: 'null',      // 8、本单位工作时长
+                    sbjs: 'null',         // 9、社保基数
+                    sb_jnsc: 'null',      // 10、社保缴纳时长
+                    sb_xdwjnsc: 'null',   // 11、社保现单位缴纳时长
+                    gjjjs: 'null',        // 12、公积金基数
+                    gjj_jnsc: 'null',     // 13、公积金缴纳时长
+                    gjj_xdwjnsc: 'null',  // 14、公积金现单位缴纳时长
+                    yyzznx: 'null',       // 15、营业执照年限
+                    dwsfkc: 'null',       // 16、单位是否考察
+                    dgls: 'null',         // 17、对公流水
+                    gskpje: 'null',       // 18、公司开票金额
+                    gsnsje: 'null',       // 19、公司纳税金额
+                    fclx: 'null',         // 20、房产类型        ++++
+                    ajz: 'null',          // 21、按揭中（月供时间）
+                    ajjq: 'null',         // 22、按揭结清（结清时间）
+                    qkf: 'null',          // 23、全款房（过户时间）
                     // fl: '',           // 24、房龄
-                    min_fl: '',           // 24、最小房龄
-                    max_fl: '',           // 24、最大房龄
-                    ajc: '',          // 25、按揭车（按揭时间）
-                    qkc: '',          // 26、全款车（按揭结清或过户时间）
-                    clsyc: '',        // 27、车辆所有权
-                    clxz: '',         // 28、车辆性质
-                    clczsj: '',       // 29、车辆持证时间
-                    clgsd: '',        // 30、车辆归属地
-                    cl: '',           // 31、车龄
-                    jqxsyyxq: '',     // 32、交强险剩余有效期
-                    xsgls: '',        // 33、行驶公里数
-                    syxsyyxq: '',     // 34、商业险剩余有效期
-                    bxlx: '',         // 35、保险类型
-                    bxjnfs: '',       // 36、保险缴纳方式
-                    bxjfsj: '',       // 37、保险缴费时间
+                    min_fl: 'null',           // 24、最小房龄
+                    max_fl: 'null',           // 24、最大房龄
+                    ajc: 'null',          // 25、按揭车（按揭时间）
+                    qkc: 'null',          // 26、全款车（按揭结清或过户时间）
+                    clsyc: 'null',        // 27、车辆所有权
+                    clxz: 'null',         // 28、车辆性质
+                    clczsj: 'null',       // 29、车辆持证时间
+                    clgsd: 'null',        // 30、车辆归属地
+                    cl: 'null',           // 31、车龄
+                    jqxsyyxq: 'null',     // 32、交强险剩余有效期
+                    xsgls: 'null',        // 33、行驶公里数
+                    syxsyyxq: 'null',     // 34、商业险剩余有效期
+                    bxlx: 'null',         // 35、保险类型
+                    bxjnfs: 'null',       // 36、保险缴纳方式
+                    bxjfsj: 'null',       // 37、保险缴费时间
                     ygyncxcs: '',     // 38、一个月内查询次数
                     lgyncxcs: '',     // 39、两个月内查询次数
                     sgyncxcs: '',     // 40、三个月内查询次数
                     liugyncxcs: '',   // 41、六个月内查询次数
                     segyncxcs: '',    // 42、十二个月内查询次数
-                    dqxebs: '',       // 43、当前小额笔数
-                    dqxfjrbs: '',     // 44、当前消费金融笔数
-                    sfczyc: '',       // 45、贷款/信用卡是否存在止付；呆账；关注等异常
-                    dqyqed: '',       // 46、当前逾期额度
-                    bnn_wyq: '',      // 47、近半年内有无逾期
+                    dqxebs: 'null',       // 43、当前小额笔数
+                    dqxfjrbs: 'null',     // 44、当前消费金融笔数
+                    sfczyc: 'null',       // 45、贷款/信用卡是否存在止付；呆账；关注等异常
+                    dqyqed: 'null',       // 46、当前逾期额度
+                    bnn_wyq: 'null',      // 47、近半年内有无逾期
                     bnn_yqygycs: '',  // 48、近半年内逾期一个月次数
                     bnn_yqlgycs: '',  // 49、近半年内逾期两个月次数
                     bnn_yqsgycs: '',  // 50、近半年内逾期三个月次数
                     bnn_yqsigycs: '', // 51、近半年内逾期四个月次数
-                    ynn_wyq: '',      // 52、近一年内有无逾期
+                    ynn_wyq: 'null',      // 52、近一年内有无逾期
                     ynn_yqygycs: '',  // 53、近一年内逾期一个月次数
                     ynn_yqlgycs: '',  // 54、近一年内逾期二个月次数
                     ynn_yqsgycs: '',  // 55、近一年内逾期三个月次数
                     ynn_yqsigycs: '', // 56、近一年内逾期四个月次数
-                    lnn_wyq: '',      // 57、近两年内有无逾期
+                    lnn_wyq: 'null',      // 57、近两年内有无逾期
                     lnn_yqygycs: '',  // 58、近两年内逾期一个月次数
                     lnn_yqlgycs: '',  // 59、近两年内逾期二个月次数
                     lnn_yqsgycs: '',  // 60、近两年内逾期三个月次数
                     lnn_yqsigycs: '', // 61、近两年内逾期四个月次数
-                    sfsygwld: '',     // 62、是否使用过微粒贷
+                    sfsygwld: 'null',     // 62、是否使用过微粒贷
 
-                    sfyssqydd:'',         //是否有上市企业订单
-                    sfgxjsqy:'',         //是否高新技术企业
+                    sfyssqydd:'null',         //是否有上市企业订单
+                    sfgxjsqy:'null',         //是否高新技术企业
 
                     // loan_years:'',   //贷款年限 额度（6.17 改成 额度）
                     // loan_time_limit:'',   //放款时效  6.17 不要
@@ -555,6 +555,27 @@
                 console.log(this.userChecked.hj);
                 console.log(this.userChecked.fclx);
 
+                console.log(this.userChecked.loan_type);
+                if(this.userChecked.loan_type == ''){
+                    this.$message({
+                        message: '申请贷款类型 必选',
+                        type: 'error',
+                        duration:1500,
+                        offset:40,
+                    });
+                }
+
+                if(this.userChecked.loan_type_detail == ''){
+                    this.$message({
+                        message: '贷款类型 必选',
+                        type: 'error',
+                        duration:1500,
+                        offset:100,
+                    });
+                }
+
+
+                return false
                 addProductCondition(this.userChecked).then(res=>{
                     console.log(res);
                     let that =this;
@@ -565,6 +586,9 @@
                             duration:1500,
                             offset:40,
                         });
+                        setTimeout(function(){
+                            window.location.reload();
+                        },1500)
                     }else{
                         this.$message({
                             message: '添加失败',
