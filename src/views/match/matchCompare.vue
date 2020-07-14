@@ -575,7 +575,7 @@
                 }
 
 
-                return false
+                // return false
                 addProductCondition(this.userChecked).then(res=>{
                     console.log(res);
                     let that =this;
