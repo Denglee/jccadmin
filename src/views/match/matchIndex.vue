@@ -285,8 +285,8 @@
                 },
 
                 showState:{
-                    matchIndex:true,
-                    matchCompare:false,
+                    matchIndex:false,
+                    matchCompare:true,
                 },
 
                 dialogImageUrl: '',

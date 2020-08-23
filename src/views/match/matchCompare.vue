@@ -17,9 +17,9 @@
                 </el-form-item>
 
                 <!--0502 输入框 demo-->
-                <el-form-item label="融资总额">
+                <!--<el-form-item label="融资总额">
                     <el-input  type="number" clearable v-model="userChecked.total_financing" placeholder="例如：10"></el-input>
-                </el-form-item>
+                </el-form-item>-->
 
                 <el-form-item label="最小年龄">
                     <el-input  type="number" clearable  v-model="userChecked.min_age" placeholder="例如：18"></el-input>
@@ -434,7 +434,7 @@
                 userInfo: userInfo,
 
                 checkedArr2:{
-                    hyzk:[],
+                    hyzk:[1,2,3,4],
                     hj:[],
                     fclx:[],
                 },
