@@ -24,6 +24,7 @@ export const addProductCondition = params => post("productCondi/addProductCondit
 
 export const imgUpload = params => post("uploadFile/imgUpload", params); /* 图片上传接口*/
 
+export const getLunbo   = params => post('rotation/getAllRotation', params);         /* 所有产品*/
 
 
 //获取产品信息列表接口www.jierong123.com/product/getProductForPage?pageNum=1&pageSize=10   Get

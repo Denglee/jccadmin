@@ -42,7 +42,7 @@
 
 <script>
     import loanForm from "@/views/Loan/loanForm";
-    import {getProductForPageApi, getAllType} from "../../assets/js/api";
+    import {getProductForPageApi, getLunbo} from "../../assets/js/api";
 
     export default {
         name: "loanItem",
@@ -66,7 +66,7 @@
         methods: {
         	// 获取接口
 	        FnGetProductForPage(){
-		        getProductForPageApi(this.loanParm).then(res=>{
+		        getProductForPageApi().then(res=>{
 		        	console.log(res);
                 }).catch(res=>{
                 	console.log(res);
@@ -75,7 +75,7 @@
 
 	        // 获取接口
 	        FnGetAllType(){
-		        getAllType().then(res=>{
+		        getLunbo().then(res=>{
 			        console.log(res);
 		        }).catch(res=>{
 			        console.log(res);

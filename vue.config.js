@@ -62,10 +62,10 @@ module.exports = {
     // 是否使用css分离插件 ExtractTextPlugin
     extract : false,
     // extract: {
-      // https://www.cnblogs.com/1rookie/p/11589863.html
-      //一种方式，每次打包后的css文件名会变更新。
-      // filename: `admin/css/[name].${Timestamp}.css`,
-      // chunkFilename: `admin/css/[name].${Timestamp}.css`,
+    //   /*https://www.cnblogs.com/1rookie/p/11589863.html
+    //   一种方式，每次打包后的css文件名会变更新。*/
+    //   filename: `admin/css/[name].${Timestamp}.css`,
+    //   chunkFilename: `admin/css/[name].${Timestamp}.css`,
     // }
   },
   configureWebpack: {
@@ -88,7 +88,7 @@ module.exports = {
   devServer: {
     host: "localhost",
     // host: "192.168.0.26",
-    port: 8051, // 端口号
+    port: 8040, // 端口号
     https: false, // https:{type:Boolean}
     open: false, //配置自动启动浏览器
     hot: true, //开启热点
@@ -107,5 +107,6 @@ module.exports = {
         }
       },
     }
+    
   }
 };
