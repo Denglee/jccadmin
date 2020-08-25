@@ -40,9 +40,10 @@ const staticRoute = [
           ),
         meta: { title: "银行详情" }
       },
+
       /*贷款*/
       {
-        path: "loan/item", //贷款列表
+        path: "loan/list", //贷款列表
         name: "loanItem",
         component: () =>
           import(/* webpackChunkName: "loanItem" */ "@/views/Loan/loanItem"),
@@ -55,6 +56,7 @@ const staticRoute = [
           import(/* webpackChunkName: "loanInfo" */ "@/views/Loan/loanInfo"),
         meta: { title: "贷款详情" }
       },
+
       {
         path: "match/matchIndex", //匹配
         name: "matchIndex",
