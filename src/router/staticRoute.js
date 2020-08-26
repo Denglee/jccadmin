@@ -4,7 +4,7 @@ const Layout = () =>
 const staticRoute = [
   {
     path: "/",
-    redirect: "/match/matchIndex"
+    redirect: "/loan/list"
   },
   // {
   //   path: "/index",
@@ -47,15 +47,15 @@ const staticRoute = [
         name: "loanItem",
         component: () =>
           import(/* webpackChunkName: "loanItem" */ "@/views/Loan/loanItem"),
-        meta: { title: "贷款列表" }
+        meta: { title: "列表" }
       },
-      {
-        path: "loan/info", //贷款详情
-        name: "loanInfo",
-        component: () =>
-          import(/* webpackChunkName: "loanInfo" */ "@/views/Loan/loanInfo"),
-        meta: { title: "贷款详情" }
-      },
+      // {
+      //   path: "loan/info", //贷款详情
+      //   name: "loanInfo",
+      //   component: () =>
+      //     import(/* webpackChunkName: "loanInfo" */ "@/views/Loan/loanInfo"),
+      //   meta: { title: "贷款详情" }
+      // },
 
       {
         path: "match/matchIndex", //匹配

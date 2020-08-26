@@ -30,7 +30,7 @@ export const getLunbo   = params => post('rotation/getAllRotation', params);    
 //获取产品信息列表接口www.jierong123.com/product/getProductForPage?pageNum=1&pageSize=10   Get
 //通过条件查询产品列表接口：www.jierong123.com/product/getProductForPage?pageNum=1&pageSize=10&productName=小商贷&productType=1   Get
 // export const getProductForPageApi = params => Get("product/getProductForPage", params);
-export const getProductForPageApi = params => post("product/getProductForPage", params);
+export const getProductForPageApi = params => get("product/getProductForPage", params);
 
 //获取产品详情接口:www.jierong123.com/product/getProdDetail?prodId=1&prodType=1   Get
 export const getProdDetailApi = params => get("product/getProdDetail", params);

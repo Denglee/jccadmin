@@ -127,3 +127,116 @@ input:-webkit-autofill { box-shadow: 0 0 0 1000px white inset !important;}
     border: solid 1px $color-GrayE5;
     border-radius: 8px;
 }
+
+.layoutR-contain{
+    width: 100%;
+    min-height: calc(100vh - 106px);
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: $color-linghtWhite;
+}
+
+.bgWhite-public {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    background-color: #fff;
+    //padding: 20px;
+    min-height: 50vh;
+    border-radius: 20px;
+}
+.bgWhite-padd20 {
+    padding: 20px;
+}
+$indexTitleHei: 44px;
+.index-item-title {
+    border: solid 1px  $color-linghtWhite;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 27px;
+    height: $indexTitleHei;
+    line-height: $indexTitleHei;
+    //line-height: 50px;
+    //.title {
+    //  height: $indexTitleHei;
+    //  line-height: $indexTitleHei;
+    //}
+}
+
+//按钮组
+.btnNav-flex {
+    background-color: #fff;
+    //min-width: 210px;
+    border-radius: 6px;
+    padding: 14px 30px 10px;
+
+    margin-left: 20px;;
+    display: block;
+    margin-top: 30px;
+    //.btnNav-box:not(:last-of-type){
+    //  margin-right: 0;
+    //}
+}
+.btnNav-maxWidth{
+    max-width: calc(100% - 40px);
+}
+
+.btnNav-box {
+    text-align: center;
+    color: #fff;
+    margin-right: 20px;
+    background: none;
+    //transition: all .1s;
+    i {
+        height: 40px;
+        width: 40px;
+        background-color: #005ad4;
+        font-size: 24px;
+        display: block;
+        line-height: 42px;
+        border-radius: 6px;
+        margin: 0 auto;
+    }
+
+    .iconshuaxin {
+        font-size: 30px;
+    }
+
+
+    span {
+        color: #949494;
+        margin-top: 6px;
+        font-size: 13px;
+        display: inline-block;
+    }
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.btnNav-contain {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+
+    .btnNav-left {
+        flex: 1;
+    }
+
+    .btnNav-flex {
+        display: inline-flex;
+    }
+    .btnNav-maxWidth{
+        max-width: inherit;
+    }
+}
+
+.btnNav-vip {
+    display: inline-flex;
+}
