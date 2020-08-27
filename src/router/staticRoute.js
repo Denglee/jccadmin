@@ -44,9 +44,9 @@ const staticRoute = [
       /*贷款*/
       {
         path: "loan/list", //贷款列表
-        name: "loanItem",
+        name: "loanList",
         component: () =>
-          import(/* webpackChunkName: "loanItem" */ "@/views/Loan/loanItem"),
+          import(/* webpackChunkName: "loanList" */ "@/views/Loan/loanList"),
         meta: { title: "列表" }
       },
       // {

@@ -6,7 +6,7 @@
         </button>
 
         <button class="btnNav-box" @click="btnAddRoyalty">
-            <i class="iconfont iconshuaxin"></i>
+            <i class="el-icon-refresh"></i>
             <span>刷新</span>
         </button>
     </div>
