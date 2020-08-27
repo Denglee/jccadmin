@@ -282,7 +282,7 @@
 
 <script>
 	import navRefush from '@/components/navRefush/navRefush' /*按钮组件  */
-    import {getProdDetailApi} from '@/assets/js/api'
+    import {getProdDetailApi, updateProductApi} from '@/assets/js/api'
 
     export default {
         name: "comLoanDetail",
@@ -424,7 +424,34 @@
 
             onSubmit() {
                 console.log(this.dynamicItem);
-            }
+
+	            updateProductApi(this.addProForm).then(res => {
+		            console.log(res);
+		            let that = this;
+		            if (res.status == 'success') {
+			            this.$message({
+				            message: '添加成功',
+				            type: 'success',
+				            duration: 1500,
+				            offset: 40,
+			            });
+			            setTimeout(() => {
+				            this.product_id = res.data.productId;
+				            this.showState = {
+					            matchIndex: false,
+					            matchCompare: true,
+				            }
+			            }, 1500)
+		            } else {
+			            this.$message({
+				            message: '添加失败',
+				            type: 'error',
+				            duration: 1500,
+				            offset: 40,
+			            });
+		            }
+                });
+            },
         },
         created() {
 	        let  CookiePageLoan = JSON.parse(sessionStorage.getItem('loanDetailParm'));
@@ -437,7 +464,6 @@
 		        }
 
 		        this.FnGetProdDetail();
-
 	        }
         },
 

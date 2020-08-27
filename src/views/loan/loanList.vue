@@ -33,12 +33,17 @@
 
                         <el-table-column prop="prodType" label="prodType">
                             <template slot-scope="scope">
-                                <div v-if="scope.row.prodType == 0">0</div>
+                                <div v-for="(item,index) in loanType">
+                                    {{scope.row.prodType}}
+                                    {{item.id}}
+                                    <span v-if="item.id == scope.row.prodType">{{item.name}}</span>
+                                </div>
+                                <!--<div v-if="scope.row.prodType == 0">0</div>
                                 <div v-if="scope.row.prodType == 1">1</div>
                                 <div v-if="scope.row.prodType == 2">2</div>
                                 <div v-if="scope.row.prodType == 3">3</div>
                                 <div v-if="scope.row.prodType == 4">4</div>
-                                <div v-if="scope.row.prodType == 5">5</div>
+                                <div v-if="scope.row.prodType == 5">5</div>-->
                             </template>
                         </el-table-column>
 
