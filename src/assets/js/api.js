@@ -39,10 +39,10 @@ export const getProdDetailApi = params => get("product/getProdDetail", params);
 export const getProductConditionApi = params => get("productCondi/getProductCondition", params);
 
 //更新产品详情接口:www.jierong123.com/product/updateProduct   Post（传参和新增产品详情一样）
-export const updateProductApi = params => get("product/updateProduct", params);
+export const updateProductApi = params => post("product/updateProduct", params);
  
 //更新产品匹配条件接口:www.jierong123.com/productCondi/updateProductCondition   Post（传参和新增产品匹配条件一样）
-export const updateProductConditionApi = params => get("productCondi/updateProductCondition", params);
+export const updateProductConditionApi = params => post("productCondi/updateProductCondition", params);
  
 //删除产品接口:www.jierong123.com/product/deleteProduct?productId=1   Get
 export const deleteProductApi = params => get("product/deleteProduct", params);

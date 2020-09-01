@@ -12,9 +12,9 @@
 
                     <div class="pt-screen">
 
-                        <el-input placeholder="productNam" v-model="loanParm.productName" class="ptScreen-input" clearable></el-input>
+                        <el-input placeholder="产品名称" v-model="loanParm.productName" class="ptScreen-input" clearable></el-input>
 
-                        <el-select  filterable v-model="loanParm.productType" placeholder="productType" class="sel-status">
+                        <el-select  filterable v-model="loanParm.productType" placeholder="产品种类" class="sel-status">
                             <el-option v-for="(item,index) in loanType" :key="index" :label="item.name" :value="item.id"></el-option>
                         </el-select>
 
@@ -26,16 +26,14 @@
                         <el-table-column type="index" label="序号" width="55"></el-table-column>
                         <el-table-column prop="ioc" label="ioc">
                             <template slot-scope="scope">
-                                <!--<el-image style="height: 80px;" :src="scope.row.ioc"></el-image>-->
+                                <el-image style="height: 80px;" :src="scope.row.ioc"></el-image>
                             </template>
                         </el-table-column>
-                        <el-table-column prop="name" label="name"></el-table-column>
+                        <el-table-column prop="name" label="产品名称"></el-table-column>
 
-                        <el-table-column prop="prodType" label="prodType">
+                        <el-table-column prop="prodType" label="产品种类">
                             <template slot-scope="scope">
                                 <div v-for="(item,index) in loanType">
-                                    {{scope.row.prodType}}
-                                    {{item.id}}
                                     <span v-if="item.id == scope.row.prodType">{{item.name}}</span>
                                 </div>
                                 <!--<div v-if="scope.row.prodType == 0">0</div>
@@ -50,17 +48,40 @@
                         <el-table-column label="操作">
                             <template slot-scope="scope">
                                 <el-button size="small" @click="FnGoLoanDetail(scope.$index, scope.row)">
-                                    <i class="el-icon-edit"></i>获取详情
+                                    <i class="el-icon-edit"></i>修改详情
                                 </el-button>
                                 <el-button size="small" @click="FnGoLoanMatch(scope.$index, scope.row)">
-                                    <i class="el-icon-view"></i>获取匹配
+                                    <i class="el-icon-view"></i>修改匹配
                                 </el-button>
-                                <el-button size="small" @click="FnDeteleLoan(scope.$index, scope.row)">
+
+
+                                <el-button size="small" v-popover:popover>
                                     <i class="el-icon-delete"></i>删除
                                 </el-button>
+                                <el-popover
+                                        ref="popover"
+                                        placement="top"
+                                        width="200"
+                                        trigger="click">
+                                    <p>确定删除吗？</p>
+                                    <div style="text-align: right; margin: 0">
+                                        <el-button size="mini" type="text" @click="visible = false">取消</el-button>
+                                        <el-button type="primary" size="mini" @click="FnDeteleLoan(scope.$index, scope.row)" :loading="btnLoad.btnSureDel">确定</el-button>
+                                    </div>
+                                </el-popover>
+
+
                             </template>
                         </el-table-column>
                     </el-table>
+
+                    <el-pagination
+                            background
+                            layout="prev, pager, next,total,jumper"
+                            :total="pageTotal"
+                            :page-size="loanParm.pageSize"
+                            @current-change="PageCurrent">
+                    </el-pagination>
 
                 </div>
             </div>
@@ -84,9 +105,14 @@
         name: "loanList",
         data() {
             return {
+                visible: false,
+
 	            btnLoad:{
 		            btnBack:false,
 		            searchLoad:false,
+
+                    sureDel:false,
+                    btnSureDel:false,
                 },
                 pageLoan: {
 	                loanList:true,
@@ -95,37 +121,59 @@
                 },
 
 	            loanType: [
-		            {id: 1, name: '银行信贷'},
-		            {id: 2, name: '机构信贷'},
+		            {id: '', name: '全部'},
+		            {id: '1', name: '银行信贷'},
+		            {id: '2', name: '机构信贷'},
 		            // {id: '3', name: '小额贷款'},
-		            {id: 4, name: '企业贷款'},
-		            {id: 5, name: '抵押贷款'},
-		            {id: 6, name: '线上急融'},
+		            {id: '4', name: '企业贷款'},
+		            {id: '5', name: '抵押贷款'},
+		            {id: '6', name: '线上急融'},
 	            ],
 
 	            /*数据列表 */
 	            productTable: [],
 
+                pageTotal:0,
                 loanParm: {
                     pageNum:1,
                     pageSize:10,
 	                productName:'',
-	                productType:1,
+	                productType:'',
                 }
             };
         },
         methods: {
         	// 获取接口
 	        FnGetProductForPage(){
-		        getProductForPageApi(this.loanParm).then(res=>{
+	            let loanParmEnd = {};
+	            if( this.loanParm.productName ){
+	                console.log('res');
+                    loanParmEnd.productName = this.loanParm.productName;
+                }
+                if( this.loanParm.productType ){
+                    loanParmEnd.productType = this.loanParm.productType;
+                }
+                loanParmEnd.pageNum = this.loanParm.pageNum;
+                loanParmEnd.pageSize = this.loanParm.pageSize;
+                console.log(loanParmEnd);
+		        getProductForPageApi(loanParmEnd).then(res=>{
 		        	console.log(res.data);
 		        	this.productTable = res.data.employees;
+		        	this.pageTotal = res.data.total;
                 }).catch(res=>{
                 	console.log(res);
                 })
             },
-	
-	        // 页面显影方法
+
+            /*分页*/
+            PageCurrent(page) {
+                console.log(page);
+                this.loanParm.pageNum = page;
+                this.FnGetProductForPage();
+            },
+
+
+            // 页面显影方法
 	        pageShow(nowPage,indexPage){
 		        this.pageLoan[nowPage] = true;
 		        this.pageLoan[indexPage] = false;
@@ -172,18 +220,31 @@
 
             /*删除*/
             FnDeteleLoan(index,val){
+                this.GLOBAL.btnStateChange(this,'btnLoad','btnSureDel')
             	console.log(val);
 	            deleteProductApi({
 		            productId:val.id,
                 }).then(res=>{
 	            	console.log(res);
+                    this.$message({
+                        message: '删除成功',
+                        type: 'success',
+                        duration:1500,
+                        offset:40,
+                    });
+
+	            	setTimeout(()=>{
+	            	    this.reLoad()
+                    },1000)
                 }).catch(res=>{
                 	console.log(res);
                 })
             },
 
+            /*搜索*/
 	        btnSeaOrder(){
-            	console.log(this.loanParm);
+                this.GLOBAL.btnStateChange(this,'btnLoad','searchLoad')
+                this.FnGetProductForPage();
             },
 
         },

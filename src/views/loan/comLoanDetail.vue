@@ -14,7 +14,7 @@
                     <el-form :model="addProForm" ref="addProForm" label-width="110px"
                              :rules="addProRules" class="pub-form addProForm" >
                         <!--图片上传-->
-                        <!--<div class="addPro-item2">
+                        <div class="addPro-item2">
                             <div class="img-ico">
                                 <el-image
                                         style="width: 100px; height: 100px"
@@ -25,7 +25,7 @@
                             <el-form-item label=""  prop="ioc" :rules="{ required: true, message: '产品图标不能为空', trigger: 'blur' }">
                                 <input type="file" class="face" accept="image/*" @change="upload_photo" ref="inputer">
                             </el-form-item>
-                        </div>-->
+                        </div>
 
                         <!--输入框-->
                         <ul class="addPro-itemUl">
@@ -49,7 +49,7 @@
                                 </el-form-item>
                             </li>
 
-                           <!-- <li>
+                            <li>
                                 <el-form-item label="最小额度" prop="quotaDo.minQuota" :rules="{ required: true, message: '最小额度不能为空', trigger: 'blur' }">
                                     <el-input clearable  type="number" v-model="addProForm.quotaDo.minQuota" placeholder="最小额度"></el-input>
                                     <div class="addName-tip">例如： 1</div>
@@ -75,7 +75,7 @@
                                     <el-input clearable  type="number" v-model="addProForm.quotaDo.defaultQuota" placeholder="默认额度"></el-input>
                                     <div class="addName-tip">例如： 1</div>
                                 </el-form-item>
-                            </li>-->
+                            </li>
 
                             <li >
                                 <el-form-item label="免责声明" prop="mzsmDo.name" :rules="{ required: true, message: '请输入免责声明', trigger: 'blur' }">
@@ -253,7 +253,7 @@
                         </el-form-item>
 
                         <!--qrimg图片上传-->
-                        <!--<div class="addPro-item2">
+                        <div class="addPro-item2">
                             <div class="img-ico">
                                 <el-image
                                         style="width: 100px; height: 100px"
@@ -264,11 +264,11 @@
                             <el-form-item label=""  prop="contactDo.qrimg">
                                 <input type="file" class="face" accept="image/*" @change="upload_qrimg" ref="inputer2">
                             </el-form-item>
-                        </div>-->
+                        </div>
 
 
                         <el-form-item class="sub-item compare-submit">
-                            <el-button type="primary" @click="onSubmit('addProForm')"  :loading="loadState.searchLoad">立即添加</el-button>
+                            <el-button type="primary" @click="onSubmit('addProForm')"  :loading="loadState.searchLoad">立即修改</el-button>
                         </el-form-item>
                     </el-form>
 
@@ -285,9 +285,12 @@
     import {getProdDetailApi, updateProductApi} from '@/assets/js/api'
 
     export default {
+        inject: ['reLoad'],
         name: "comLoanDetail",
         data() {
             return {
+                srcList:[],
+                qrimgArr:[],
 
 	            btnLoad:{
 		            btnBack:true,
@@ -307,12 +310,12 @@
 	            },
 
 	            loanType: [
-		            {id: '1', name: '银行信贷'},
-		            {id: '2', name: '机构信贷'},
+		            {id: 1, name: '银行信贷'},
+		            {id: 2, name: '机构信贷'},
 		            // {id: '3', name: '小额贷款'},
-		            {id: '4', name: '企业贷款'},
-		            {id: '5', name: '抵押贷款'},
-		            {id: '6', name: '线上急融'},
+		            {id: 4, name: '企业贷款'},
+		            {id: 5, name: '抵押贷款'},
+		            {id: 6, name: '线上急融'},
 	            ],
 
 	            addProForm: {
@@ -345,15 +348,15 @@
 			            {name: '', nameValue: "", id: '', productId: ''},
 		            ],
 
-		            // quotaDo: {
-			        //     // quotaDo:0, //额度
-			        //     id: '',
-			        //     minQuota: 1,  //最小额度
-			        //     maxQuota: 1, //最大额度
-			        //     step: 1, //间隔额度
-			        //     defaultQuota: 1, //默认额度
-			        //     productId: '',
-		            // },
+		            quotaDo: {
+			            // quotaDo:0, //额度
+			            id: '',
+			            minQuota: 1,  //最小额度
+			            maxQuota: 1, //最大额度
+			            step: 1, //间隔额度
+			            defaultQuota: 1, //默认额度
+			            productId: '',
+		            },
 
 		            //产品标签2
 		            label2List: [
@@ -412,14 +415,73 @@
                 })
             },
 
-            addItem() {
-                this.loanArr.listArr.push({
-                    name: ""
+            qsBlur(event,index){
+                console.log(index);
+                let qsNameVal = parseFloat(event.target.value) ;
+
+                console.log(qsNameVal);
+                this.addProForm.qsList[index].nameValue = qsNameVal;
+                console.log(this.addProForm.qsList);
+            },
+
+            upload_photo: function () {
+                var that = this;
+
+                var inputDOM = that.$refs.inputer;
+                var file = inputDOM.files;
+
+                var formData = new FormData();
+                formData.append('file', file[0]);
+
+                imgUpload(formData,).then(res => {
+                    this.srcList = [];
+                    this.srcList.push(res);
+                    console.log(res);
+                    this.addProForm.ioc = res;
+                }).catch(res => {
+                    console.log(res);
+                })
+            },
+
+            upload_qrimg: function () {
+                var that = this;
+                var inputDOM = that.$refs.inputer2;
+                var file = inputDOM.files;
+
+                var formData = new FormData();
+                formData.append('file', file[0]);
+
+                imgUpload(formData,).then(res => {
+                    this.qrimgArr = [];
+                    this.qrimgArr.push(res);
+                    console.log(res);
+                    this.addProForm.contactDo.qrimg = res;
+                }).catch(res => {
+                    console.log(res);
+                })
+            },
+
+
+            /*删除*/
+            removeInp(type, index) {
+                this.addProForm[type].splice(index, 1)
+            },
+
+            /*添加*/
+            addInp(type) {
+                console.log(type);
+                this.addProForm[type].push({
+                    productId: "",
+                    name: '',
+                    key: Date.now()
                 });
             },
-            deleteItem(item, index) {
-                console.log(index);
-                this.loanArr.listArr.splice(index, 1);
+
+            // 上传图片成功
+            imgSuccess(res, file, fileList) {
+                console.log(res)
+                console.log(file)
+                console.log(fileList)  // 这里可以获得上传成功的相关信息
             },
 
             onSubmit() {
@@ -430,17 +492,14 @@
 		            let that = this;
 		            if (res.status == 'success') {
 			            this.$message({
-				            message: '添加成功',
+				            message: '更新成功',
 				            type: 'success',
 				            duration: 1500,
 				            offset: 40,
 			            });
 			            setTimeout(() => {
-				            this.product_id = res.data.productId;
-				            this.showState = {
-					            matchIndex: false,
-					            matchCompare: true,
-				            }
+
+			                this.reLoad();
 			            }, 1500)
 		            } else {
 			            this.$message({

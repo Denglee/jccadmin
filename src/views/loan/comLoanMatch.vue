@@ -26,15 +26,15 @@
 
                         <!--0502 输入框 demo-->
                         <!--<el-form-item label="融资总额">
-                            <el-input  type="number" clearable v-model="userChecked.total_financing" placeholder="例如：10"></el-input>
+                            <el-input  type="number" @mousewheel.native.prevent  clearable v-model="userChecked.total_financing" placeholder="例如：10"></el-input>
                         </el-form-item>-->
 
                         <el-form-item label="最小年龄">
-                            <el-input  type="number" clearable  v-model="userChecked.min_age" placeholder="例如：18"></el-input>
+                            <el-input  type="number" @mousewheel.native.prevent   clearable  v-model="userChecked.min_age" placeholder="例如：18"></el-input>
                         </el-form-item>
 
                         <el-form-item label="最大年龄">
-                            <el-input  type="number" clearable  v-model="userChecked.max_age" placeholder="例如：60"></el-input>
+                            <el-input  type="number" @mousewheel.native.prevent   clearable  v-model="userChecked.max_age" placeholder="例如：60"></el-input>
                         </el-form-item>
 
                         <!-- 0503 多选demo-->
@@ -55,16 +55,25 @@
                         </el-form-item>
 
                         <el-form-item label="单位性质">
-                            <el-radio-group v-model="userChecked.dwxz" class="match-radioGropu">
-                                <el-radio v-for="(item,index) in userInfo.dwxz" :key="index" :label="item.name">{{item.value}}</el-radio>
-                            </el-radio-group>
+                            <el-checkbox-group v-model="checkedArr2.dwxz" class="match-radioGropu">
+                                <el-checkbox v-for="(item,index) in userInfo.dwxz" :key="index" :label="item.name" name="item.id">
+                                    {{item.value}}
+                                </el-checkbox>
+
+                                <!--<el-checkbox v-for="(item,index) in userInfo.dwxz" :key="index" :label="item.name">{{item.value}}</el-checkbox>-->
+                            </el-checkbox-group>
                         </el-form-item>
 
                         <el-form-item label="工资发放形式">
-                            <el-radio-group v-model="userChecked.gzffxs" class="match-radioGropu">
-                                <el-radio v-for="(item,index) in userInfo.gzffxs" :key="index" :label="item.name">{{item.value}}</el-radio>
-                            </el-radio-group>
+
+                            <el-checkbox-group v-model="checkedArr2.gzffxs" class="match-radioGropu">
+                                <el-checkbox v-for="(item,index) in userInfo.gzffxs" :key="index" :label="item.name" name="item.id">
+                                    {{item.value}}
+                                </el-checkbox>
+                                <!--<el-checkbox v-for="(item,index) in userInfo.gzffxs" :key="index" :label="item.name">{{item.value}}</el-checkbox>-->
+                            </el-checkbox-group>
                         </el-form-item>
+
 
                         <el-form-item label="平均工资">
                             <el-radio-group v-model="userChecked.pjgz" class="match-radioGropu">
@@ -187,11 +196,11 @@
                         </el-form-item>
 
                         <el-form-item label="最小房龄" class="width-inlineLabel">
-                            <el-input  type="number" clearable  v-model="userChecked.min_fl" placeholder="例如：2"></el-input>
+                            <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.min_fl" placeholder="例如：2"></el-input>
                         </el-form-item>
 
                         <el-form-item label="最大房龄" class="width-inlineLabel">
-                            <el-input  type="number" clearable  v-model="userChecked.max_fl" placeholder="例如：60"></el-input>
+                            <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.max_fl" placeholder="例如：60"></el-input>
                         </el-form-item>
                     </div>
 
@@ -279,23 +288,23 @@
                     <!--逾期-->
                     <div class="compare-form">
                         <el-form-item label="一个月内查询次数" class="width-inlineLabel">
-                            <el-input  type="number" clearable  v-model="userChecked.ygyncxcs" placeholder="例如：1"></el-input>
+                            <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ygyncxcs" placeholder="例如：1"></el-input>
                         </el-form-item>
 
                         <el-form-item label="两个月内查询次数" class="width-inlineLabel">
-                            <el-input  type="number" clearable  v-model="userChecked.lgyncxcs" placeholder="例如：1"></el-input>
+                            <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lgyncxcs" placeholder="例如：1"></el-input>
                         </el-form-item>
 
                         <el-form-item label="三个月内查询次数" class="width-inlineLabel">
-                            <el-input  type="number" clearable  v-model="userChecked.sgyncxcs" placeholder="例如：1"></el-input>
+                            <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.sgyncxcs" placeholder="例如：1"></el-input>
                         </el-form-item>
 
                         <el-form-item label="六个月内查询次数" class="width-inlineLabel">
-                            <el-input  type="number" clearable  v-model="userChecked.liugyncxcs" placeholder="例如：1"></el-input>
+                            <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.liugyncxcs" placeholder="例如：1"></el-input>
                         </el-form-item>
 
                         <el-form-item label="十二个月内查询次数" class="width-inlineLabel">
-                            <el-input  type="number" clearable  v-model="userChecked.segyncxcs" placeholder="例如：1"></el-input>
+                            <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.segyncxcs" placeholder="例如：1"></el-input>
                         </el-form-item>
 
                         <el-form-item label="当前小额笔数">
@@ -329,17 +338,17 @@
                                 </el-radio-group>
                             </el-form-item>
 
-                            <el-form-item label="近半年内逾期一个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.bnn_yqygycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期一个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqygycs" placeholder="例如：1"></el-input>
                             </el-form-item>
-                            <el-form-item label="近半年内逾期两个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.bnn_yqlgycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期两个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqlgycs" placeholder="例如：1"></el-input>
                             </el-form-item>
-                            <el-form-item label="近半年内逾期三个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.bnn_yqsgycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期三个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqsgycs" placeholder="例如：1"></el-input>
                             </el-form-item>
-                            <el-form-item label="近半年内逾期四个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.bnn_yqsigycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期四个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqsigycs" placeholder="例如：1"></el-input>
                             </el-form-item>
                         </div>
 
@@ -350,17 +359,17 @@
                                 </el-radio-group>
                             </el-form-item>
 
-                            <el-form-item label="近一年内逾期一个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.ynn_yqygycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期一个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqygycs" placeholder="例如：1"></el-input>
                             </el-form-item>
-                            <el-form-item label="近一年内逾期两个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.ynn_yqlgycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期两个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqlgycs" placeholder="例如：1"></el-input>
                             </el-form-item>
-                            <el-form-item label="近一年内逾期三个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.ynn_yqsgycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期三个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqsgycs" placeholder="例如：1"></el-input>
                             </el-form-item>
-                            <el-form-item label="近一年内逾期四个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.ynn_yqsigycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期四个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqsigycs" placeholder="例如：1"></el-input>
                             </el-form-item>
                         </div>
 
@@ -371,17 +380,17 @@
                                 </el-radio-group>
                             </el-form-item>
 
-                            <el-form-item label="近两年内逾期一个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.lnn_yqygycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期一个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqygycs" placeholder="例如：1"></el-input>
                             </el-form-item>
-                            <el-form-item label="近两年内逾期两个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.lnn_yqlgycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期两个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqlgycs" placeholder="例如：1"></el-input>
                             </el-form-item>
-                            <el-form-item label="近两年内逾期三个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.lnn_yqsgycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期三个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqsgycs" placeholder="例如：1"></el-input>
                             </el-form-item>
-                            <el-form-item label="近两年内逾期四个月次数" class="width-inlineLabel">
-                                <el-input  type="number" clearable  v-model="userChecked.lnn_yqsigycs" placeholder="例如：1"></el-input>
+                            <el-form-item label="逾期四个月次数" class="width-inlineLabel">
+                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqsigycs" placeholder="例如：1"></el-input>
                             </el-form-item>
                         </div>
                     </div>
@@ -394,7 +403,7 @@
                         </el-form-item>
 
                         <!--                <el-form-item label="贷款额度">-->
-                        <!--                    <el-input  type="number" clearable  v-model="userChecked.loan_years" placeholder="例如：1"></el-input>-->
+                        <!--                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.loan_years" placeholder="例如：1"></el-input>-->
                         <!--                </el-form-item>-->
 
                         <!--                <el-form-item label="放款时效">-->
@@ -411,12 +420,12 @@
 
 
                         <!--                <el-form-item label="利息">-->
-                        <!--                    <el-input  type="number" clearable  v-model="userChecked.interest" placeholder="例如：0.55"></el-input>-->
+                        <!--                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.interest" placeholder="例如：0.55"></el-input>-->
                         <!--                </el-form-item>-->
                     </div>
 
                     <el-form-item class="compare-submit">
-                        <el-button type="primary" @click="onSubmit" :loading="loadState.searchLoad">立即创建</el-button>
+                        <el-button type="primary" @click="onSubmit" :loading="loadState.searchLoad">立即更新</el-button>
                     </el-form-item>
 
                 </el-form>
@@ -451,11 +460,13 @@
 				/*所有单选 数组*/
 				userInfo: userInfo,
 
-				checkedArr2:{
-					hyzk:[1,2,3,4],
-					hj:[],
-					fclx:[],
-				},
+                checkedArr2:{
+                    hyzk:[1,2,3,4],
+                    dwxz:[1,2,3,4,5,6],
+                    gzffxs:[1,2,3],
+                    hj:[],
+                    fclx:[],
+                },
 
 				/*用户选中*/
 				userChecked: {
@@ -467,69 +478,69 @@
 					max_age:'',  //最大年龄
 					hyzk: '',         // 3、婚姻状况    +++++++
 					hj: '',           // 4、户籍        +++++++
-					dwxz: 'null',         // 5、单位性质
-					gzffxs: 'null',       // 6、工资发放形式
-					pjgz: 'null',         // 7、平均工资
-					bdwgzsc: 'null',      // 8、本单位工作时长
-					sbjs: 'null',         // 9、社保基数
-					sb_jnsc: 'null',      // 10、社保缴纳时长
-					sb_xdwjnsc: 'null',   // 11、社保现单位缴纳时长
-					gjjjs: 'null',        // 12、公积金基数
-					gjj_jnsc: 'null',     // 13、公积金缴纳时长
-					gjj_xdwjnsc: 'null',  // 14、公积金现单位缴纳时长
-					yyzznx: 'null',       // 15、营业执照年限
-					dwsfkc: 'null',       // 16、单位是否考察
-					dgls: 'null',         // 17、对公流水
-					gskpje: 'null',       // 18、公司开票金额
-					gsnsje: 'null',       // 19、公司纳税金额
-					fclx: 'null',         // 20、房产类型        ++++
-					ajz: 'null',          // 21、按揭中（月供时间）
-					ajjq: 'null',         // 22、按揭结清（结清时间）
-					qkf: 'null',          // 23、全款房（过户时间）
+					dwxz: -1,         // 5、单位性质
+					gzffxs: -1,       // 6、工资发放形式
+					pjgz: -1,         // 7、平均工资
+					bdwgzsc: -1,      // 8、本单位工作时长
+					sbjs: -1,         // 9、社保基数
+					sb_jnsc: -1,      // 10、社保缴纳时长
+					sb_xdwjnsc: -1,   // 11、社保现单位缴纳时长
+					gjjjs: -1,        // 12、公积金基数
+					gjj_jnsc: -1,     // 13、公积金缴纳时长
+					gjj_xdwjnsc: -1,  // 14、公积金现单位缴纳时长
+					yyzznx: -1,       // 15、营业执照年限
+					dwsfkc: -1,       // 16、单位是否考察
+					dgls: -1,         // 17、对公流水
+					gskpje: -1,       // 18、公司开票金额
+					gsnsje: -1,       // 19、公司纳税金额
+					fclx: -1,         // 20、房产类型        ++++
+					ajz: -1,          // 21、按揭中（月供时间）
+					ajjq: -1,         // 22、按揭结清（结清时间）
+					qkf: -1,          // 23、全款房（过户时间）
 					// fl: '',           // 24、房龄
-					min_fl: 'null',           // 24、最小房龄
-					max_fl: 'null',           // 24、最大房龄
-					ajc: 'null',          // 25、按揭车（按揭时间）
-					qkc: 'null',          // 26、全款车（按揭结清或过户时间）
-					clsyc: 'null',        // 27、车辆所有权
-					clxz: 'null',         // 28、车辆性质
-					clczsj: 'null',       // 29、车辆持证时间
-					clgsd: 'null',        // 30、车辆归属地
-					cl: 'null',           // 31、车龄
-					jqxsyyxq: 'null',     // 32、交强险剩余有效期
-					xsgls: 'null',        // 33、行驶公里数
-					syxsyyxq: 'null',     // 34、商业险剩余有效期
-					bxlx: 'null',         // 35、保险类型
-					bxjnfs: 'null',       // 36、保险缴纳方式
-					bxjfsj: 'null',       // 37、保险缴费时间
+					min_fl: 0,           // 24、最小房龄
+					max_fl: 0,           // 24、最大房龄
+					ajc: -1,          // 25、按揭车（按揭时间）
+					qkc: -1,          // 26、全款车（按揭结清或过户时间）
+					clsyc: -1,        // 27、车辆所有权
+					clxz: -1,         // 28、车辆性质
+					clczsj: -1,       // 29、车辆持证时间
+					clgsd: -1,        // 30、车辆归属地
+					cl: -1,           // 31、车龄
+					jqxsyyxq: -1,     // 32、交强险剩余有效期
+					xsgls: -1,        // 33、行驶公里数
+					syxsyyxq: -1,     // 34、商业险剩余有效期
+					bxlx: -1,         // 35、保险类型
+					bxjnfs: -1,       // 36、保险缴纳方式
+					bxjfsj: -1,       // 37、保险缴费时间
 					ygyncxcs: '',     // 38、一个月内查询次数
 					lgyncxcs: '',     // 39、两个月内查询次数
 					sgyncxcs: '',     // 40、三个月内查询次数
 					liugyncxcs: '',   // 41、六个月内查询次数
 					segyncxcs: '',    // 42、十二个月内查询次数
-					dqxebs: 'null',       // 43、当前小额笔数
-					dqxfjrbs: 'null',     // 44、当前消费金融笔数
-					sfczyc: 'null',       // 45、贷款/信用卡是否存在止付；呆账；关注等异常
-					dqyqed: 'null',       // 46、当前逾期额度
-					bnn_wyq: 'null',      // 47、近半年内有无逾期
+					dqxebs: -1,       // 43、当前小额笔数
+					dqxfjrbs: -1,     // 44、当前消费金融笔数
+					sfczyc: -1,       // 45、贷款/信用卡是否存在止付；呆账；关注等异常
+					dqyqed: -1,       // 46、当前逾期额度
+					bnn_wyq: -1,      // 47、近半年内有无逾期
 					bnn_yqygycs: '',  // 48、近半年内逾期一个月次数
 					bnn_yqlgycs: '',  // 49、近半年内逾期两个月次数
 					bnn_yqsgycs: '',  // 50、近半年内逾期三个月次数
 					bnn_yqsigycs: '', // 51、近半年内逾期四个月次数
-					ynn_wyq: 'null',      // 52、近一年内有无逾期
+					ynn_wyq: -1,      // 52、近一年内有无逾期
 					ynn_yqygycs: '',  // 53、近一年内逾期一个月次数
 					ynn_yqlgycs: '',  // 54、近一年内逾期二个月次数
 					ynn_yqsgycs: '',  // 55、近一年内逾期三个月次数
 					ynn_yqsigycs: '', // 56、近一年内逾期四个月次数
-					lnn_wyq: 'null',      // 57、近两年内有无逾期
+					lnn_wyq: -1,      // 57、近两年内有无逾期
 					lnn_yqygycs: '',  // 58、近两年内逾期一个月次数
 					lnn_yqlgycs: '',  // 59、近两年内逾期二个月次数
 					lnn_yqsgycs: '',  // 60、近两年内逾期三个月次数
 					lnn_yqsigycs: '', // 61、近两年内逾期四个月次数
-					sfsygwld: 'null',     // 62、是否使用过微粒贷
+					sfsygwld: -1,     // 62、是否使用过微粒贷
 
-					sfyssqydd:'null',         //是否有上市企业订单
-					sfgxjsqy:'null',         //是否高新技术企业
+					sfyssqydd:-1,         //是否有上市企业订单
+					sfgxjsqy:-1,         //是否高新技术企业
 
 					// loan_years:'',   //贷款年限 额度（6.17 改成 额度）
 					// loan_time_limit:'',   //放款时效  6.17 不要
@@ -558,6 +569,13 @@
                 }).then(res=>{
 					console.log(res);
 					this.userChecked = res.data;
+					console.log(res.data.hyzk.split(",").map(Number));
+                    this.checkedArr2.hyzk = res.data.hyzk.split(",").map(Number);
+                    this.checkedArr2.dwxz = res.data.dwxz.split(",").map(Number);
+                    this.checkedArr2.gzffxs = res.data.gzffxs.split(",").map(Number);
+                    this.checkedArr2.hj = res.data.hj.split(",").map(Number);
+                    this.checkedArr2.fclx = res.data.fclx.split(",").map(Number);
+
                 }).catch(res=>{
 					console.log(res);
                 })
@@ -573,30 +591,46 @@
 				this.loanArr.listArr.splice(index, 1);
 			},
 
+
 			onSubmit(){
 				this.GLOBAL.btnStateChange(this,'loadState','searchLoad');
 				// console.log(this.userChecked);
 
-				/*婚姻状况*/
-				if(this.checkedArr2.hyzk.length > 0){
-					this.userChecked.hyzk = this.checkedArr2.hyzk.join(',');
-				}else{
-					this.userChecked.hyzk = '';
-				}
+                /*婚姻状况*/
+                if(this.checkedArr2.hyzk.length > 0){
+                    this.userChecked.hyzk = this.checkedArr2.hyzk.join(',');
+                }else{
+                    this.userChecked.hyzk = '';
+                }
 
-				/*户籍*/
-				if(this.checkedArr2.hj.length > 0){
-					this.userChecked.hj = this.checkedArr2.hj.join(',');
-				}else{
-					this.userChecked.hj = '';
-				}
+                /*单位性质*/
+                if(this.checkedArr2.dwxz.length > 0){
+                    this.userChecked.dwxz = this.checkedArr2.dwxz.join(',');
+                }else{
+                    this.userChecked.dwxz = '';
+                }
 
-				/*房产类型*/
-				if(this.checkedArr2.fclx.length > 0){
-					this.userChecked.fclx = this.checkedArr2.fclx.join(',');
-				}else{
-					this.userChecked.fclx = '';
-				}
+                /*工资发放形式*/
+                if(this.checkedArr2.gzffxs.length > 0){
+                    this.userChecked.gzffxs = this.checkedArr2.gzffxs.join(',');
+                }else{
+                    this.userChecked.gzffxs = '';
+                }
+
+                /*户籍*/
+                if(this.checkedArr2.hj.length > 0){
+                    this.userChecked.hj = this.checkedArr2.hj.join(',');
+                }else{
+                    this.userChecked.hj = '';
+                }
+
+                /*房产类型*/
+                if(this.checkedArr2.fclx.length > 0){
+                    this.userChecked.fclx = this.checkedArr2.fclx.join(',');
+                }else{
+                    this.userChecked.fclx = '';
+                }
+
 				console.log(this.userChecked.hyzk);
 				console.log(this.userChecked.hj);
 				console.log(this.userChecked.fclx);
@@ -609,6 +643,7 @@
 						duration:1500,
 						offset:40,
 					});
+					return false
 				}
 
 				if(this.userChecked.loan_type_detail == ''){
@@ -618,6 +653,8 @@
 						duration:1500,
 						offset:100,
 					});
+
+                    return false
 				}
 
 
@@ -627,7 +664,7 @@
 					let that =this;
 					if(res.status == 'success'){
 						this.$message({
-							message: '添加成功',
+							message: '匹配更新成功',
 							type: 'success',
 							duration:1500,
 							offset:40,
@@ -637,7 +674,7 @@
 						},1500)
 					}else{
 						this.$message({
-							message: '添加失败',
+							message: '匹配更新失败',
 							type: 'error',
 							duration:1500,
 							offset:40,

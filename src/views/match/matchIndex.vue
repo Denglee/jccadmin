@@ -268,6 +268,7 @@
 <script>
     import matchCompare from "./matchCompare";
     import {addProduct, imgUpload} from '@/assets/js/api'
+    import followTrainer from "../../../../insist/src/views/Member/memberIndex/followTrainer";
 
     export default {
         name: "matchIndex",
@@ -285,8 +286,8 @@
                 },
 
                 showState:{
-                    matchIndex:false,
-                    matchCompare:true,
+                    matchIndex:true,
+                    matchCompare:false,
                 },
 
                 dialogImageUrl: '',

@@ -32,59 +32,59 @@ let userInfo = {
     ],
     sb: [
         //5.1、社保    新增
-        {id: "sb0", name: 'null', value: "不选"},
+        {id: "sb0", name: -1, value: "不选"},
         {id: "sb1", name: 1, value: "有社保"},
         {id: "sb2", name: 2, value: "无社保"}
     ],
     gjj: [
         //5.1、公积金    新增
-        {id: "gjj0", name: 'null', value: "不选"},
+        {id: "gjj0", name: -1, value: "不选"},
         {id: "gjj1", name: 1, value: "有公积金"},
         {id: "gjj2", name: 2, value: "无公积金"}
     ],
     clgsdq: [
         //5.2、车辆归属地区    新增
-        {id: "clgsdq0", name: 'null', value: "不选"},
+        {id: "clgsdq0", name: -1, value: "不选"},
         {id: "clgsdq1", name: 1, value: "广东省"},
         {id: "clgsdq2", name: 2, value: "其他城市"}
     ],
     clzt: [
         //5.4、车辆状态    新增
-        {id: "clzt0", name: 'null', value: "不选"},
+        {id: "clzt0", name: -1, value: "不选"},
         {id: "clzt1", name: 1, value: "按揭中"},
         {id: "clzt2", name: 2, value: "全款买车"}
     ],
     clzt2: [
         //5.41、车辆状态2    新增
-        {id: "clzt20", name: 'null', value: "不选"},
+        {id: "clzt20", name: -1, value: "不选"},
         {id: "clzt21", name: 1, value: "按揭中"},
         {id: "clzt22", name: 2, value: "全款买车"},
         {id: "clzt23", name: 3, value: "无车"}
     ],
     fcxx: [
         //5.5、房产信息    新增
-        {id: "fcxx0", name: 'null', value: "不选"},
+        {id: "fcxx0", name: -1, value: "不选"},
         {id: "fcxx1", name: 1, value: "深圳房产"},
         {id: "fcxx2", name: 2, value: "全国"},
         {id: "fcxx3", name: 3, value: "无房产"}
     ],
     fczt: [
         //5.6、房产状态    新增
-        {id: "fczt0", name: 'null', value: "不选"},
+        {id: "fczt0", name: -1, value: "不选"},
         {id: "fczt1", name: 1, value: "按揭中"},
         {id: "fczt2", name: 2, value: "按揭已结清"},
         {id: "fczt3", name: 3, value: "全款房"}
     ],
     bxbd: [
         //5.7、保险保单    新增
-        {id: "bxbd0", name: 'null', value: "不选"},
+        {id: "bxbd0", name: -1, value: "不选"},
         {id: "bxbd1", name: 1, value: "有商业保险"},
         {id: "bxbd2", name: 2, value: "无商业保险"}
     ],
 
     dwxz: [
         //5、单位性质
-        {id: "dwxz0", name: 'null', value: "不选"},
+        // {id: "dwxz0", name: -1, value: "不选"},
         {id: "dwxz1", name: 1, value: "普通企业"},
         {id: "dwxz2", name: 2, value: "公务员"},
         {id: "dwxz3", name: 3, value: "500强"},
@@ -94,14 +94,14 @@ let userInfo = {
     ],
     gzffxs: [
         //6、工资发放形式
-        {id: "gzffxs1", name: 'null', value: "不选"},
+        // {id: "gzffxs1", name: -1, value: "不选"},
         {id: "gzffxs1", name: 1, value: "银行代发"},
         {id: "gzffxs2", name: 2, value: "固定转账"},
         {id: "gzffxs3", name: 3, value: "其它"}
     ],
     pjgz: [
         //7、平均工资
-        {id: "pjgz0", name: 'null', value: "不选"},
+        {id: "pjgz0", name: -1, value: "不选"},
         {id: "pjgz1", name: 1, value: "5000以内"},
         {id: "pjgz2", name: 2, value: "5000以上"},
         {id: "pjgz3", name: 3, value: "6000以上"},
@@ -110,7 +110,7 @@ let userInfo = {
     ],
     bdwgzsc: [
         //8、本单位工作时长
-        {id: "bdwgzsc0", name: 'null', value: "不选"},
+        {id: "bdwgzsc0", name: -1, value: "不选"},
         {id: "bdwgzsc1", name: 1, value: "3月内"},
         {id: "bdwgzsc2", name: 2, value: "3月以上"},
         {id: "bdwgzsc3", name: 3, value: "6月以上"},
@@ -119,7 +119,7 @@ let userInfo = {
     ],
     sbjs: [
         //9、社保基数
-        {id: "sbjs0", name: 'null', value: "不选"},
+        {id: "sbjs0", name: -1, value: "不选"},
         {id: "sbjs1", name: 1, value: "5000以内"},
         {id: "sbjs2", name: 2, value: "5000以上"},
         {id: "sbjs3", name: 3, value: "6000以上"},
@@ -128,7 +128,7 @@ let userInfo = {
     ],
     sb_jnsc: [
         //10、社保缴纳时长
-        {id: "sb_jnsc0", name: 'null', value: "不选"},
+        {id: "sb_jnsc0", name: -1, value: "不选"},
         {id: "sb_jnsc1", name: 1, value: "3月以内"},
         {id: "sb_jnsc2", name: 2, value: "3月以上"},
         {id: "sb_jnsc3", name: 3, value: "6月以上"},
@@ -137,7 +137,7 @@ let userInfo = {
     ],
     sb_xdwjnsc: [
         //11、社保现单位缴纳时长
-        {id: "sb_xdwjnsc0", name: 'null', value: "不选"},
+        {id: "sb_xdwjnsc0", name: -1, value: "不选"},
         {id: "sb_xdwjnsc1", name: 1, value: "3月以内"},
         {id: "sb_xdwjnsc2", name: 2, value: "3月以上"},
         {id: "sb_xdwjnsc3", name: 3, value: "6月以上"},
@@ -146,7 +146,7 @@ let userInfo = {
     ],
     gjjjs: [
         //12、公积金基数
-        {id: "gjjjs0", name: 'null', value: "不选"},
+        {id: "gjjjs0", name: -1, value: "不选"},
         {id: "gjjjs1", name: 1, value: "5000以内"},
         {id: "gjjjs2", name: 2, value: "5000以上"},
         {id: "gjjjs3", name: 3, value: "6000以上"},
@@ -155,7 +155,7 @@ let userInfo = {
     ],
     gjj_jnsc: [
         //13、公积金缴纳时长
-        {id: "gjj_jnsc0", name: 'null', value: "不选"},
+        {id: "gjj_jnsc0", name: -1, value: "不选"},
         {id: "gjj_jnsc1", name: 1, value: "3月以内"},
         {id: "gjj_jnsc2", name: 2, value: "3月以上"},
         {id: "gjj_jnsc3", name: 3, value: "6月以上"},
@@ -164,7 +164,7 @@ let userInfo = {
     ],
     gjj_xdwjnsc: [
         //14、公积金现单位缴纳时长
-        {id: "gjj_xdwjnsc0", name: 'null', value: "不选"},
+        {id: "gjj_xdwjnsc0", name: -1, value: "不选"},
         {id: "gjj_xdwjnsc1", name: 1, value: "3月以内"},
         {id: "gjj_xdwjnsc2", name: 2, value: "3月以上"},
         {id: "gjj_xdwjnsc3", name: 3, value: "6月以上"},
@@ -173,7 +173,7 @@ let userInfo = {
     ],
     yyzznx: [
         //15、营业执照年限
-        {id: "yyzznx0", name: 'null', value: "不选"},
+        {id: "yyzznx0", name: -1, value: "不选"},
         {id: "yyzznx1", name: 1, value: "未注册"},
         {id: "yyzznx2", name: 2, value: "3个月以内"},
         {id: "yyzznx3", name: 3, value: "3个月以上"},
@@ -183,19 +183,19 @@ let userInfo = {
     ],
     dwsfkc: [
         //16、单位是否考察
-        {id: "dwsfkc0", name: 'null', value: "不选"},
+        {id: "dwsfkc0", name: -1, value: "不选"},
         {id: "dwsfkc1", name: 0, value: "不能考察"},
         {id: "dwsfkc2", name: 1, value: "可以考察"}
     ],
     dgls: [
         //17、对公流水
-        {id: "dgls0", name: 'null', value: "不选"},
+        {id: "dgls0", name: -1, value: "不选"},
         {id: "dgls1", name: 0, value: "无对公流水"},
         {id: "dgls2", name: 1, value: "有对公流水"}
     ],
     gskpje: [
         //18、公司开票金额
-        {id: "gskpje0", name: 'null', value: "不选"},
+        {id: "gskpje0", name: -1, value: "不选"},
         {id: "gskpje1", name: 1, value: "10万以下"},
         {id: "gskpje2", name: 2, value: "10万以上"},
         {id: "gskpje3", name: 3, value: "100万以上"},
@@ -203,7 +203,7 @@ let userInfo = {
     ],
     gsnsje: [
         //19、公司纳税金额
-        {id: "gsnsje0", name: 'null', value: "不选"},
+        {id: "gsnsje0", name: -1, value: "不选"},
         {id: "gsnsje1", name: 1, value: "3万以内"},
         {id: "gsnsje2", name: 2, value: "3万以上"},
         {id: "gsnsje3", name: 3, value: "10万以上"},
@@ -211,19 +211,19 @@ let userInfo = {
     ],
     sfyssqydd: [
         //19.111、是否有上市企业订单
-        {id: "sfyssqydd0", name: 'null', value: "不选"},
+        {id: "sfyssqydd0", name: -1, value: "不选"},
         {id: "sfyssqydd1", name: 1, value: "没有"},
         {id: "sfyssqydd2", name: 2, value: "有"},
     ],
     sfgxjsqy: [
         //19.222、是否高新技术企业
-        {id: "sfgxjsqy0", name: 'null', value: "不选"},
+        {id: "sfgxjsqy0", name: -1, value: "不选"},
         {id: "sfgxjsqy1", name: 1, value: "是"},
         {id: "sfgxjsqy2", name: 2, value: "否"},
     ],
     fclx: [
         //20、房产类型
-        // {id: "fclx0", name: 'null', value: "不选"},
+        // {id: "fclx0", name: -1, value: "不选"},
         {id: "fclx1", name: 1, value: "住宅"},
         {id: "fclx2", name: 2, value: "商住两用"},
         {id: "fclx3", name: 3, value: "别墅"},
@@ -244,7 +244,7 @@ let userInfo = {
     ],
     ajz: [
         //21、按揭中（月供时间）
-        {id: "ajz0", name: 'null', value: "不选"},
+        {id: "ajz0", name: -1, value: "不选"},
         {id: "ajz1", name: 1, value: "3月以内"},
         {id: "ajz2", name: 2, value: "3月以上"},
         {id: "ajz3", name: 3, value: "6月以上"},
@@ -253,7 +253,7 @@ let userInfo = {
     ],
     ajjq: [
         //22、按揭结清（结清时间）
-        {id: "ajjq0", name: 'null', value: "不选"},
+        {id: "ajjq0", name: -1, value: "不选"},
         {id: "ajjq1", name: 1, value: "3月以内"},
         {id: "ajjq2", name: 2, value: "3月以上"},
         {id: "ajjq3", name: 3, value: "6月以上"},
@@ -262,7 +262,7 @@ let userInfo = {
     ],
     qkf: [
         //23、全款房（过户时间）
-        {id: "qkf0", name: 'null', value: "不选"},
+        {id: "qkf0", name: -1, value: "不选"},
         {id: "qkf1", name: 1, value: "3月以内"},
         {id: "qkf2", name: 2, value: "3月以上"},
         {id: "qkf3", name: 3, value: "6月以上"},
@@ -271,48 +271,48 @@ let userInfo = {
     ],
     fl: [
         //24、房龄
-        {id: "fl0", name: 'null', value: "不选"},
+        {id: "fl0", name: -1, value: "不选"},
         {id: "fl1", name: 1, value: "1~30"},
         {id: "fl2", name: 2, value: "30~35"},
         {id: "fl3", name: 3, value: "35~50"}
     ],
     ajc: [
         //25、按揭车（按揭时间）
-        {id: "ajc0", name: 'null', value: "不选"},
+        {id: "ajc0", name: -1, value: "不选"},
         {id: "ajc1", name: 1, value: "6个月以内"},
         {id: "ajc2", name: 2, value: "6个月以上"},
         {id: "ajc3", name: 3, value: "1年以上"}
     ],
     qkc: [
         //26、全款车（按揭结清或过户时间）
-        {id: "qkc0", name: 'null', value: "不选"},
+        {id: "qkc0", name: -1, value: "不选"},
         {id: "qkc1", name: 1, value: "6个月以内"},
         {id: "qkc2", name: 2, value: "6个月以上"},
         {id: "qkc3", name: 3, value: "1年以上"}
     ],
     clsyc: [
         //27、车辆所有权
-        {id: "clsyc0", name: 'null', value: "不选"},
+        {id: "clsyc0", name: -1, value: "不选"},
         {id: "clsyc1", name: 1, value: "本人"},
         {id: "clsyc2", name: 2, value: "配偶"},
         {id: "clsyc3", name: 3, value: "公司"}
     ],
     clxz: [
         //28、车辆性质
-        {id: "clxz0", name: 'null', value: "不选"},
+        {id: "clxz0", name: -1, value: "不选"},
         {id: "clxz1", name: 1, value: "非运营"},
         {id: "clxz2", name: 2, value: "运营"}
     ],
     clczsj: [
         //29、车辆持证时间
-        {id: "clczsj0", name: 'null', value: "不选"},
+        {id: "clczsj0", name: -1, value: "不选"},
         {id: "clczsj1", name: 1, value: "3个月以内"},
         {id: "clczsj2", name: 2, value: "3~6个月"},
         {id: "clczsj3", name: 3, value: "6个月以上"}
     ],
     clgsd: [
         //30、车辆归属地
-        {id: "clgsd0", name: 'null', value: "不选"},
+        {id: "clgsd0", name: -1, value: "不选"},
         {id: "clgsd1", name: 1, value: "粤A广州"},
         {id: "clgsd2", name: 2, value: "粤B深圳"},
         {id: "clgsd3", name: 3, value: "粤C珠海"},
@@ -340,7 +340,7 @@ let userInfo = {
     ],
     cl: [
         //31、车龄
-        {id: "cl0", name: 'null', value: "不选"},
+        {id: "cl0", name: -1, value: "不选"},
         {id: "cl1", name: 1, value: "2年"},
         {id: "cl2", name: 2, value: "5年"},
         {id: "cl3", name: 3, value: "8年"},
@@ -349,14 +349,14 @@ let userInfo = {
     ],
     jqxsyyxq: [
         //32、交强险剩余有效期
-        {id: "jqxsyyxq0", name: 'null', value: "不选"},
+        {id: "jqxsyyxq0", name: -1, value: "不选"},
         {id: "jqxsyyxq1", name: 1, value: "3个月以内"},
         {id: "jqxsyyxq2", name: 2, value: "6个月以内"},
         {id: "jqxsyyxq3", name: 3, value: "12个月以内"}
     ],
     xsgls: [
         //33、行驶公里数
-        {id: "xsgls0", name: 'null', value: "不选"},
+        {id: "xsgls0", name: -1, value: "不选"},
         {id: "xsgls1", name: 1, value: "5万公里"},
         {id: "xsgls2", name: 2, value: "10万公里"},
         {id: "xsgls3", name: 3, value: "15万公里"},
@@ -365,14 +365,14 @@ let userInfo = {
     ],
     syxsyyxq: [
         //33、商业险剩余有效期
-        {id: "syxsyyxq0", name: 'null', value: "不选"},
+        {id: "syxsyyxq0", name: -1, value: "不选"},
         {id: "syxsyyxq1", name: 1, value: "3个月以内"},
         {id: "syxsyyxq2", name: 2, value: "6个月以内"},
         {id: "syxsyyxq3", name: 3, value: "12个月以内"}
     ],
     bxlx: [
         //35、保险类型
-        {id: "bxlx0", name: 'null', value: "不选"},
+        {id: "bxlx0", name: -1, value: "不选"},
         {id: "bxlx1", name: 1, value: "平安保险"},
         {id: "bxlx2", name: 2, value: "新华保险"},
         {id: "bxlx3", name: 3, value: "人寿保险"},
@@ -392,7 +392,7 @@ let userInfo = {
     ],
     bxjnfs: [
         //36、保险缴纳方式
-        {id: "bxjnfs0", name: 'null', value: "不选"},
+        {id: "bxjnfs0", name: -1, value: "不选"},
         {id: "bxjnfs1", name: 1, value: "年缴"},
         {id: "bxjnfs2", name: 2, value: "季缴"},
         {id: "bxjnfs3", name: 3, value: "月缴"},
@@ -400,7 +400,7 @@ let userInfo = {
     ],
     bxjfsj: [
         //37、保险缴费时间
-        {id: "bxjfsj0", name: 'null', value: "不选"},
+        {id: "bxjfsj0", name: -1, value: "不选"},
         {id: "bxjfsj1", name: 1, value: "6个月以内"},
         {id: "bxjfsj2", name: 2, value: "6个月以上"},
         {id: "bxjfsj3", name: 3, value: "1年以上"},
@@ -409,7 +409,7 @@ let userInfo = {
 
     dqxebs: [
         //43、当前小额笔数
-        {id: "dqxebs0", name: 'null', value: "不选"},
+        {id: "dqxebs0", name: -1, value: "不选"},
         {id: "dqxebs1", name: 1, value: "无"},
         {id: "dqxebs2", name: 2, value: "1笔"},
         {id: "dqxebs3", name: 3, value: "2笔"},
@@ -419,7 +419,7 @@ let userInfo = {
     ],
     dqxfjrbs: [
         //44、当前消费金融笔数
-        {id: "dqxfjrbs0", name: 'null', value: "不选"},
+        {id: "dqxfjrbs0", name: -1, value: "不选"},
         {id: "dqxfjrbs1", name: 1, value: "无"},
         {id: "dqxfjrbs2", name: 2, value: "1笔"},
         {id: "dqxfjrbs3", name: 3, value: "2笔"},
@@ -429,13 +429,13 @@ let userInfo = {
     ],
     sfczyc: [
         //45、贷款/信用卡是否存在止付；呆账；关注等异常
-        {id: "sfczyc0", name: 'null', value: "不选"},
+        {id: "sfczyc0", name: -1, value: "不选"},
         {id: "sfczyc1", name: 0, value: "无"},
         {id: "sfczyc2", name: 1, value: "有"}
     ],
     dqyqed: [
         //46、当前逾期额度
-        {id: "dqyqed0", name: 'null', value: "不选"},
+        {id: "dqyqed0", name: -1, value: "不选"},
         {id: "dqyqed1", name: 1, value: "无逾期"},
         {id: "dqyqed2", name: 2, value: "1000元以内"},
         {id: "dqyqed3", name: 3, value: "1000元以上"},
@@ -445,41 +445,41 @@ let userInfo = {
     ],
     bnn_wyq: [
         //47、近半年内有无逾期
-        {id: "bnn_wyq0", name: 'null', value: "不选"},
+        {id: "bnn_wyq0", name: -1, value: "不选"},
         {id: "bnn_wyq1", name: 0, value: "无逾期"},
         {id: "bnn_wyq2", name: 1, value: "有逾期"}
     ],
 
     ynn_wyq: [
         //52、近一年内有无逾期 ynn_wyq:  0：无逾期；1：后台默认是有逾期
-        {id: "ynn_wyq0", name: 'null', value: "不选"},
+        {id: "ynn_wyq0", name: -1, value: "不选"},
         {id: "ynn_wyq1", name: 0, value: "无逾期"},
         {id: "ynn_wyq2", name: 1, value: "有逾期"}
     ],
 
     lnn_wyq: [
         //57、近两年内有无逾期 lnn_wyq:  0：无逾期；1：后台默认是有逾期
-        {id: "lnn_wyq0", name: 'null', value: "不选"},
+        {id: "lnn_wyq0", name: -1, value: "不选"},
         {id: "lnn_wyq1", name: 0, value: "无逾期"},
         {id: "lnn_wyq2", name: 1, value: "有逾期"}
     ],
 
     sfsygwld: [
         //62、是否使用过微粒贷
-        {id: "sfsygwld0", name: 'null', value: "不选"},
+        {id: "sfsygwld0", name: -1, value: "不选"},
         {id: "sfsygwld1", name: 0, value: "没有"},
         {id: "sfsygwld2", name: 1, value: "有"}
     ],
 
     loan_time_limit: [    // 放款时效
-        {id: "loan_time_limit0", name: 'null', value: "不选"},
+        {id: "loan_time_limit0", name: -1, value: "不选"},
         {id: "loan_time_limit1", name: 0, value: "当天放款"},
         {id: "loan_time_limit2", name: 1, value: "1~3天"},
         {id: "loan_time_limit3", name: 2, value: "七天内"},
     ],
 
     loan_mode: [ //还款方式
-        {id: "loan_mode0", name: 'null', value: "不选"},
+        {id: "loan_mode0", name: -1, value: "不选"},
         {id: "loan_mode1", name: 0, value: "等额本息还款"},
         {id: "loan_mode2", name: 1, value: "等额本金还款"},
         {id: "loan_mode3", name: 2, value: "等额等息还款"},
