@@ -40,28 +40,28 @@
 
                 <li>
                     <el-form-item label="最小额度" prop="quotaDo.minQuota" :rules="{ required: true, message: '最小额度不能为空', trigger: 'blur' }">
-                        <el-input clearable  type="number" v-model="addProForm.quotaDo.minQuota" placeholder="最小额度"></el-input>
+                        <el-input clearable  type="number" @mousewheel.native.prevent v-model="addProForm.quotaDo.minQuota" placeholder="最小额度"></el-input>
                         <div class="addName-tip">例如： 1</div>
                     </el-form-item>
                 </li>
 
                 <li>
                     <el-form-item label="最大额度" prop="quotaDo.maxQuota" :rules="{ required: true, message: '最大额度不能为空', trigger: 'blur' }">
-                        <el-input clearable  type="number" v-model="addProForm.quotaDo.maxQuota" placeholder="最大额度"></el-input>
+                        <el-input clearable  type="number" @mousewheel.native.prevent v-model="addProForm.quotaDo.maxQuota" placeholder="最大额度"></el-input>
                         <div class="addName-tip">例如： 10</div>
                     </el-form-item>
                 </li>
 
                 <li>
                     <el-form-item label="额度间隔" prop="quotaDo.step" :rules="{ required: true, message: '额度间隔不能为空', trigger: 'blur' }">
-                        <el-input clearable  type="number" v-model="addProForm.quotaDo.step" placeholder="额度间隔"></el-input>
+                        <el-input clearable  type="number" @mousewheel.native.prevent v-model="addProForm.quotaDo.step" placeholder="额度间隔"></el-input>
                         <div class="addName-tip">例如： 1</div>
                     </el-form-item>
                 </li>
 
                 <li>
                     <el-form-item label="默认额度" prop="quotaDo.defaultQuota" :rules="{ required: true, message: '默认额度不能为空', trigger: 'blur' }">
-                        <el-input clearable  type="number" v-model="addProForm.quotaDo.defaultQuota" placeholder="默认额度"></el-input>
+                        <el-input clearable  type="number" @mousewheel.native.prevent v-model="addProForm.quotaDo.defaultQuota" placeholder="默认额度"></el-input>
                         <div class="addName-tip">例如： 1</div>
                     </el-form-item>
                 </li>
@@ -114,7 +114,7 @@
                         </el-form-item>-->
                         <el-form-item class="secend-itemLabel" :prop="'basicInfoList.' + index + '.nameValue'" v-if="index == 2"
                         style="width: 40%;" :rules="{ required: true, message: '还款方式不能为空', trigger: 'blur' }">
-                            <el-input clearable type="number"  v-model="basicItem.nameValue" placeholder="请输入还款方式"></el-input>
+                            <el-input clearable type="number" @mousewheel.native.prevent  v-model="basicItem.nameValue" placeholder="请输入还款方式"></el-input>
                             <div class="addEg-tip">例如：1 。(提示：1是等额本息还款；2是等额本金还款；3是等额等息还款；4是先息后本还款；5是到期还本还款；6是气球贷还款)</div>
                         </el-form-item>
                         <!--<el-button @click="addInp('basicInfoList',index)" v-if="index == 0">新增基本信息</el-button>
@@ -132,7 +132,7 @@
                             <div class="addEg-tip">例如：12期</div>
                         </el-form-item>
                        <!-- <el-form-item class="secend-itemLabel" :prop="'qsList.' + index + '.nameValue'" :rules="{ required: true, message: '还款期数值不能为空', trigger: 'blur' }">
-                            <el-input type="number" clearable  v-model="hkqsItem.nameValue" placeholder="请输入还款期数值"></el-input>
+                            <el-input type="number" @mousewheel.native.prevent clearable  v-model="hkqsItem.nameValue" placeholder="请输入还款期数值"></el-input>
                             <div class="addEg-tip">例如：12</div>
                         </el-form-item>-->
                         <el-button @click="addInp('qsList',index)" v-if="index == 0">新增还款期数</el-button>

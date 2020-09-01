@@ -282,7 +282,7 @@
 
 <script>
 	import navRefush from '@/components/navRefush/navRefush' /*按钮组件  */
-    import {getProdDetailApi, updateProductApi} from '@/assets/js/api'
+    import {getProdDetailApi, updateProductApi,imgUpload} from '@/assets/js/api'
 
     export default {
         inject: ['reLoad'],

@@ -263,7 +263,12 @@ $borRadius: 15px;
     }
 
 }
-
+.loanList-ioc{
+    height: 60px;
+    img{
+        width: auto;
+    }
+}
 @media all and (max-width: 1600px) {
     .pt-screen {
         margin-top: -10px;

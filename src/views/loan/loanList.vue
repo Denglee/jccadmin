@@ -26,7 +26,7 @@
                         <el-table-column type="index" label="序号" width="55"></el-table-column>
                         <el-table-column prop="ioc" label="ioc">
                             <template slot-scope="scope">
-                                <el-image style="height: 80px;" :src="scope.row.ioc"></el-image>
+                                <el-image class="loanList-ioc" :src="scope.row.ioc"></el-image>
                             </template>
                         </el-table-column>
                         <el-table-column prop="name" label="产品名称"></el-table-column>
