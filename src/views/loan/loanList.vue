@@ -55,10 +55,13 @@
                                 </el-button>
 
 
-                                <el-button size="small" v-popover:popover>
+                                <!--<el-button size="small" v-popover:popover>
                                     <i class="el-icon-delete"></i>删除
-                                </el-button>
-                                <el-popover
+                                </el-button>-->
+
+<!--                                <el-button type="primary" size="mini" @click="FnDeteleLoan(scope.$index, scope.row)" :loading="btnLoad.btnSureDel">删除</el-button>-->
+
+                                <!--<el-popover
                                         ref="popover"
                                         placement="top"
                                         width="200"
@@ -68,6 +71,19 @@
                                         <el-button size="mini" type="text" @click="visible = false">取消</el-button>
                                         <el-button type="primary" size="mini" @click="FnDeteleLoan(scope.$index, scope.row)" :loading="btnLoad.btnSureDel">确定</el-button>
                                     </div>
+                                </el-popover>-->
+
+                                <el-popover
+                                        placement="top"
+                                        width="160"
+                                        style="margin-left: 10px;"
+                                        v-model="showPopoverState[scope.$index]">
+                                    <p>确定删除吗？</p>
+                                    <div style="text-align: right; margin: 0">
+                                        <el-button size="mini" type="text"   @click='btnClosePop(scope.$index)'>取消</el-button>
+                                        <el-button type="primary" size="mini" @click="FnDeteleLoan(scope.$index, scope.row)" :loading="btnLoad.btnSureDel">确定</el-button>
+                                    </div>
+                                    <el-button slot="reference">删除</el-button>
                                 </el-popover>
 
 
@@ -105,6 +121,8 @@
         name: "loanList",
         data() {
             return {
+                showPopoverState: [],
+
                 visible: false,
 
 	            btnLoad:{
@@ -218,10 +236,21 @@
 
 	        },
 
+            /*删除取消*/
+            btnClosePop(index){
+                console.log(index);
+                this.showPopoverState.splice(index, 1, false);
+            },
+
             /*删除*/
             FnDeteleLoan(index,val){
                 this.GLOBAL.btnStateChange(this,'btnLoad','btnSureDel')
             	console.log(val);
+
+                console.log(val.id);
+
+                // return false
+
 	            deleteProductApi({
 		            productId:val.id,
                 }).then(res=>{
