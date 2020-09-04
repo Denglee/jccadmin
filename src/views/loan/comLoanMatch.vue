@@ -568,13 +568,16 @@
                     productId:this.productId,
                 }).then(res=>{
 					console.log(res);
-					this.userChecked = res.data;
-					console.log(res.data.hyzk.split(",").map(Number));
-                    this.checkedArr2.hyzk = res.data.hyzk.split(",").map(Number);
-                    this.checkedArr2.dwxz = res.data.dwxz.split(",").map(Number);
-                    this.checkedArr2.gzffxs = res.data.gzffxs.split(",").map(Number);
-                    this.checkedArr2.hj = res.data.hj.split(",").map(Number);
-                    this.checkedArr2.fclx = res.data.fclx.split(",").map(Number);
+                    if(res.data == 'success'){
+                        this.userChecked = res.data;
+                        console.log(res.data.hyzk.split(",").map(Number));
+
+                        this.checkedArr2.hyzk = res.data.hyzk.split(",").map(Number);
+                        this.checkedArr2.dwxz = res.data.dwxz.split(",").map(Number);
+                        this.checkedArr2.gzffxs = res.data.gzffxs.split(",").map(Number);
+                        this.checkedArr2.hj = res.data.hj.split(",").map(Number);
+                        this.checkedArr2.fclx = res.data.fclx.split(",").map(Number);
+                    }
 
                 }).catch(res=>{
 					console.log(res);
