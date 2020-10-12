@@ -487,6 +487,18 @@
             onSubmit() {
                 console.log(this.dynamicItem);
 
+                // let  CookiePageLoan = JSON.parse(sessionStorage.getItem('loanDetailParm'));
+                // console.log(CookiePageLoan);
+                // if(CookiePageLoan){  //有存 则显示orderInfo页面
+                //     // this.pageShow(CookiePageLoan.NowPageName,'loanItem');
+                //     this.loanDetailParm = {
+                //         prodId : CookiePageLoan.prodId,
+                //         prodType : CookiePageLoan.prodType,
+                //     }
+                //
+                //     this.FnGetProdDetail();
+                // }
+
 	            updateProductApi(this.addProForm).then(res => {
 		            console.log(res);
 		            let that = this;

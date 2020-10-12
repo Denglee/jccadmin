@@ -464,8 +464,8 @@
                     hyzk:[1,2,3,4],
                     dwxz:[1,2,3,4,5,6],
                     gzffxs:[1,2,3],
-                    hj:[],
-                    fclx:[],
+                    hj:[1,2,3],
+                    fclx:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
                 },
 
 				/*用户选中*/
@@ -568,7 +568,7 @@
                     productId:this.productId,
                 }).then(res=>{
 					console.log(res);
-                    if(res.data == 'success'){
+                    if(res.status == 'success'){
                         this.userChecked = res.data;
                         console.log(res.data.hyzk.split(",").map(Number));
 
@@ -598,6 +598,11 @@
 			onSubmit(){
 				this.GLOBAL.btnStateChange(this,'loadState','searchLoad');
 				// console.log(this.userChecked);
+
+                let sessionProductId = JSON.parse(sessionStorage.getItem('loanDetailParm')).productId;
+                this.productId = sessionProductId;
+                this.userChecked.product_id = sessionProductId;
+                console.log('productId: ' + this.productId);
 
                 /*婚姻状况*/
                 if(this.checkedArr2.hyzk.length > 0){
@@ -694,6 +699,7 @@
 			console.log(CookiePageLoan);
 			if(CookiePageLoan){  //有存 则显示orderInfo页面
                 this.productId = CookiePageLoan.productId;
+                this.userChecked.product_id = CookiePageLoan.productId;
 				this.FnGetProductCondition();
 
 			}

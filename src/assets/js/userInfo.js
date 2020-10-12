@@ -109,7 +109,7 @@ let userInfo = {
         {id: "pjgz5", name: 5, value: "8000以上"}
     ],
     bdwgzsc: [
-        //8、本单位工作时长
+        //8、本单位工作时长f
         {id: "bdwgzsc0", name: -1, value: "不选"},
         {id: "bdwgzsc1", name: 1, value: "3月内"},
         {id: "bdwgzsc2", name: 2, value: "3月以上"},
@@ -240,7 +240,7 @@ let userInfo = {
         {id: "fclx14", name: 14, value: "综合楼"},
         {id: "fclx15", name: 15, value: "福利房"},
         {id: "fclx16", name: 16, value: "单身宿舍"},
-        {id: "fclx17", name: "17", value: "单身公寓"}
+        {id: "fclx17", name: 17, value: "单身公寓"}
     ],
     ajz: [
         //21、按揭中（月供时间）
@@ -445,22 +445,22 @@ let userInfo = {
     ],
     bnn_wyq: [
         //47、近半年内有无逾期
-        {id: "bnn_wyq0", name: -1, value: "不选"},
-        {id: "bnn_wyq1", name: 0, value: "无逾期"},
+        // {id: "bnn_wyq0", name: -1, value: "不选"},
+        {id: "bnn_wyq1", name: -1, value: "无逾期"},
         {id: "bnn_wyq2", name: 1, value: "有逾期"}
     ],
 
     ynn_wyq: [
         //52、近一年内有无逾期 ynn_wyq:  0：无逾期；1：后台默认是有逾期
-        {id: "ynn_wyq0", name: -1, value: "不选"},
-        {id: "ynn_wyq1", name: 0, value: "无逾期"},
+        // {id: "ynn_wyq0", name: -1, value: "不选"},
+        {id: "ynn_wyq1", name: -1, value: "无逾期"},
         {id: "ynn_wyq2", name: 1, value: "有逾期"}
     ],
 
     lnn_wyq: [
         //57、近两年内有无逾期 lnn_wyq:  0：无逾期；1：后台默认是有逾期
-        {id: "lnn_wyq0", name: -1, value: "不选"},
-        {id: "lnn_wyq1", name: 0, value: "无逾期"},
+        // {id: "lnn_wyq0", name: -1, value: "不选"},
+        {id: "lnn_wyq1", name: -1, value: "无逾期"},
         {id: "lnn_wyq2", name: 1, value: "有逾期"}
     ],
 

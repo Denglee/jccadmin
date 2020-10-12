@@ -329,18 +329,21 @@
                         </el-radio-group>
                     </el-form-item>
 
-                    <el-form-item label="逾期一个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.bnn_yqygycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="逾期两个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.bnn_yqlgycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="逾期三个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.bnn_yqsgycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="逾期四个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.bnn_yqsigycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
+                    <div v-if="userChecked.bnn_wyq == 1">
+                        <el-form-item label="逾期一个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.bnn_yqygycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                        <el-form-item label="逾期两个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.bnn_yqlgycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                        <el-form-item label="逾期三个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.bnn_yqsgycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                        <el-form-item label="逾期四个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.bnn_yqsigycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                    </div>
+
                 </div>
 
                 <div>
@@ -350,18 +353,21 @@
                         </el-radio-group>
                     </el-form-item>
 
-                    <el-form-item label="逾期一个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.ynn_yqygycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="逾期两个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.ynn_yqlgycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="逾期三个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.ynn_yqsgycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="逾期四个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.ynn_yqsigycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
+                    <div v-if="userChecked.ynn_wyq == 1">
+                        <el-form-item label="逾期一个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.ynn_yqygycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                        <el-form-item label="逾期两个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.ynn_yqlgycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                        <el-form-item label="逾期三个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.ynn_yqsgycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                        <el-form-item label="逾期四个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.ynn_yqsigycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                    </div>
+
                 </div>
 
                 <div>
@@ -371,18 +377,21 @@
                         </el-radio-group>
                     </el-form-item>
 
-                    <el-form-item label="逾期一个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.lnn_yqygycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="逾期两个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.lnn_yqlgycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="逾期三个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.lnn_yqsgycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
-                    <el-form-item label="逾期四个月次数" class="width-inlineLabel">
-                        <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.lnn_yqsigycs" placeholder="例如：1"></el-input>
-                    </el-form-item>
+                    <div v-if="userChecked.lnn_wyq == 1">
+                        <el-form-item label="逾期一个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.lnn_yqygycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                        <el-form-item label="逾期两个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.lnn_yqlgycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                        <el-form-item label="逾期三个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.lnn_yqsgycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                        <el-form-item label="逾期四个月次数" class="width-inlineLabel">
+                            <el-input  type="number" @mousewheel.native.prevent clearable  v-model="userChecked.lnn_yqsigycs" placeholder="例如：1"></el-input>
+                        </el-form-item>
+                    </div>
+
                 </div>
             </div>
 
@@ -432,6 +441,7 @@
         props:{
             product_id:''
         },
+        inject:['reLoad'],
         data() {
             return {
                 loadState: {    //按钮状态
@@ -445,13 +455,13 @@
                     hyzk:[1,2,3,4],
                     dwxz:[1,2,3,4,5,6],
                     gzffxs:[1,2,3],
-                    hj:[],
-                    fclx:[],
+                    hj:[1,2,3],
+                    fclx:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
                 },
 
                 /*用户选中*/
                 userChecked: {
-                    product_id:0,
+                    product_id:35,
                     loan_type:'',  //贷款类型 信用 房抵 车抵
                     total_financing:'',         //总额
                     // age: 18,          // 1、年龄
@@ -613,7 +623,8 @@
                             offset:40,
                         });
                         setTimeout(function(){
-                            window.location.reload();
+                            // that.reLoad()
+                            // window.location.reload();
                         },1500)
                     }else{
                         this.$message({
@@ -629,8 +640,8 @@
             },
         },
         created() {
-            console.log(this.product_id);
-            this.userChecked.product_id = this.product_id;
+            // console.log(this.product_id);
+            // this.userChecked.product_id = this.product_id;
         },
     }
 </script>
