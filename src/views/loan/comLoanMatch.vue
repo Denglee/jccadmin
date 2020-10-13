@@ -337,19 +337,20 @@
                                     <el-radio v-for="(item,index) in userInfo.bnn_wyq" :key="index" :label="item.name">{{item.value}}</el-radio>
                                 </el-radio-group>
                             </el-form-item>
-
-                            <el-form-item label="逾期一个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqygycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
-                            <el-form-item label="逾期两个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqlgycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
-                            <el-form-item label="逾期三个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqsgycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
-                            <el-form-item label="逾期四个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqsigycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
+                            <div v-if="userChecked.bnn_wyq == 1">
+                                <el-form-item label="逾期一个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqygycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                                <el-form-item label="逾期两个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqlgycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                                <el-form-item label="逾期三个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqsgycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                                <el-form-item label="逾期四个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.bnn_yqsigycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                            </div>
                         </div>
 
                         <div>
@@ -358,19 +359,20 @@
                                     <el-radio v-for="(item,index) in userInfo.ynn_wyq" :key="index" :label="item.name">{{item.value}}</el-radio>
                                 </el-radio-group>
                             </el-form-item>
-
-                            <el-form-item label="逾期一个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqygycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
-                            <el-form-item label="逾期两个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqlgycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
-                            <el-form-item label="逾期三个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqsgycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
-                            <el-form-item label="逾期四个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqsigycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
+                            <div v-if="userChecked.ynn_wyq == 1">
+                                <el-form-item label="逾期一个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqygycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                                <el-form-item label="逾期两个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqlgycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                                <el-form-item label="逾期三个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqsgycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                                <el-form-item label="逾期四个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.ynn_yqsigycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                            </div>
                         </div>
 
                         <div>
@@ -379,19 +381,20 @@
                                     <el-radio v-for="(item,index) in userInfo.lnn_wyq" :key="index" :label="item.name">{{item.value}}</el-radio>
                                 </el-radio-group>
                             </el-form-item>
-
-                            <el-form-item label="逾期一个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqygycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
-                            <el-form-item label="逾期两个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqlgycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
-                            <el-form-item label="逾期三个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqsgycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
-                            <el-form-item label="逾期四个月次数" class="width-inlineLabel">
-                                <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqsigycs" placeholder="例如：1"></el-input>
-                            </el-form-item>
+                            <div v-if="userChecked.lnn_wyq == 1">
+                                <el-form-item label="逾期一个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqygycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                                <el-form-item label="逾期两个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqlgycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                                <el-form-item label="逾期三个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqsgycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                                <el-form-item label="逾期四个月次数" class="width-inlineLabel">
+                                    <el-input  type="number" @mousewheel.native.prevent  clearable  v-model="userChecked.lnn_yqsigycs" placeholder="例如：1"></el-input>
+                                </el-form-item>
+                            </div>
                         </div>
                     </div>
 
@@ -443,6 +446,7 @@
 
 	export default {
 		name: "comLoanMatch",
+        inject:['reLoad'],
 		data() {
 			return {
 				loanArr: [],
@@ -465,7 +469,7 @@
                     dwxz:[1,2,3,4,5,6],
                     gzffxs:[1,2,3],
                     hj:[1,2,3],
-                    fclx:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
+                    fclx:[],
                 },
 
 				/*用户选中*/
@@ -478,50 +482,50 @@
 					max_age:'',  //最大年龄
 					hyzk: '',         // 3、婚姻状况    +++++++
 					hj: '',           // 4、户籍        +++++++
-					dwxz: -1,         // 5、单位性质
-					gzffxs: -1,       // 6、工资发放形式
-					pjgz: -1,         // 7、平均工资
-					bdwgzsc: -1,      // 8、本单位工作时长
-					sbjs: -1,         // 9、社保基数
-					sb_jnsc: -1,      // 10、社保缴纳时长
-					sb_xdwjnsc: -1,   // 11、社保现单位缴纳时长
-					gjjjs: -1,        // 12、公积金基数
-					gjj_jnsc: -1,     // 13、公积金缴纳时长
-					gjj_xdwjnsc: -1,  // 14、公积金现单位缴纳时长
-					yyzznx: -1,       // 15、营业执照年限
-					dwsfkc: -1,       // 16、单位是否考察
-					dgls: -1,         // 17、对公流水
-					gskpje: -1,       // 18、公司开票金额
-					gsnsje: -1,       // 19、公司纳税金额
-					fclx: -1,         // 20、房产类型        ++++
-					ajz: -1,          // 21、按揭中（月供时间）
-					ajjq: -1,         // 22、按揭结清（结清时间）
-					qkf: -1,          // 23、全款房（过户时间）
+					dwxz: null,         // 5、单位性质
+					gzffxs: null,       // 6、工资发放形式
+					pjgz: null,         // 7、平均工资
+					bdwgzsc: null,      // 8、本单位工作时长
+					sbjs: null,         // 9、社保基数
+					sb_jnsc: null,      // 10、社保缴纳时长
+					sb_xdwjnsc: null,   // 11、社保现单位缴纳时长
+					gjjjs: null,        // 12、公积金基数
+					gjj_jnsc: null,     // 13、公积金缴纳时长
+					gjj_xdwjnsc: null,  // 14、公积金现单位缴纳时长
+					yyzznx: null,       // 15、营业执照年限
+					dwsfkc: null,       // 16、单位是否考察
+					dgls: null,         // 17、对公流水
+					gskpje: null,       // 18、公司开票金额
+					gsnsje: null,       // 19、公司纳税金额
+					fclx: null,         // 20、房产类型        ++++
+					ajz: null,          // 21、按揭中（月供时间）
+					ajjq: null,         // 22、按揭结清（结清时间）
+					qkf: null,          // 23、全款房（过户时间）
 					// fl: '',           // 24、房龄
-					min_fl: 0,           // 24、最小房龄
-					max_fl: 0,           // 24、最大房龄
-					ajc: -1,          // 25、按揭车（按揭时间）
-					qkc: -1,          // 26、全款车（按揭结清或过户时间）
-					clsyc: -1,        // 27、车辆所有权
-					clxz: -1,         // 28、车辆性质
-					clczsj: -1,       // 29、车辆持证时间
-					clgsd: -1,        // 30、车辆归属地
-					cl: -1,           // 31、车龄
-					jqxsyyxq: -1,     // 32、交强险剩余有效期
-					xsgls: -1,        // 33、行驶公里数
-					syxsyyxq: -1,     // 34、商业险剩余有效期
-					bxlx: -1,         // 35、保险类型
-					bxjnfs: -1,       // 36、保险缴纳方式
-					bxjfsj: -1,       // 37、保险缴费时间
+					min_fl: '',           // 24、最小房龄
+					max_fl: '',           // 24、最大房龄
+					ajc: null,          // 25、按揭车（按揭时间）
+					qkc: null,          // 26、全款车（按揭结清或过户时间）
+					clsyc: null,        // 27、车辆所有权
+					clxz: null,         // 28、车辆性质
+					clczsj: null,       // 29、车辆持证时间
+					clgsd: null,        // 30、车辆归属地
+					cl: null,           // 31、车龄
+					jqxsyyxq: null,     // 32、交强险剩余有效期
+					xsgls: null,        // 33、行驶公里数
+					syxsyyxq: null,     // 34、商业险剩余有效期
+					bxlx: null,         // 35、保险类型
+					bxjnfs: null,       // 36、保险缴纳方式
+					bxjfsj: null,       // 37、保险缴费时间
 					ygyncxcs: '',     // 38、一个月内查询次数
 					lgyncxcs: '',     // 39、两个月内查询次数
 					sgyncxcs: '',     // 40、三个月内查询次数
 					liugyncxcs: '',   // 41、六个月内查询次数
 					segyncxcs: '',    // 42、十二个月内查询次数
-					dqxebs: -1,       // 43、当前小额笔数
-					dqxfjrbs: -1,     // 44、当前消费金融笔数
-					sfczyc: -1,       // 45、贷款/信用卡是否存在止付；呆账；关注等异常
-					dqyqed: -1,       // 46、当前逾期额度
+					dqxebs: null,       // 43、当前小额笔数
+					dqxfjrbs: null,     // 44、当前消费金融笔数
+					sfczyc: null,       // 45、贷款/信用卡是否存在止付；呆账；关注等异常
+					dqyqed: null,       // 46、当前逾期额度
 					bnn_wyq: -1,      // 47、近半年内有无逾期
 					bnn_yqygycs: '',  // 48、近半年内逾期一个月次数
 					bnn_yqlgycs: '',  // 49、近半年内逾期两个月次数
@@ -537,10 +541,10 @@
 					lnn_yqlgycs: '',  // 59、近两年内逾期二个月次数
 					lnn_yqsgycs: '',  // 60、近两年内逾期三个月次数
 					lnn_yqsigycs: '', // 61、近两年内逾期四个月次数
-					sfsygwld: -1,     // 62、是否使用过微粒贷
+					sfsygwld: null,     // 62、是否使用过微粒贷
 
-					sfyssqydd:-1,         //是否有上市企业订单
-					sfgxjsqy:-1,         //是否高新技术企业
+					sfyssqydd:null,         //是否有上市企业订单
+					sfgxjsqy:null,         //是否高新技术企业
 
 					// loan_years:'',   //贷款年限 额度（6.17 改成 额度）
 					// loan_time_limit:'',   //放款时效  6.17 不要
@@ -572,11 +576,69 @@
                         this.userChecked = res.data;
                         console.log(res.data.hyzk.split(",").map(Number));
 
-                        this.checkedArr2.hyzk = res.data.hyzk.split(",").map(Number);
-                        this.checkedArr2.dwxz = res.data.dwxz.split(",").map(Number);
-                        this.checkedArr2.gzffxs = res.data.gzffxs.split(",").map(Number);
-                        this.checkedArr2.hj = res.data.hj.split(",").map(Number);
-                        this.checkedArr2.fclx = res.data.fclx.split(",").map(Number);
+                        // alert(res.data.fclx.split(",").map(Number));
+
+                        // let hyzk = res.data.hyzk.split(",").map(Number);
+                        // let dwxz = res.data.dwxz.split(",").map(Number);
+                        // let gzffxs = res.data.gzffxs.split(",").map(Number);
+                        // let hj = res.data.hj.split(",").map(Number);
+                        let hyzk='',
+                            dwxz='',
+                            gzffxs='',
+                            hj='',
+                            fclx='';
+                        console.log('lx);'+res.data.fclx);
+                        console.log('hyzk'+res.data.hyzk);
+                        if(res.data.hyzk != null){
+                            hyzk = res.data.hyzk.split(",").map(Number);
+                        }
+
+                        if(res.data.dwxz != null){
+                            dwxz = res.data.dwxz.split(",").map(Number);
+                        }
+
+                        if(res.data.gzffxs != null){
+                            gzffxs = res.data.gzffxs.split(",").map(Number);
+                        }
+
+                        if(res.data.hj != null){
+                            hj = res.data.hj.split(",").map(Number);
+                        }
+                        if(res.data.fclx != null){
+                            fclx = res.data.fclx.split(",").map(Number);
+                        }
+                        console.log('590'+fclx);
+                        if(hyzk == 0 || hyzk == undefined || hyzk.length == 0){
+                            this.checkedArr2.hyzk = [];
+                        }else{
+                            this.checkedArr2.hyzk = hyzk;
+                        }
+
+
+                        if(dwxz == 0 || dwxz == undefined || dwxz.length == 0){
+                            this.checkedArr2.dwxz = [];
+                        }else{
+                            this.checkedArr2.dwxz = dwxz;
+                        }
+
+                        if(gzffxs == 0 || gzffxs == undefined || gzffxs.length == 0){
+                            this.checkedArr2.gzffxs = [];
+                        }else{
+                            this.checkedArr2.gzffxs = gzffxs;
+                        }
+
+                        if(hj == 0 || hj == undefined || hj.length == 0){
+                            this.checkedArr2.hj = [];
+                        }else{
+                            this.checkedArr2.hj = hj;
+                        }
+
+                        if(fclx == 0 || fclx == undefined || fclx.length == 0 ){
+                            this.checkedArr2.fclx = [];
+                        }else{
+                            this.checkedArr2.fclx = fclx;
+                        }
+
                     }
 
                 }).catch(res=>{
@@ -608,41 +670,42 @@
                 if(this.checkedArr2.hyzk.length > 0){
                     this.userChecked.hyzk = this.checkedArr2.hyzk.join(',');
                 }else{
-                    this.userChecked.hyzk = '';
+                    this.userChecked.hyzk = null;
                 }
 
                 /*单位性质*/
                 if(this.checkedArr2.dwxz.length > 0){
                     this.userChecked.dwxz = this.checkedArr2.dwxz.join(',');
                 }else{
-                    this.userChecked.dwxz = '';
+                    this.userChecked.dwxz = null;
                 }
 
                 /*工资发放形式*/
                 if(this.checkedArr2.gzffxs.length > 0){
                     this.userChecked.gzffxs = this.checkedArr2.gzffxs.join(',');
                 }else{
-                    this.userChecked.gzffxs = '';
+                    this.userChecked.gzffxs = null;
                 }
 
                 /*户籍*/
                 if(this.checkedArr2.hj.length > 0){
                     this.userChecked.hj = this.checkedArr2.hj.join(',');
                 }else{
-                    this.userChecked.hj = '';
+                    this.userChecked.hj = null;
                 }
 
                 /*房产类型*/
                 if(this.checkedArr2.fclx.length > 0){
+                    console.log('房产类型 0');
                     this.userChecked.fclx = this.checkedArr2.fclx.join(',');
                 }else{
-                    this.userChecked.fclx = '';
+                    console.log('房产类型 null');
+                    this.userChecked.fclx = null;
                 }
 
 				console.log(this.userChecked.hyzk);
 				console.log(this.userChecked.hj);
 				console.log(this.userChecked.fclx);
-
 				console.log(this.userChecked.loan_type);
 				if(this.userChecked.loan_type == ''){
 					this.$message({
@@ -678,7 +741,8 @@
 							offset:40,
 						});
 						setTimeout(function(){
-							window.location.reload();
+							// window.location.reload();
+                            that.reLoad();
 						},1500)
 					}else{
 						this.$message({
@@ -701,7 +765,6 @@
                 this.productId = CookiePageLoan.productId;
                 this.userChecked.product_id = CookiePageLoan.productId;
 				this.FnGetProductCondition();
-
 			}
 
 		},
