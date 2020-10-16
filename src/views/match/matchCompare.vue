@@ -46,6 +46,12 @@
                     </el-checkbox-group>
                 </el-form-item>
 
+                <el-form-item label="职业类型">
+                    <el-radio-group v-model="userChecked.zylx" class="match-radioGropu">
+                        <el-radio v-for="(item,index) in userInfo.zylx" :key="index" :label="item.name">{{item.value}}</el-radio>
+                    </el-radio-group>
+                </el-form-item>
+
                 <el-form-item label="单位性质">
                     <el-checkbox-group v-model="checkedArr2.dwxz" class="match-radioGropu">
                         <el-checkbox v-for="(item,index) in userInfo.dwxz" :key="index" :label="item.name" name="item.id">
@@ -469,6 +475,7 @@
                     max_age:'',  //最大年龄
                     hyzk: null,         // 3、婚姻状况    +++++++
                     hj: null,           // 4、户籍        +++++++
+	                zylx:0,             //职业类型
                     dwxz: null,         // 5、单位性质    +++++++
                     gzffxs: null,       // 6、工资发放形式 +++++++
                     pjgz: null,         // 7、平均工资
@@ -513,17 +520,17 @@
                     dqxfjrbs: null,     // 44、当前消费金融笔数
                     sfczyc: null,       // 45、贷款/信用卡是否存在止付；呆账；关注等异常
                     dqyqed: null,       // 46、当前逾期额度
-                    bnn_wyq: -1,      // 47、近半年内有无逾期
+                    bnn_wyq: 0,      // 47、近半年内有无逾期
                     bnn_yqygycs: '',  // 48、近半年内逾期一个月次数
                     bnn_yqlgycs: '',  // 49、近半年内逾期两个月次数
                     bnn_yqsgycs: '',  // 50、近半年内逾期三个月次数
                     bnn_yqsigycs: '', // 51、近半年内逾期四个月次数
-                    ynn_wyq: -1,      // 52、近一年内有无逾期
+                    ynn_wyq: 0,      // 52、近一年内有无逾期
                     ynn_yqygycs: '',  // 53、近一年内逾期一个月次数
                     ynn_yqlgycs: '',  // 54、近一年内逾期二个月次数
                     ynn_yqsgycs: '',  // 55、近一年内逾期三个月次数
                     ynn_yqsigycs: '', // 56、近一年内逾期四个月次数
-                    lnn_wyq: -1,      // 57、近两年内有无逾期
+                    lnn_wyq: 0,      // 57、近两年内有无逾期
                     lnn_yqygycs: '',  // 58、近两年内逾期一个月次数
                     lnn_yqlgycs: '',  // 59、近两年内逾期二个月次数
                     lnn_yqsgycs: '',  // 60、近两年内逾期三个月次数
@@ -597,7 +604,6 @@
                         duration:1500,
                         offset:40,
                     });
-
                     return false
                 }
 
@@ -608,9 +614,11 @@
                         duration:1500,
                         offset:100,
                     });
-
                     return false
                 }
+
+                // console.log(this.userChecked);
+                // return false
 
                 addProductCondition(this.userChecked).then(res=>{
                     console.log(res);

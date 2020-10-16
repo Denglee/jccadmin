@@ -26,9 +26,9 @@ let userInfo = {
 
     zylx: [
         //5.0、职业类型    新增
-        {id: "zylx0", name: null, value: "不选"},
-        {id: "zylx1", name: 1, value: "上班族"},
-        {id: "zylx2", name: 2, value: "自雇(股东/其它)"}
+        // {id: "zylx0", name: null, value: "不选"},
+        {id: "zylx1", name: 0, value: "上班族"},
+        {id: "zylx2", name: 1, value: "自雇(股东/其它)"}
     ],
     sb: [
         //5.1、社保    新增
@@ -446,21 +446,21 @@ let userInfo = {
     bnn_wyq: [
         //47、近半年内有无逾期
         // {id: "bnn_wyq0", name: null, value: "不选"},
-        {id: "bnn_wyq1", name: -1, value: "无逾期"},
+        {id: "bnn_wyq1", name: 0, value: "无逾期"},
         {id: "bnn_wyq2", name: 1, value: "有逾期"}
     ],
 
     ynn_wyq: [
         //52、近一年内有无逾期 ynn_wyq:  0：无逾期；1：后台默认是有逾期
         // {id: "ynn_wyq0", name: null, value: "不选"},
-        {id: "ynn_wyq1", name: -1, value: "无逾期"},
+        {id: "ynn_wyq1", name: 0, value: "无逾期"},
         {id: "ynn_wyq2", name: 1, value: "有逾期"}
     ],
 
     lnn_wyq: [
         //57、近两年内有无逾期 lnn_wyq:  0：无逾期；1：后台默认是有逾期
         // {id: "lnn_wyq0", name: null, value: "不选"},
-        {id: "lnn_wyq1", name: -1, value: "无逾期"},
+        {id: "lnn_wyq1", name: 0, value: "无逾期"},
         {id: "lnn_wyq2", name: 1, value: "有逾期"}
     ],
 
