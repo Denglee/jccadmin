@@ -670,6 +670,16 @@
             this.$emit('GoBack', 'comLoanMatch');
          },
 
+	      /* Fn 数组 格式化*/
+	      FnSplitNum(res, type, parm){
+            if ( parm == null || parm == undefined || parm == '') {
+               parm = [];
+            } else {
+               parm = parm.split(",").map(Number);
+            }
+            this.checkedArr2[type] = parm;
+	      },
+
          FnGetProductCondition() {
             getProductConditionApi({
                productId: this.productId,
@@ -679,53 +689,21 @@
                   this.userChecked = res.data;
                   if (res.status == 'success') {
                      this.userChecked = res.data;
-                     console.log(res.data.hyzk.split(",").map(Number));
+                     // console.log(res.data.hyzk.split(",").map(Number));
                      // alert(res.data.fclx.split(",").map(Number));
-                     let hyzk = '', dwxz = '', gzffxs = '', hj = '', fclx = ''; //设置
-                     console.log('fclx' + res.data.fclx);
-                     console.log('hyzk' + res.data.hyzk);
+                     let hyzk1 = res.data.hyzk,
+	                      dwxz1 = res.data.dwxz,
+	                      gzffxs1 = res.data.gzffxs,
+	                      hj1 = res.data.hj,
+	                      fclx1 = res.data.fclx;
 
-                     /*hyzk*/
-                     if (res.data.hyzk != null || hyzk != undefined || hyzk.length != 0) {
-                        hyzk = res.data.hyzk.split(",").map(Number);
-                     } else {
-                        hyzk = [];
-                     }
-                     this.checkedArr2.hyzk = hyzk;
-
-                     /*dwxz*/
-                     if (res.data.dwxz != null || dwxz != undefined || dwxz.length != 0) {
-                        dwxz = res.data.dwxz.split(",").map(Number);
-                     } else {
-                        dwxz = [];
-                     }
-                     this.checkedArr2.dwxz = dwxz;
-
-                     /*gzffxs*/
-                     if (res.data.gzffxs != null || gzffxs != undefined || gzffxs.length != 0) {
-                        gzffxs = res.data.gzffxs.split(",").map(Number);
-                     } else {
-                        gzffxs = [];
-                     }
-                     this.checkedArr2.gzffxs = gzffxs;
-
-                     /*hj */
-                     if (res.data.hj != null || hj != undefined || hj.length != 0) {
-                        hj = res.data.hj.split(",").map(Number);
-                     } else {
-                        hj = [];
-                     }
-                     this.checkedArr2.hj = hj;
-
-                     /*fclx*/
-                     if (res.data.fclx != null || fclx != undefined || fclx.length != 0) {
-                        fclx = res.data.fclx.split(",").map(Number);
-                     } else {
-                        fclx = [];
-                     }
-                     this.checkedArr2.fclx = fclx;
+                     this.FnSplitNum(res, 'hyzk', hyzk1);
+                     this.FnSplitNum(res, 'dwxz', dwxz1);
+                     this.FnSplitNum(res, 'gzffxs', gzffxs1);
+                     this.FnSplitNum(res, 'hj', hj1);
+                     this.FnSplitNum(res, 'fclx', fclx1);
+                     console.log( this.checkedArr2);
                   }
-
                }
             }).catch(res => {
                console.log(res);

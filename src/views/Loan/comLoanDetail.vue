@@ -41,6 +41,7 @@
                                     <el-select filterable v-model="addProForm.prodType" placeholder="请选择产品类型">
                                         <el-option
                                                 v-for="(loanType,index) in loanType"
+                                                :key="index"
                                                 :label="loanType.name"
                                                 :value="loanType.id"
                                         ></el-option>
